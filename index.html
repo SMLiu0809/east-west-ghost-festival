@@ -278,7 +278,6 @@
             background: #e2e8f0;
         }
 
-        /* 極致明亮護眼的高對比場景背景 */
         .room-scene {
             position: relative;
             width: 100%;
@@ -954,7 +953,6 @@
         let audioCtx = null, isMusicPlaying = false;
         let activeGod = null, shengJiaoCount = 0;
 
-        // 音樂升級：歡快雙音軌節奏和弦，不再單調催眠
         function toggleBackgroundMusic() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             if (audioCtx.state === 'suspended') audioCtx.resume();
@@ -970,15 +968,14 @@
         }
 
         function playLivelyMelodyLoop() {
-            // 輕快愉悅的音符序列（C大調歡樂小調）
             const melody = [330, 392, 440, 523, 440, 392, 330, 294, 330, 392, 523, 440, 392, 330, 392, 330];
             let index = 0;
             musicInterval = setInterval(() => {
                 if (!isMusicPlaying || !audioCtx) return;
                 let note = melody[index];
-                playTone(note, 0.25, 'triangle'); // 使用柔和明亮的三角波音色
+                playTone(note, 0.25, 'triangle');
                 index = (index + 1) % melody.length;
-            }, 300); // 輕快的節奏間隔
+            }, 300);
         }
 
         function playTone(freq, duration, type = 'sine') {
@@ -1648,4 +1645,3 @@
     </script>
 </body>
 </html>
-```eof
