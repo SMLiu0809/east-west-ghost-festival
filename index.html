@@ -736,7 +736,7 @@
                 optMale: '남성', optFemale: '여성', optOther: '기타',
                 labelCountry: '국가:',
                 labelDifficulty: '난이도 (타이머):',
-                diffNovice: '초급 (11초)', diffEasy: '쉬움 (9초)', diffNormal: '보통 (7초)', diffHard: '어려움 (5초)', diffMaster: '마스터 (11초)',
+                diffNovice: '초급 (11초)', diffEasy: '쉬움 (9초)', diffNormal: '보통 (7초)', diffHard: '어려움 (5초)', diffMaster: '마스터 (3초)',
                 startBtn: '모험 시작',
                 scoreText: '점수', timeText: '시간', hintText: '💡 힌트',
                 foundPrompt: '순서대로!', decoyPrompt: '가짜! +5s!',
@@ -958,7 +958,226 @@
         let audioCtx = null, isMusicPlaying = false;
         let activeGod = null, shengJiaoCount = 0;
 
-        // 四階段動態交響音樂引擎：依據關卡推進提供不同節奏與精采度的背景音樂
         function toggleBackgroundMusic() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            if (isMusicPlaying) {
+                clearInterval(musicInterval);
+                isMusicPlaying = false;
+                document.getElementById('audioToggleBtn').style.opacity = '0.6';
+            } else {
+                isMusicPlaying = true;
+                document.getElementById('audioToggleBtn').style.opacity = '1';
+                playStageBasedMusic();
+            }
+        }
+
+        function playStageBasedMusic() {
+            if (musicInterval) clearInterval(musicInterval);
+
+            musicInterval = setInterval(() => {
+                if (!isMusicPlaying || !audioCtx) return;
+
+                if (currentLevel === 9) {
+                    let fastNotes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25, 880.00, 987.77];
+                    let rNote = fastNotes[Math.floor(Math.random() * fastNotes.length)];
+                    playTone(rNote, 0.15, 'sawtooth');
+                } else if (currentLevel >= 6) {
+                    let epicNotes = [440, 523, 659, 523, 440, 349, 392, 440];
+                    let rNote = epicNotes[Math.floor(Math.random() * epicNotes.length)];
+                    playTone(rNote, 0.2, 'square');
+                } else if (currentLevel >= 3) {
+                    let midNotes = [330, 392, 440, 493, 523, 440, 392, 330];
+                    let rNote = midNotes[Math.floor(Math.random() * midNotes.length)];
+                    playTone(rNote, 0.25, 'triangle');
+                } else {
+                    let softNotes = [261.63, 293.66, 329.63, 392.00, 440.00, 392.00, 329.63, 293.66];
+                    let rNote = softNotes[Math.floor(Math.random() * softNotes.length)];
+                    playTone(rNote, 0.3, 'sine');
+                }
+            }, currentLevel === 9 ? 180 : (currentLevel >= 6 ? 240 : 320));
+        }
+
+        function playTone(freq, duration, type = 'sine') {
+            if (!audioCtx) return;
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = type; osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(); osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        window.onload = function() {
+            const startBtn = document.getElementById('startBtn');
+            const langSelect = document.getElementById('langSelect');
+            const countrySelect = document.getElementById('playerCountry');
+            const audioToggleBtn = document.getElementById('audioToggleBtn');
+            const startQuizDirectBtn = document.getElementById('startQuizDirectBtn');
+            const skipGodBtn = document.getElementById('skipGodBtn');
+
+            if (startBtn) startBtn.addEventListener('click', startGame);
+            if (langSelect) langSelect.addEventListener('change', changeLanguage);
+            if (audioToggleBtn) audioToggleBtn.addEventListener('click', toggleBackgroundMusic);
+            if (startQuizDirectBtn) startQuizDirectBtn.addEventListener('click', executeGrandmasterQuiz);
+            if (skipGodBtn) skipGodBtn.addEventListener('click', closeGodModal);
+            
+            if (countrySelect) {
+                countrySelect.addEventListener('change', function() {
+                    let country = this.value;
+                    let targetLang = 'zh-TW';
+                    if (country === 'Japan') targetLang = 'ja';
+                    else if (country === 'South Korea') targetLang = 'ko';
+                    else if (country !== 'Taiwan' && country !== 'China') targetLang = 'en';
+
+                    const langSel = document.getElementById('langSelect');
+                    if (langSel) {
+                        langSel.value = targetLang;
+                        changeLanguage();
+                    }
+                });
+            }
+        };
+
+        function changeLanguage() {
+            const langSelect = document.getElementById('langSelect');
+            if (!langSelect) return;
+            currentLang = langSelect.value;
+            const dict = i18n[currentLang] || i18n['en'];
+
+            document.getElementById('appTitle').innerText = dict.appTitle;
+            document.getElementById('heroTitle').innerText = dict.heroTitle;
+            document.getElementById('heroDesc').innerText = dict.heroDesc;
+            document.getElementById('setupTitle').innerText = dict.setupTitle;
+            document.getElementById('labelCodename').innerText = dict.labelCodename;
+            document.getElementById('labelGender').innerText = dict.labelGender;
+            document.getElementById('optMale').innerText = dict.optMale;
+            document.getElementById('optFemale').innerText = dict.optFemale;
+            document.getElementById('optOther').innerText = dict.optOther;
+            document.getElementById('labelCountry').innerText = dict.labelCountry;
+            document.getElementById('labelDifficulty').innerText = dict.labelDifficulty;
+            document.getElementById('diffNovice').innerText = dict.diffNovice;
+            document.getElementById('diffEasy').innerText = dict.diffEasy;
+            document.getElementById('diffNormal').innerText = dict.diffNormal;
+            document.getElementById('diffHard').innerText = dict.diffHard;
+            document.getElementById('diffMaster').innerText = dict.diffMaster;
+            document.getElementById('startBtn').innerText = dict.startBtn;
+            document.getElementById('scoreLabel').innerText = dict.scoreText;
+            document.getElementById('timerLabel').innerText = dict.timeText;
+            document.getElementById('hintBtn').innerText = dict.hintText;
+            document.getElementById('quizHeader').innerText = dict.quizHeader;
+            document.getElementById('quizInstructions').innerText = dict.quizInstructions;
+            document.getElementById('loreHeaderTitle').innerText = dict.loreTitleText;
+            document.getElementById('transHeader').innerText = dict.transHeader || dict.transTitleText;
+            document.getElementById('transDesc').innerText = dict.transDescText;
+            document.getElementById('skipGodBtn').innerText = dict.skipGodText;
+            document.getElementById('labelBetEnergy').innerText = dict.betEnergyText;
+            document.getElementById('destinyTip').innerText = dict.destinyTipText;
+
+            if (document.getElementById('gameScreen').style.display === 'flex') {
+                updateChecklistTitle();
+                renderChecklist();
+                updateRiddleText();
+            }
+        }
+
+        function startGame(event) {
+            if (event) event.preventDefault();
+            playTone(440, 0.2);
+
+            let playTimesKey = 'ghost_play_count';
+            let currentPlays = parseInt(localStorage.getItem(playTimesKey) || '0') + 1;
+            localStorage.setItem(playTimesKey, currentPlays);
+            playCount = currentPlays;
+
+            const nameInput = document.getElementById('playerCodename');
+            const genderSelect = document.getElementById('playerGender');
+            const countrySelect = document.getElementById('playerCountry');
+            const diffSelect = document.getElementById('playerDifficulty');
+
+            let nameVal = nameInput ? nameInput.value.trim() : '';
+            let defaultName = currentLang === 'ja' ? '冒険者' : (currentLang === 'ko' ? '모험가' : (currentLang === 'en' ? 'Adventurer' : '尋寶者'));
+            player.codename = nameVal !== '' ? nameVal : defaultName;
+            player.gender = genderSelect ? genderSelect.value : 'male';
+            player.country = countrySelect ? countrySelect.value : 'Taiwan';
+            player.difficulty = diffSelect ? diffSelect.value : 'normal';
+
+            document.getElementById('setupScreen').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'flex';
+
+            currentLevel = 0;
+            maxUnlockedLevel = 0;
+            score = 0;
+            totalGameTime = 0;
+            document.getElementById('score').innerText = score;
+            initGame();
+        }
+
+        function initGame() {
+            renderLevelSelector();
+            loadLevel(currentLevel);
+        }
+
+        function renderLevelSelector() {
+            const panel = document.getElementById('levelSelectPanel');
+            if (!panel) return;
+            panel.innerHTML = '';
+            levelsData.forEach((lvl, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                let isLocked = idx > maxUnlockedLevel;
+                btn.className = `level-btn ${idx === currentLevel ? 'active' : ''} ${isLocked ? 'locked' : ''}`;
+                btn.innerText = `Lv ${idx + 1}`;
+                
+                btn.onclick = () => {
+                    if (isLocked) {
+                        alert(i18n[currentLang].lockedLevelAlert);
+                        return;
+                    }
+                    playTone(493.88, 0.1);
+                    currentLevel = idx;
+                    loadLevel(currentLevel);
+                };
+                panel.appendChild(btn);
+            });
+        }
+
+        function loadLevel(levelIdx) {
+            currentLevel = levelIdx;
+            nextTargetIndex = 0;
+            const winModal = document.getElementById('winModal');
+            if (winModal) winModal.style.display = 'none';
+
+            if (isMusicPlaying) {
+                playStageBasedMusic();
+            }
+
+            updateChecklistTitle();
+            updateRiddleText();
+
+            if (timerInterval) clearInterval(timerInterval);
+            timer = 0;
+            timerInterval = setInterval(() => {
+                timer++;
+                totalGameTime++;
+                const timerEl = document.getElementById('timer');
+                if (timerEl) timerEl.innerText = timer;
+            }, 1000);
+
+            let levelConfig = levelsData[levelIdx];
+            let pool = [];
+            if (levelConfig.type === 'chinese') pool = [...chineseGhostPool];
+            else if (levelConfig.type === 'halloween') pool = [...westernHalloweenPool];
+            else pool = [...chineseGhostPool, ...westernHalloweenPool];
+
+            pool.sort(() => Math.random() - 0.5);
+            let targetCount = levelConfig.count;
+            let rawItems = pool.slice(0, targetCount);
+
+            currentItems = rawItems.map(item => ({ 
+                name: item.name, 
+                icon: item.icon, 
+                decoyIcon: item.decoyIcon || item.icon
