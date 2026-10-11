@@ -1180,4 +1180,517 @@
             currentItems = rawItems.map(item => ({ 
                 name: item.name, 
                 icon: item.icon, 
-                decoyIcon: item.decoyIcon || item.icon
+                decoyIcon: item.decoyIcon || item.icon,
+                loreKey: item.loreKey,
+                found: false 
+            }));
+
+            renderChecklist();
+            renderScene();
+            renderLevelSelector();
+        }
+
+        function updateChecklistTitle() {
+            const titleEl = document.getElementById('checklistTitle');
+            if (titleEl) {
+                let targetText = currentLang === 'ja' ? 'ターゲット' : (currentLang === 'ko' ? '목표' : (currentLang === 'en' ? 'Target' : '尋寶清單'));
+                titleEl.innerHTML = `🔍 Level ${currentLevel + 1} ${targetText}:`;
+            }
+        }
+
+        function updateRiddleText() {
+            const riddleEl = document.getElementById('riddleText');
+            if (!riddleEl) return;
+            let levelData = levelsData[currentLevel];
+            if (levelData) {
+                let langKey = currentLang;
+                if (!levelData.riddle[langKey]) langKey = 'en';
+                riddleEl.innerText = levelData.riddle[langKey] || levelData.riddle['zh-TW'];
+            }
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklistContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            currentItems.forEach((item, idx) => {
+                const div = document.createElement('div');
+                let statusClass = '';
+                if (item.found) statusClass = 'found';
+                else if (idx === nextTargetIndex) statusClass = 'current-target';
+                div.className = `target-item ${statusClass}`;
+                div.innerHTML = `${item.icon}`;
+                container.appendChild(div);
+            });
+        }
+
+        function renderScene() {
+            const scene = document.getElementById('roomScene');
+            if (!scene) return;
+            scene.innerHTML = '';
+
+            let sceneObjects = [];
+            currentItems.forEach((item, idx) => {
+                sceneObjects.push({
+                    name: item.name,
+                    icon: item.icon,
+                    isTarget: true,
+                    targetIdx: idx
+                });
+            });
+
+            let baseDecoyCount = currentLevel + 1;
+            for (let i = 0; i < baseDecoyCount; i++) {
+                let randomTarget = currentItems[Math.floor(Math.random() * currentItems.length)];
+                sceneObjects.push({
+                    name: 'Fake',
+                    icon: randomTarget.decoyIcon || randomTarget.icon,
+                    isTarget: false
+                });
+            }
+
+            let positions = [];
+            sceneObjects.forEach((obj) => {
+                let posX, posY, overlapping;
+                let safetyCounter = 0;
+                do {
+                    overlapping = false;
+                    posX = Math.floor(Math.random() * 75) + 10;
+                    posY = Math.floor(Math.random() * 65) + 15;
+                    for (let p of positions) {
+                        if (Math.sqrt(Math.pow(p.x - posX, 2) + Math.pow(p.y - posY, 2)) < 10) {
+                            overlapping = true;
+                            break;
+                        }
+                    }
+                    safetyCounter++;
+                    if (safetyCounter > 100) break;
+                } while (overlapping);
+
+                positions.push({ x: posX, y: posY });
+
+                const el = document.createElement('div');
+                el.className = 'room-object';
+                if (!obj.isTarget) {
+                    el.classList.add('decoy-item');
+                    let randomAngle = (Math.random() * 80 - 40).toFixed(0);
+                    el.style.transform = `rotate(${randomAngle}deg)`;
+                }
+                el.innerText = obj.icon;
+                el.style.top = posY + '%';
+                el.style.left = posX + '%';
+
+                el.onclick = (e) => handleObjectClick(obj, el, e);
+                scene.appendChild(el);
+            });
+        }
+
+        function handleObjectClick(obj, element) {
+            if (element.classList.contains('collected') || element.classList.contains('triggered')) return;
+
+            if (obj.isTarget) {
+                if (obj.targetIdx === nextTargetIndex) {
+                    playTone(783.99, 0.15);
+                    obj.found = true;
+                    element.classList.add('collected');
+                    nextTargetIndex++;
+                    renderChecklist();
+
+                    if (nextTargetIndex === currentItems.length) {
+                        if (timerInterval) clearInterval(timerInterval);
+                        score += levelRewards[currentLevel];
+                        document.getElementById('score').innerText = score;
+                        handleLevelCompletion();
+                    }
+                } else {
+                    playTone(220, 0.2);
+                }
+            } else {
+                playTone(150, 0.3);
+                element.classList.add('triggered');
+                timer += 5;
+                totalGameTime += 5;
+                document.getElementById('timer').innerText = timer;
+            }
+        }
+
+        function handleLevelCompletion() {
+            if (currentLevel + 1 > maxUnlockedLevel && currentLevel < levelsData.length - 1) {
+                maxUnlockedLevel = currentLevel + 1;
+            }
+
+            if (playCount >= 3 && currentLevel >= 3 && Math.random() > 0.4) {
+                showGodModal();
+            } else {
+                showLoreScreen();
+            }
+        }
+
+        function showLoreScreen() {
+            document.getElementById('gameScreen').style.display = 'none';
+            const loreScreen = document.getElementById('loreScreen');
+            loreScreen.style.display = 'block';
+
+            let sampleItem = currentItems.length > 0 ? currentItems[0] : { icon: '🎃', name: '南瓜燈', loreKey: '南瓜燈' };
+            let loreDict = localizedLore[currentLang] || localizedLore['en'];
+            let loreText = loreDict[sampleItem.loreKey] || localizedLore['en'][sampleItem.loreKey] || '<b>[Origin]</b> Festival symbol.';
+
+            document.getElementById('loreContentBox').innerHTML = `
+                <div style="font-size: 3rem; text-align: center; margin-bottom: 8px;">${sampleItem.icon}</div>
+                <div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">${sampleItem.name}</div>
+                <div style="font-size: 0.98rem; line-height: 1.6;">${loreText}</div>
+            `;
+
+            let loreSeconds = 7;
+            if (player.difficulty === 'novice') loreSeconds = 11;
+            else if (player.difficulty === 'easy') loreSeconds = 9;
+            else if (player.difficulty === 'normal') loreSeconds = 7;
+            else if (player.difficulty === 'hard') loreSeconds = 5;
+            else if (player.difficulty === 'master') loreSeconds = 3;
+
+            let timerPrefix = currentLang === 'ja' ? 'タイマー' : (currentLang === 'ko' ? '타이머' : (currentLang === 'en' ? 'Timer' : '倒數計時'));
+            const timerDisp = document.getElementById('loreTimerDisplay');
+            timerDisp.innerText = `${timerPrefix}: ${loreSeconds}s`;
+
+            if (loreTimerInterval) clearInterval(loreTimerInterval);
+            loreTimerInterval = setInterval(() => {
+                loreSeconds--;
+                if (loreSeconds > 0) {
+                    timerDisp.innerText = `${timerPrefix}: ${loreSeconds}s`;
+                } else {
+                    clearInterval(loreTimerInterval);
+                    timerDisp.innerText = currentLang === 'ja' ? '⚡ 時間切れ！次のレベルへ...' : (currentLang === 'ko' ? '⚡ 시간 종료! 다음 단계로...' : (currentLang === 'en' ? '⚡ Time\'s up! Next level...' : '⚡ 時間到！自動進入下一關...'));
+                    setTimeout(() => proceedAfterLore(), 600);
+                }
+            }, 1000);
+        }
+
+        function proceedAfterLore() {
+            if (loreTimerInterval) clearInterval(loreTimerInterval);
+            document.getElementById('loreScreen').style.display = 'none';
+
+            if (currentLevel < levelsData.length - 1) {
+                currentLevel++;
+                loadLevel(currentLevel);
+                document.getElementById('gameScreen').style.display = 'flex';
+            } else {
+                startTransitionSequence();
+            }
+        }
+
+        function showGodModal() {
+            document.getElementById('gameScreen').style.display = 'none';
+            const modal = document.getElementById('godModal');
+            modal.style.display = 'block';
+
+            let isEastern = Math.random() > 0.5;
+            activeGod = isEastern ? easternGods[Math.floor(Math.random() * easternGods.length)] : westernGods[Math.floor(Math.random() * westernGods.length)];
+            activeGod.isEastern = isEastern;
+            shengJiaoCount = 0;
+
+            let descBox = document.getElementById('godDescBox');
+            let easternArea = document.getElementById('easternEncounterArea');
+            let westernArea = document.getElementById('westernEncounterArea');
+
+            let appearsText = currentLang === 'ja' ? '降臨！' : (currentLang === 'ko' ? '강림!' : (currentLang === 'en' ? 'Appears!' : '降臨！'));
+            let costText = currentLang === 'ja' ? 'コスト / ベット' : (currentLang === 'ko' ? '필요 점수' : (currentLang === 'en' ? 'Cost / Bet' : '所需香油錢'));
+            let availableText = currentLang === 'ja' ? '所持' : (currentLang === 'ko' ? '보유' : (currentLang === 'en' ? 'Available' : '目前擁有'));
+
+            descBox.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 5px;">${activeGod.icon}</div>
+                <b>【${activeGod.name}】${appearsText}</b><br>${activeGod.desc}<br>
+                <span style="color:#ea580c; font-weight:bold;">${costText}: ${activeGod.cost} pts</span> (${availableText}: ${score} pts)
+            `;
+
+            if (isEastern) {
+                easternArea.style.display = 'block';
+                westernArea.style.display = 'none';
+                document.getElementById('castBlockBtn').onclick = handleCastBlock;
+                let shengJiaoLabel = currentLang === 'ja' ? '聖杯数' : (currentLang === 'ko' ? '성배 횟수' : (currentLang === 'en' ? 'Sheng Jiao' : '已獲聖筊'));
+                document.getElementById('easternResultMsg').innerText = `${shengJiaoLabel}: 0 / 2`;
+            } else {
+                easternArea.style.display = 'none';
+                westernArea.style.display = 'block';
+                initDestinyGrid();
+            }
+        }
+
+        function handleCastBlock() {
+            if (score < activeGod.cost) {
+                let errText = currentLang === 'ja' ? '❌ ポイントが不足しています！' : (currentLang === 'ko' ? '❌ 점수가 부족합니다!' : (currentLang === 'en' ? '❌ Insufficient points!' : '❌ 香油錢不足！'));
+                alert(`${errText} (${score} pts)`);
+                return;
+            }
+            let roll = Math.random();
+            let msg = document.getElementById('easternResultMsg');
+            let shengJiaoLabel = currentLang === 'ja' ? '聖杯数' : (currentLang === 'ko' ? '성배 횟수' : (currentLang === 'en' ? 'Sheng Jiao' : '已獲聖筊'));
+            if (roll > 0.45) {
+                shengJiaoCount++;
+                playTone(880, 0.2);
+                let okText = currentLang === 'ja' ? '✨ 聖杯！ (神の許し)' : (currentLang === 'ko' ? '✨ 성배! (신앙 허락)' : (currentLang === 'en' ? '✨ Sheng Jiao! (Blessed)' : '✨ 聖筊！ (神明允諾)'));
+                msg.innerHTML = `<span style="color:#16a34a;">${okText}</span> - ${shengJiaoLabel}: ${shengJiaoCount} / 2`;
+                if (shengJiaoCount >= 2) completeGodBlessing(1);
+            } else {
+                playTone(150, 0.3);
+                let failText = currentLang === 'ja' ? '❌ 笑杯/陰杯 (不許可)' : (currentLang === 'ko' ? '❌ 음배 (허락되지 않음)' : (currentLang === 'en' ? '❌ Not approved' : '❌ 笑筊/陰筊 (未允諾)'));
+                msg.innerHTML = `<span style="color:#dc2626;">${failText}</span> - ${shengJiaoLabel}: ${shengJiaoCount} / 2`;
+            }
+        }
+
+        let firstCard = null, secondCard = null, lockBoard = false, matchedPairs = 0;
+        function initDestinyGrid() {
+            if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+            firstCard = null; secondCard = null; lockBoard = false; matchedPairs = 0;
+            document.getElementById('godResultMsg').innerText = '';
+
+            let grid = document.getElementById('destinyGrid');
+            grid.innerHTML = '';
+
+            let symbols = ['👻', '🎃', '🦇', '🔮'];
+            let deck = [...symbols, ...symbols, '💀'];
+            deck.sort(() => Math.random() - 0.5);
+
+            deck.forEach(sym => {
+                let card = document.createElement('div');
+                card.className = 'destiny-card';
+                card.dataset.symbol = sym;
+                card.innerHTML = `<span class="card-content">${sym}</span>`;
+                card.onclick = () => flipDestinyCard(card);
+                grid.appendChild(card);
+            });
+
+            let timeLeft = 15;
+            const timerEl = document.getElementById('destinyTimer');
+            timerEl.innerText = timeLeft;
+            destinyTimerInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    timerEl.innerText = timeLeft;
+                } else {
+                    clearInterval(destinyTimerInterval);
+                    let timeoutText = currentLang === 'ja' ? '❌ 時間切れ！儀式失敗。' : (currentLang === 'ko' ? '❌ 시간 초과! 의식 실패.' : (currentLang === 'en' ? '❌ Time\'s up! Ritual failed.' : '❌ 時間到！儀式失敗。'));
+                    document.getElementById('godResultMsg').innerHTML = `<span style="color:#dc2626;">${timeoutText}</span>`;
+                    setTimeout(() => closeGodModal(), 1500);
+                }
+            }, 1000);
+        }
+
+        function flipDestinyCard(card) {
+            if (lockBoard || card.classList.contains('flipped')) return;
+            card.classList.add('flipped');
+
+            if (card.dataset.symbol === '💀') {
+                playTone(120, 0.4);
+                let skullText = currentLang === 'ja' ? '💥 骸骨の罠！儀式が反転しました！' : (currentLang === 'ko' ? '💥 해골의 함정! 의식이 실패했습니다!' : (currentLang === 'en' ? '💥 Trapped by Skull! Ritual reversed!' : '💥 觸碰骷髏陷阱！儀式反噬！'));
+                document.getElementById('godResultMsg').innerHTML = `<span style="color:#dc2626;">${skullText}</span>`;
+                if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+                setTimeout(() => closeGodModal(), 1500);
+                return;
+            }
+
+            if (!firstCard) {
+                firstCard = card;
+                return;
+            }
+
+            secondCard = card;
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.symbol === secondCard.dataset.symbol;
+            if (isMatch) {
+                matchedPairs++;
+                playTone(880, 0.2);
+                resetCards();
+                if (matchedPairs === 2) {
+                    if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+                    let successText = currentLang === 'ja' ? '✨ ペア成功！神の加護を得ました！ ✨' : (currentLang === 'ko' ? '✨ 매칭 성공! 신의 가호 획득! ✨' : (currentLang === 'en' ? '✨ Perfect Match! God Blessed! ✨' : '✨ 配對成功！神明顯靈！ ✨'));
+                    document.getElementById('godResultMsg').innerHTML = `<span style="color:#16a34a;">${successText}</span>`;
+                    setTimeout(() => completeGodBlessing(2), 1200);
+                }
+            } else {
+                lockBoard = true;
+                playTone(200, 0.3);
+                setTimeout(() => {
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                    resetCards();
+                }, 900);
+            }
+        }
+
+        function resetCards() {
+            [firstCard, secondCard] = [null, null];
+            lockBoard = false;
+        }
+
+        function completeGodBlessing(multiplier) {
+            let bet = parseInt(document.getElementById('westernBetSelect').value) || activeGod.cost;
+            if (score < bet) {
+                alert(currentLang === 'ja' ? 'ポイント不足！' : (currentLang === 'ko' ? '점수 부족!' : 'Insufficient points!'));
+                closeGodModal();
+                return;
+            }
+            score -= bet;
+            let rewardBonus = bet * multiplier;
+            score += rewardBonus;
+            document.getElementById('score').innerText = score;
+            playTone(1318.51, 0.5);
+
+            let skipLevels = Math.floor(Math.random() * 3) + 1;
+            let successAlert = currentLang === 'ja' ? `加護成功！${activeGod.name}の加護により ${skipLevels} レベルスキップ＆+${rewardBonus} ポイント獲得！` :
+                               (currentLang === 'ko' ? `가호 성공! ${activeGod.name}의 가호로 ${skipLevels}단계 건너뛰기 및 +${rewardBonus}점 획득!` :
+                               `🎉 請神成功！${activeGod.name}顯靈庇佑，直接跳級通關 ${skipLevels} 次並獲得 +${rewardBonus} 積分！`);
+            alert(successAlert);
+
+            document.getElementById('godModal').style.display = 'none';
+            currentLevel = Math.min(levelsData.length - 1, currentLevel + skipLevels);
+            maxUnlockedLevel = Math.max(maxUnlockedLevel, currentLevel);
+
+            if (currentLevel >= levelsData.length - 1) {
+                startTransitionSequence();
+            } else {
+                loadLevel(currentLevel);
+                document.getElementById('gameScreen').style.display = 'flex';
+            }
+        }
+
+        function closeGodModal() {
+            if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+            document.getElementById('godModal').style.display = 'none';
+            showLoreScreen();
+        }
+
+        function startTransitionSequence() {
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('loreScreen').style.display = 'none';
+            document.getElementById('godModal').style.display = 'none';
+            const transitionScreen = document.getElementById('transitionScreen');
+            transitionScreen.style.display = 'block';
+
+            let count = 3;
+            const timerEl = document.getElementById('transitionTimer');
+            timerEl.innerText = count;
+
+            let countdown = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    timerEl.innerText = count;
+                    playTone(500, 0.1);
+                } else {
+                    clearInterval(countdown);
+                    executeGrandmasterQuiz();
+                }
+            }, 1000);
+        }
+
+        function executeGrandmasterQuiz() {
+            document.getElementById('transitionScreen').style.display = 'none';
+            document.getElementById('quizScreen').style.display = 'block';
+
+            quizQuestions = generateQuizQuestions();
+            currentQuizIndex = 0;
+            quizScore = 0;
+            loadQuizQuestion();
+        }
+
+        function generateQuizQuestions() {
+            let questions = [];
+            let allPool = [...chineseGhostPool, ...westernHalloweenPool];
+            allPool.sort(() => Math.random() - 0.5);
+
+            for (let i = 0; i < 5; i++) {
+                let target = allPool[i];
+                let options = [target.icon];
+
+                while (options.length < 4) {
+                    let randomItem = allPool[Math.floor(Math.random() * allPool.length)];
+                    if (!options.includes(randomItem.icon)) options.push(randomItem.icon);
+                }
+                options.sort(() => Math.random() - 0.5);
+
+                questions.push({ promptIcon: target.icon, correctIcon: target.icon, options: options });
+            }
+            return questions;
+        }
+
+        function loadQuizQuestion() {
+            if (currentQuizIndex >= quizQuestions.length) {
+                finishGrandmasterQuiz();
+                return;
+            }
+
+            let q = quizQuestions[currentQuizIndex];
+            let qPrefix = currentLang === 'ja' ? '問題' : (currentLang === 'ko' ? '문제' : 'Question');
+            document.getElementById('quizProgress').innerText = `${qPrefix} ${currentQuizIndex + 1} / ${quizQuestions.length}`;
+            document.getElementById('quizQuestionBox').innerText = q.promptIcon;
+
+            let optsContainer = document.getElementById('quizOptionsContainer');
+            optsContainer.innerHTML = '';
+            q.options.forEach(iconOpt => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'quiz-visual-btn';
+                btn.innerText = iconOpt;
+                btn.onclick = () => handleQuizAnswer(iconOpt === q.correctIcon);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function handleQuizAnswer(isCorrect) {
+            if (isCorrect) {
+                playTone(880, 0.2);
+                quizScore++;
+                currentQuizIndex++;
+                loadQuizQuestion();
+            } else {
+                playTone(120, 0.5);
+                alert(i18n[currentLang].quizFailMsg);
+                document.getElementById('quizScreen').style.display = 'none';
+                document.getElementById('setupScreen').style.display = 'block';
+            }
+        }
+
+        function finishGrandmasterQuiz() {
+            playTone(1046.50, 0.4);
+            document.getElementById('quizScreen').style.display = 'none';
+            const modal = document.getElementById('winModal');
+            const title = document.getElementById('modalTitle');
+            const msg = document.getElementById('winMessage');
+            const nextBtn = document.getElementById('nextLevelBtn');
+            const certContainer = document.getElementById('certificateContainer');
+            const dict = i18n[currentLang] || i18n['en'];
+
+            title.innerText = dict.winAllTitle;
+            let playerLabel = currentLang === 'ja' ? 'プレイヤー' : (currentLang === 'ko' ? '플레이어' : 'Player');
+            let scoreLabel = currentLang === 'ja' ? 'スコア' : (currentLang === 'ko' ? '점수' : 'Score');
+            let timeLabel = currentLang === 'ja' ? '時間' : (currentLang === 'ko' ? '시간' : 'Time');
+            msg.innerText = `${playerLabel}: ${player.codename} | ${scoreLabel}: ${score} pts | ${timeLabel}: ${totalGameTime}s`;
+            
+            let levelTitle = currentLang === 'ja' ? 'トレジャーマスター' : (currentLang === 'ko' ? '보물 마스터' : (currentLang === 'en' ? 'Master Explorer' : '金牌尋寶大師'));
+            let genderTitle = player.gender === 'female' ? (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '女侠' : (currentLang === 'ja' ? '女傑' : (currentLang === 'ko' ? '여협' : 'Heroine'))) : (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '少侠' : (currentLang === 'ja' ? '豪傑' : (currentLang === 'ko' ? '협객' : 'Hero')));
+
+            certContainer.innerHTML = `
+                <div class="certificate-box">
+                    <div style="font-size: 1.15rem; font-weight: bold; color: #ea580c; text-align: center; margin-bottom: 5px;">
+                        ${dict.certTitle}
+                    </div>
+                    <div style="font-size: 1rem; color: #1e293b; margin-bottom: 5px;">
+                        ${playerLabel}: <b>${player.codename}</b> (${genderTitle}, ${player.country})
+                    </div>
+                    <div style="font-size: 1.05rem; font-weight: bold; color: #d97706; margin-top: 8px;">⭐ Level: ${levelTitle}</div>
+                    <p style="font-size: 0.95rem; margin: 5px 0 0 0; color: #475569;">${currentLang === 'ja' ? '優れた異文化記憶力と知恵を発揮しました！' : (currentLang === 'ko' ? '뛰어난 다문화적 기억력과 지혜를 발휘했습니다!' : 'Total score: ' + score + ' pts. Excellent multicultural memory and wisdom!')}</p>
+                    <div style="font-size: 0.85rem; color: #64748b; text-align: right; margin-top: 12px; font-style: italic;">
+                        ${dict.designerCredit}
+                    </div>
+                </div>
+            `;
+            nextBtn.style.display = 'inline-block';
+            nextBtn.innerText = dict.playAgain;
+            nextBtn.onclick = () => location.reload();
+            modal.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
