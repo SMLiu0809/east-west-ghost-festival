@@ -573,8 +573,8 @@
             <div class="level-select-panel" id="levelSelectPanel"></div>
 
             <div class="status-bar">
-                <div>得分: <span id="score">0</span></div>
-                <div>時間: <span id="timer">0</span>s</div>
+                <div><span id="scoreLabel">得分</span>: <span id="score">0</span></div>
+                <div><span id="timerLabel">時間</span>: <span id="timer">0</span>s</div>
                 <button class="hint-btn" id="hintBtn" type="button">💡 提示</button>
             </div>
 
@@ -614,7 +614,8 @@
                 labelDifficulty: '選擇遊戲難度 (過關說明秒數)：',
                 diffNovice: '入門級 (11秒)', diffEasy: '輕鬆級 (9秒)', diffNormal: '普通級 (7秒)', diffHard: '困難級 (5秒)', diffMaster: '大師級 (3秒)',
                 startBtn: '開始尋寶 / Start',
-                foundPrompt: '請依序找!', decoyPrompt: '假貨！+5s!', hintBtnText: '💡 提示',
+                scoreText: '得分', timeText: '時間', hintText: '💡 提示',
+                foundPrompt: '請依序找!', decoyPrompt: '假貨！+5s!',
                 encounterMsg: '🌟 奇遇：福神降臨，獲得額外獎勵！',
                 quizHeader: '🏆 擬真圖標視覺直覺考驗',
                 quizInstructions: '注意辨識外型相似的干擾物，找出正確圖標！',
@@ -644,7 +645,8 @@
                 labelDifficulty: '选择游戏难度 (过关说明秒数)：',
                 diffNovice: '入门级 (11秒)', diffEasy: '轻松级 (9秒)', diffNormal: '普通级 (7秒)', diffHard: '困难级 (5秒)', diffMaster: '大师级 (3秒)',
                 startBtn: '开始寻宝 / Start',
-                foundPrompt: '请按顺序找!', decoyPrompt: '假货！+5s!', hintBtnText: '💡 提示',
+                scoreText: '得分', timeText: '时间', hintText: '💡 提示',
+                foundPrompt: '请按顺序找!', decoyPrompt: '假货！+5s!',
                 encounterMsg: '🌟 奇遇：福神降临，获得额外奖励！',
                 quizHeader: '🏆 拟真图标视觉直觉考验',
                 quizInstructions: '注意辨识外型相似的干扰物，找出正确图标！',
@@ -674,7 +676,8 @@
                 labelDifficulty: 'Difficulty (Timer):',
                 diffNovice: 'Novice (11s)', diffEasy: 'Easy (9s)', diffNormal: 'Normal (7s)', diffHard: 'Hard (5s)', diffMaster: 'Master (3s)',
                 startBtn: 'Start Hunt',
-                foundPrompt: 'Follow order!', decoyPrompt: 'Fake! +5s!', hintBtnText: '💡 Hint',
+                scoreText: 'Score', timeText: 'Time', hintText: '💡 Hint',
+                foundPrompt: 'Follow order!', decoyPrompt: 'Fake! +5s!',
                 encounterMsg: '🌟 Encounter: Divine Blessing!',
                 quizHeader: '🏆 Realistic Visual Test',
                 quizInstructions: 'Beware of decoys and tap the correct icon!',
@@ -704,7 +707,8 @@
                 labelDifficulty: '難易度 (タイマー)：',
                 diffNovice: '初心者 (11秒)', diffEasy: '簡単 (9秒)', diffNormal: '普通 (7秒)', diffHard: '難しい (5秒)', diffMaster: 'マスター (3秒)',
                 startBtn: '冒険開始',
-                foundPrompt: '順番に!', decoyPrompt: '偽物！+5s!', hintBtnText: '💡 ヒント',
+                scoreText: 'スコア', timeText: '時間', hintText: '💡 ヒント',
+                foundPrompt: '順番に!', decoyPrompt: '偽物！+5s!',
                 encounterMsg: '🌟 遭遇：神様の加護！',
                 quizHeader: '🏆 擬似アイコン視覚テスト',
                 quizInstructions: '似た干渉物に注意して正しいアイコンを選ぼう！',
@@ -715,7 +719,7 @@
                 transTitleText: '⚡ 視覚直感テスト ⚡',
                 transDescText: '全10レベルクリア！高難度の擬似テストに挑戦！',
                 skipGodText: '辞退して進む',
-                castBlockTest: '聖杯占い（擲筊）',
+                castBlockText: '聖杯占い（擲筊）',
                 betEnergyText: 'エネルギー賭け（スコア）：',
                 destinyTipText: '⚡ 15秒以内に同じシンボルを2枚揃えよう！ ⚡',
                 certTitle: '📜 栄誉の証書 📜',
@@ -734,7 +738,8 @@
                 labelDifficulty: '난이도 (타이머):',
                 diffNovice: '초급 (11초)', diffEasy: '쉬움 (9초)', diffNormal: '보통 (7초)', diffHard: '어려움 (5초)', diffMaster: '마스터 (3초)',
                 startBtn: '모험 시작',
-                foundPrompt: '순서대로!', decoyPrompt: '가짜! +5s!', hintBtnText: '💡 힌트',
+                scoreText: '점수', timeText: '시간', hintText: '💡 힌트',
+                foundPrompt: '순서대로!', decoyPrompt: '가짜! +5s!',
                 encounterMsg: '🌟 조우: 신의 가호!',
                 quizHeader: '🏆 유사 아이콘 시각 테스트',
                 quizInstructions: '비슷한 혼동물을 주의하며 올바른 아이콘을 찾으세요!',
@@ -745,7 +750,7 @@
                 transTitleText: '⚡ 시각 직관 시험 ⚡',
                 transDescText: '10단계 돌파! 고난도 혼동 테스트에 도전하세요!',
                 skipGodText: '거절하고 진행',
-                castBlockTest: '신탁 점치기 (척배)',
+                castBlockText: '신탁 점치기 (척배)',
                 betEnergyText: '에너지 투자 (점수):',
                 destinyTipText: '⚡ 15초 안에 동일한 기호 2개를 맞추세요! ⚡',
                 certTitle: '📜 명예 증서 📜',
@@ -785,27 +790,27 @@
                 '紅燈籠': '<b>【典故与由来】</b>中元普渡时悬挂的红灯笼（普渡公灯），是为了在夜晚为游荡的好兄弟指引方向。',
                 '金銀紙': '<b>【典故与由来】</b>祭祀时焚烧的金纸与银纸，象征对祖先与好兄弟的敬意与祝福。',
                 '金元寶': '<b>【典故与由来】</b>传统祭拜时的元宝造型供品，象征财富与祈求平安发财。',
-                '牛头将军': '<b>【典故与由来】</b>地府阴司中负责维持秩序的护卫神，公正无私。',
-                '马面罗刹': '<b>【典故与由来】</b>与牛头将军一同驻守地府的官将，象征阴阳两界的平衡。',
-                '桃木剑': '<b>【典故与由来】</b>道家传说中用桃木削成的法器，能驱邪避凶。',
-                '八卦镜': '<b>【典故与由来】</b>悬挂门口用来镇宅化煞的传统法器。',
+                '牛頭將軍': '<b>【典故与由来】</b>地府阴司中负责维持秩序的护卫神，公正无私。',
+                '馬面羅剎': '<b>【典故与由来】</b>与牛头将军一同驻守地府的官将，象征阴阳两界的平衡。',
+                '桃木劍': '<b>【典故与由来】</b>道家传说中用桃木削成的法器，能驱邪避凶。',
+                '八卦鏡': '<b>【典故与由来】</b>悬挂门口用来镇宅化煞的传统法器。',
                 '普渡西瓜': '<b>【典故与由来】</b>中元普渡时桌上摆放剖半插香的西瓜，让好兄弟解渴。',
-                '祭祀红烛': '<b>【典故与由来】</b>祭拜时点燃的红色大蜡烛，象征光明与指引。',
-                '土地公庙': '<b>【典故与由来】</b>守护地方邻里的福德正神庙宇。',
-                '油纸伞': '<b>【典故与由来】</b>传统手工油纸伞，在民间习俗中具古典器物色彩。',
-                '寿桃供品': '<b>【典故与由来】</b>祭祀或祝寿时使用的吉祥面点，象征长寿。',
-                '南瓜灯': '<b>【典故与由来】</b>经典的杰克南瓜灯，用来在秋夜中驱赶恶灵。',
-                '小幽灵': '<b>【典故与由来】</b>覆盖着白布的可爱小精灵，象征秋夜中游荡的灵魂。',
+                '祭祀紅燭': '<b>【典故与由来】</b>祭拜时点燃的红色大蜡烛，象征光明与指引。',
+                '土地公廟': '<b>【典故与由来】</b>守护地方邻里的福德正神庙宇。',
+                '油紙傘': '<b>【典故与由来】</b>传统手工油纸伞，在民间习俗中具古典器物色彩。',
+                '壽桃供品': '<b>【典故与由来】</b>祭祀或祝寿时使用的吉祥面点，象征长寿。',
+                '南瓜燈': '<b>【典故与由来】</b>经典的杰克南瓜灯，用来在秋夜中驱赶恶灵。',
+                '小幽靈': '<b>【典故与由来】</b>覆盖着白布的可爱小精灵，象征秋夜中游荡的灵魂。',
                 '吸血蝙蝠': '<b>【典故与由来】</b>黑夜中飞行的神秘生物，增添万圣节气氛。',
                 '黑蜘蛛': '<b>【典故与由来】</b>织出精致蛛网的小精灵，象征神秘与古老。',
-                '蜘蛛网': '<b>【典故与由来】</b>废弃古堡常见的装饰，增添探险感。',
+                '蜘蛛網': '<b>【典故与由来】</b>废弃古堡常见的装饰，增添探险感。',
                 '女巫': '<b>【典故与由来】</b>戴尖顶帽、精通神秘魔法的传奇女性。',
-                '女巫扫帚': '<b>【典故与由来】</b>女巫用来施法飞行的魔法载具。',
-                '神秘黑猫': '<b>【典故与由来】</b>被视为女巫忠实伙伴的神秘灵兽。',
+                '女巫掃帚': '<b>【典故与由来】</b>女巫用来施法飞行的魔法载具。',
+                '神祕黑貓': '<b>【典故与由来】</b>被视为女巫忠实伙伴的神秘灵兽。',
                 '彩虹硬糖': '<b>【典故与由来】</b>讨糖果活动中最期待收到的缤纷甜点。',
                 '巧克力棒': '<b>【典故与由来】</b>讨糖果活动中最受欢迎的浓郁巧克力。',
                 '棒棒糖': '<b>【典故与由来】</b>漩涡状的彩色甜美棒棒糖。',
-                '神秘水晶球': '<b>【典故与由来】</b>占卜师用来预测未来与窥探未知的玻璃球。'
+                '神祕水晶球': '<b>【典故与由来】</b>占卜师用来预测未来与窥探未知的玻璃球。'
             },
             'en': {
                 '紅燈籠': '<b>[Origin]</b> The red festival lantern guides wandering spirits safely during the Ghost Festival.',
@@ -932,16 +937,16 @@
         ];
 
         const levelsData = [
-            { theme: "中式祭祀：紅燈金銀", type: 'chinese', count: 3, riddle: {'zh': '🏮 尋找中式傳統祭祀與鬼月祈福圖標！', 'en': '🏮 Find traditional Chinese Ghost Festival icons!', 'ja': '🏮 中国の伝統的なお盆のアイコンを探そう！', 'ko': '🏮 중국 전통 명절 아이콘을 찾으세요!'} },
-            { theme: "中式民俗：法器鎮宅", type: 'chinese', count: 4, riddle: {'zh': '🏮 尋找道家法器與普渡供品圖標！', 'en': '🏮 Find Taoist ritual tools and offerings!', 'ja': '🏮 道教の法器とお供え物のアイコンを探そう！', 'ko': '🏮 도교 법기와 제물 아이콘을 찾으세요!'} },
-            { theme: "中式陰司：神將護衛", type: 'chinese', count: 5, riddle: {'zh': '🏮 尋找地府神將與寺廟法器圖標！', 'en': '🏮 Find underworld generals and temple items!', 'ja': '🏮 冥府の神将と寺院のアイテムを探そう！', 'ko': '🏮 명부의 신장과 사원 아이콘을 찾으세요!'} },
-            { theme: "西洋萬聖：搞怪南瓜", type: 'halloween', count: 4, riddle: {'zh': '🎃 尋找西洋萬聖節南瓜與搞怪精靈圖標！', 'en': '🎃 Find Halloween pumpkins and spirits!', 'ja': '🎃 ハロウィンのカボチャと精霊を探そう！', 'ko': '🎃 할로윈 호박과 정령을 찾으세요!'} },
-            { theme: "西洋萬聖：女巫魔法", type: 'halloween', count: 5, riddle: {'zh': '🎃 尋找女巫、掃帚與神祕黑貓圖標！', 'en': '🎃 Find witches, brooms and black cats!', 'ja': '🎃 魔女、ほうき、黒猫のアイコンを探そう！', 'ko': '🎃 마녀, 빗자루, 검은 고양이 아이콘을 찾으세요!'} },
-            { theme: "西洋萬聖：糖果驚魂", type: 'halloween', count: 6, riddle: {'zh': '🎃 尋找萬聖節甜美糖果與骷髏圖標！', 'en': '🎃 Find Halloween candies and skulls!', 'ja': '🎃 ハロウィンのお菓子とドクロを探そう！', 'ko': '🎃 할로윈 사탕과 해골 아이콘을 찾으세요!'} },
-            { theme: "東西合併：陰陽交錯（一）", type: 'mixed', count: 6, riddle: {'zh': '🌐 東西方鬼節與萬聖節元素首次交織！', 'en': '🌐 Eastern and Western ghost elements intertwine!', 'ja': '🌐 東西のお化けの要素が交差する！', 'ko': '🌐 동서양 유령 축제 요소가 교차합니다!'} },
-            { theme: "東西合併：時空百鬼夜行（二）", type: 'mixed', count: 7, riddle: {'zh': '🌐 跨越東西文化的百鬼夜行大融合！', 'en': '🌐 The ultimate cross-cultural ghost festival fusion!', 'ja': '🌐 文化的境界を超えた百鬼夜行の融合！', 'ko': '🌐 문화적 경계를 넘은 궁극의 유령 축제 대통합!'} },
-            { theme: "東西合併：神魔狂歡夜（三）", type: 'mixed', count: 7, riddle: {'zh': '🌐 東西方神鬼與糖果派對同台競技！', 'en': '🌐 Spirits and candy parties from both worlds!', 'ja': '🌐 東西の神々とモンスターのパーティー！', 'ko': '🌐 동서양 신귀와 사탕 파티의 만남!'} },
-            { theme: "東西合併：至高無上的鬼節殿堂（四）", type: 'mixed', count: 8, riddle: {'zh': '🌐 東西方鬼節與萬聖節終極大考驗！', 'en': '🌐 The ultimate fusion trial of Eastern & Western festivals!', 'ja': '🌐 東西洋の祭りの究極の試練！', 'ko': '🌐 동서양 축제의 궁극의 시련!'} }
+            { theme: "中式祭祀：紅燈金銀", type: 'chinese', count: 3, riddle: {'zh-TW': '🏮 尋找中式傳統祭祀與鬼月祈福圖標！', 'zh-CN': '🏮 寻找中式传统祭祀与鬼月祈福图标！', 'en': '🏮 Find traditional Chinese Ghost Festival icons!', 'ja': '🏮 中国の伝統的なお盆のアイコンを探そう！', 'ko': '🏮 중국 전통 명절 아이콘을 찾으세요!'} },
+            { theme: "中式民俗：法器鎮宅", type: 'chinese', count: 4, riddle: {'zh-TW': '🏮 尋找道家法器與普渡供品圖標！', 'zh-CN': '🏮 寻找道家法器与普渡供品图标！', 'en': '🏮 Find Taoist ritual tools and offerings!', 'ja': '🏮 道教の法器とお供え物のアイコンを探そう！', 'ko': '🏮 도교 법기와 제물 아이콘을 찾으세요!'} },
+            { theme: "中式陰司：神將護衛", type: 'chinese', count: 5, riddle: {'zh-TW': '🏮 尋找地府神將與寺廟法器圖標！', 'zh-CN': '🏮 寻找地府神将与寺庙法器图标！', 'en': '🏮 Find underworld generals and temple items!', 'ja': '🏮 冥府の神将と寺院のアイテムを探そう！', 'ko': '🏮 명부의 신장과 사원 아이콘을 찾으세요!'} },
+            { theme: "西洋萬聖：搞怪南瓜", type: 'halloween', count: 4, riddle: {'zh-TW': '🎃 尋找西洋萬聖節南瓜與搞怪精靈圖標！', 'zh-CN': '🎃 寻找西洋万圣节南瓜与搞怪精灵图标！', 'en': '🎃 Find Halloween pumpkins and spirits!', 'ja': '🎃 ハロウィンのカボチャと精霊を探そう！', 'ko': '🎃 할로윈 호박과 정령을 찾으세요!'} },
+            { theme: "西洋萬聖：女巫魔法", type: 'halloween', count: 5, riddle: {'zh-TW': '🎃 尋找女巫、掃帚與神祕黑貓圖標！', 'zh-CN': '🎃 寻找女巫、扫帚与神秘黑猫图标！', 'en': '🎃 Find witches, brooms and black cats!', 'ja': '🎃 魔女、ほうき、黒猫のアイコンを探そう！', 'ko': '🎃 마녀, 빗자루, 검은 고양이 아이콘을 찾으세요!'} },
+            { theme: "西洋萬聖：糖果驚魂", type: 'halloween', count: 6, riddle: {'zh-TW': '🎃 尋找萬聖節甜美糖果與骷髏圖標！', 'zh-CN': '🎃 寻找万圣节甜美糖果与骷髅图标！', 'en': '🎃 Find Halloween candies and skulls!', 'ja': '🎃 ハロウィンのお菓子とドクロを探そう！', 'ko': '🎃 할로윈 사탕과 해골 아이콘을 찾으세요!'} },
+            { theme: "東西合併：陰陽交錯（一）", type: 'mixed', count: 6, riddle: {'zh-TW': '🌐 東西方鬼節與萬聖節元素首次交織！', 'zh-CN': '🌐 东西方鬼节与万圣节元素首次交织！', 'en': '🌐 Eastern and Western ghost elements intertwine!', 'ja': '🌐 東西のお化けの要素が交差する！', 'ko': '🌐 동서양 유령 축제 요소가 교차합니다!'} },
+            { theme: "東西合併：時空百鬼夜行（二）", type: 'mixed', count: 7, riddle: {'zh-TW': '🌐 跨越東西文化的百鬼夜行大融合！', 'zh-CN': '🌐 跨越东西文化的百鬼夜行大融合！', 'en': '🌐 The ultimate cross-cultural ghost festival fusion!', 'ja': '🌐 文化的境界を超えた百鬼夜行の融合！', 'ko': '🌐 문화적 경계를 넘은 궁극의 유령 축제 대통합!'} },
+            { theme: "東西合併：神魔狂歡夜（三）", type: 'mixed', count: 7, riddle: {'zh-TW': '🌐 東西方神鬼與糖果派對同台競技！', 'zh-CN': '🌐 东西方神鬼与糖果派对同台竞技！', 'en': '🌐 Spirits and candy parties from both worlds!', 'ja': '🌐 東西の神々とモンスターのパーティー！', 'ko': '🌐 동서양 신귀와 사탕 파티의 만남!'} },
+            { theme: "東西合併：至高無上的鬼節殿堂（四）", type: 'mixed', count: 8, riddle: {'zh-TW': '🌐 東西方鬼節與萬聖節終極大考驗！', 'zh-CN': '🌐 东西方鬼节与万圣节终极大考验！', 'en': '🌐 The ultimate fusion trial of Eastern & Western festivals!', 'ja': '🌐 東西洋の祭りの究極の試練！', 'ko': '🌐 동서양 축제의 궁극의 시련!'} }
         ];
 
         let player = { codename: '', gender: 'male', country: 'Taiwan', difficulty: 'normal' };
@@ -1045,6 +1050,9 @@
             document.getElementById('diffHard').innerText = dict.diffHard;
             document.getElementById('diffMaster').innerText = dict.diffMaster;
             document.getElementById('startBtn').innerText = dict.startBtn;
+            document.getElementById('scoreLabel').innerText = dict.scoreText;
+            document.getElementById('timerLabel').innerText = dict.timeText;
+            document.getElementById('hintBtn').innerText = dict.hintText;
             document.getElementById('quizHeader').innerText = dict.quizHeader;
             document.getElementById('quizInstructions').innerText = dict.quizInstructions;
             document.getElementById('loreHeaderTitle').innerText = dict.loreTitleText;
@@ -1076,7 +1084,8 @@
             const diffSelect = document.getElementById('playerDifficulty');
 
             let nameVal = nameInput ? nameInput.value.trim() : '';
-            player.codename = nameVal !== '' ? nameVal : 'Adventurer';
+            let defaultName = currentLang === 'ja' ? '冒険者' : (currentLang === 'ko' ? '모험가' : (currentLang === 'en' ? 'Adventurer' : '尋寶者'));
+            player.codename = nameVal !== '' ? nameVal : defaultName;
             player.gender = genderSelect ? genderSelect.value : 'male';
             player.country = countrySelect ? countrySelect.value : 'Taiwan';
             player.difficulty = diffSelect ? diffSelect.value : 'normal';
@@ -1165,7 +1174,8 @@
         function updateChecklistTitle() {
             const titleEl = document.getElementById('checklistTitle');
             if (titleEl) {
-                titleEl.innerHTML = `🔍 Level ${currentLevel + 1} Target:`;
+                let targetText = currentLang === 'ja' ? 'ターゲット' : (currentLang === 'ko' ? '목표' : (currentLang === 'en' ? 'Target' : '尋寶清單'));
+                titleEl.innerHTML = `🔍 Level ${currentLevel + 1} ${targetText}:`;
             }
         }
 
@@ -1176,7 +1186,7 @@
             if (levelData) {
                 let langKey = currentLang;
                 if (!levelData.riddle[langKey]) langKey = 'en';
-                riddleEl.innerText = levelData.riddle[langKey] || levelData.riddle['zh'];
+                riddleEl.innerText = levelData.riddle[langKey] || levelData.riddle['zh-TW'];
             }
         }
 
@@ -1319,17 +1329,18 @@
             else if (player.difficulty === 'hard') loreSeconds = 5;
             else if (player.difficulty === 'master') loreSeconds = 3;
 
+            let timerPrefix = currentLang === 'ja' ? 'タイマー' : (currentLang === 'ko' ? '타이머' : (currentLang === 'en' ? 'Timer' : '倒數計時'));
             const timerDisp = document.getElementById('loreTimerDisplay');
-            timerDisp.innerText = `Timer: ${loreSeconds}s`;
+            timerDisp.innerText = `${timerPrefix}: ${loreSeconds}s`;
 
             if (loreTimerInterval) clearInterval(loreTimerInterval);
             loreTimerInterval = setInterval(() => {
                 loreSeconds--;
                 if (loreSeconds > 0) {
-                    timerDisp.innerText = `Timer: ${loreSeconds}s`;
+                    timerDisp.innerText = `${timerPrefix}: ${loreSeconds}s`;
                 } else {
                     clearInterval(loreTimerInterval);
-                    timerDisp.innerText = "⚡ Time\'s up! Next level...";
+                    timerDisp.innerText = currentLang === 'ja' ? '⚡ 時間切れ！次のレベルへ...' : (currentLang === 'ko' ? '⚡ 시간 종료! 다음 단계로...' : (currentLang === 'en' ? '⚡ Time\'s up! Next level...' : '⚡ 時間到！自動進入下一關...'));
                     setTimeout(() => proceedAfterLore(), 600);
                 }
             }, 1000);
@@ -1362,17 +1373,22 @@
             let easternArea = document.getElementById('easternEncounterArea');
             let westernArea = document.getElementById('westernEncounterArea');
 
+            let appearsText = currentLang === 'ja' ? '降臨！' : (currentLang === 'ko' ? '강림!' : (currentLang === 'en' ? 'Appears!' : '降臨！'));
+            let costText = currentLang === 'ja' ? 'コスト / ベット' : (currentLang === 'ko' ? '필요 점수' : (currentLang === 'en' ? 'Cost / Bet' : '所需香油錢'));
+            let availableText = currentLang === 'ja' ? '所持' : (currentLang === 'ko' ? '보유' : (currentLang === 'en' ? 'Available' : '目前擁有'));
+
             descBox.innerHTML = `
                 <div style="font-size: 3rem; margin-bottom: 5px;">${activeGod.icon}</div>
-                <b>【${activeGod.name}】Appears!</b><br>${activeGod.desc}<br>
-                <span style="color:#ea580c; font-weight:bold;">Cost / Bet: ${activeGod.cost} pts</span> (Available: ${score} pts)
+                <b>【${activeGod.name}】${appearsText}</b><br>${activeGod.desc}<br>
+                <span style="color:#ea580c; font-weight:bold;">${costText}: ${activeGod.cost} pts</span> (${availableText}: ${score} pts)
             `;
 
             if (isEastern) {
                 easternArea.style.display = 'block';
                 westernArea.style.display = 'none';
                 document.getElementById('castBlockBtn').onclick = handleCastBlock;
-                document.getElementById('easternResultMsg').innerText = `Sheng Jiao: 0 / 2`;
+                let shengJiaoLabel = currentLang === 'ja' ? '聖杯数' : (currentLang === 'ko' ? '성배 횟수' : (currentLang === 'en' ? 'Sheng Jiao' : '已獲聖筊'));
+                document.getElementById('easternResultMsg').innerText = `${shengJiaoLabel}: 0 / 2`;
             } else {
                 easternArea.style.display = 'none';
                 westernArea.style.display = 'block';
@@ -1382,19 +1398,23 @@
 
         function handleCastBlock() {
             if (score < activeGod.cost) {
-                alert(`❌ Insufficient points! You have ${score} pts, need ${activeGod.cost} pts.`);
+                let errText = currentLang === 'ja' ? '❌ ポイントが不足しています！' : (currentLang === 'ko' ? '❌ 점수가 부족합니다!' : (currentLang === 'en' ? '❌ Insufficient points!' : '❌ 香油錢不足！'));
+                alert(`${errText} (${score} pts)`);
                 return;
             }
             let roll = Math.random();
             let msg = document.getElementById('easternResultMsg');
+            let shengJiaoLabel = currentLang === 'ja' ? '聖杯数' : (currentLang === 'ko' ? '성배 횟수' : (currentLang === 'en' ? 'Sheng Jiao' : '已獲聖筊'));
             if (roll > 0.45) {
                 shengJiaoCount++;
                 playTone(880, 0.2);
-                msg.innerHTML = `<span style="color:#16a34a;">✨ Sheng Jiao! (Blessed)</span> - Count: ${shengJiaoCount} / 2`;
+                let okText = currentLang === 'ja' ? '✨ 聖杯！ (神の許し)' : (currentLang === 'ko' ? '✨ 성배! (신앙 허락)' : (currentLang === 'en' ? '✨ Sheng Jiao! (Blessed)' : '✨ 聖筊！ (神明允諾)'));
+                msg.innerHTML = `<span style="color:#16a34a;">${okText}</span> - ${shengJiaoLabel}: ${shengJiaoCount} / 2`;
                 if (shengJiaoCount >= 2) completeGodBlessing(1);
             } else {
                 playTone(150, 0.3);
-                msg.innerHTML = `<span style="color:#dc2626;">❌ Xiao/Yin Jiao (Not approved)</span> - Count: ${shengJiaoCount} / 2`;
+                let failText = currentLang === 'ja' ? '❌ 笑杯/陰杯 (不許可)' : (currentLang === 'ko' ? '❌ 음배 (허락되지 않음)' : (currentLang === 'en' ? '❌ Not approved' : '❌ 笑筊/陰筊 (未允諾)'));
+                msg.innerHTML = `<span style="color:#dc2626;">${failText}</span> - ${shengJiaoLabel}: ${shengJiaoCount} / 2`;
             }
         }
 
@@ -1429,7 +1449,8 @@
                     timerEl.innerText = timeLeft;
                 } else {
                     clearInterval(destinyTimerInterval);
-                    document.getElementById('godResultMsg').innerHTML = `<span style="color:#dc2626;">❌ Time\'s up! Ritual failed.</span>`;
+                    let timeoutText = currentLang === 'ja' ? '❌ 時間切れ！儀式失敗。' : (currentLang === 'ko' ? '❌ 시간 초과! 의식 실패.' : (currentLang === 'en' ? '❌ Time\'s up! Ritual failed.' : '❌ 時間到！儀式失敗。'));
+                    document.getElementById('godResultMsg').innerHTML = `<span style="color:#dc2626;">${timeoutText}</span>`;
                     setTimeout(() => closeGodModal(), 1500);
                 }
             }, 1000);
@@ -1441,7 +1462,8 @@
 
             if (card.dataset.symbol === '💀') {
                 playTone(120, 0.4);
-                document.getElementById('godResultMsg').innerHTML = `<span style="color:#dc2626;">💥 Trapped by Skull! Ritual reversed!</span>`;
+                let skullText = currentLang === 'ja' ? '💥 骸骨の罠！儀式が反転しました！' : (currentLang === 'ko' ? '💥 해골의 함정! 의식이 실패했습니다!' : (currentLang === 'en' ? '💥 Trapped by Skull! Ritual reversed!' : '💥 觸碰骷髏陷阱！儀式反噬！'));
+                document.getElementById('godResultMsg').innerHTML = `<span style="color:#dc2626;">${skullText}</span>`;
                 if (destinyTimerInterval) clearInterval(destinyTimerInterval);
                 setTimeout(() => closeGodModal(), 1500);
                 return;
@@ -1464,7 +1486,8 @@
                 resetCards();
                 if (matchedPairs === 2) {
                     if (destinyTimerInterval) clearInterval(destinyTimerInterval);
-                    document.getElementById('godResultMsg').innerHTML = `<span style="color:#16a34a;">✨ Perfect Match! God Blessed! ✨</span>`;
+                    let successText = currentLang === 'ja' ? '✨ ペア成功！神の加護を得ました！ ✨' : (currentLang === 'ko' ? '✨ 매칭 성공! 신의 가호 획득! ✨' : (currentLang === 'en' ? '✨ Perfect Match! God Blessed! ✨' : '✨ 配對成功！神明顯靈！ ✨'));
+                    document.getElementById('godResultMsg').innerHTML = `<span style="color:#16a34a;">${successText}</span>`;
                     setTimeout(() => completeGodBlessing(2), 1200);
                 }
             } else {
@@ -1486,7 +1509,7 @@
         function completeGodBlessing(multiplier) {
             let bet = parseInt(document.getElementById('westernBetSelect').value) || activeGod.cost;
             if (score < bet) {
-                alert(`❌ Insufficient points!`);
+                alert(currentLang === 'ja' ? 'ポイント不足！' : (currentLang === 'ko' ? '점수 부족!' : 'Insufficient points!'));
                 closeGodModal();
                 return;
             }
@@ -1497,7 +1520,10 @@
             playTone(1318.51, 0.5);
 
             let skipLevels = Math.floor(Math.random() * 3) + 1;
-            alert(`🎉 Blessing Success! ${activeGod.name} grants you ${skipLevels} level skip(s) and +${rewardBonus} bonus points!`);
+            let successAlert = currentLang === 'ja' ? `加護成功！${activeGod.name}の加護により ${skipLevels} レベルスキップ＆+${rewardBonus} ポイント獲得！` :
+                               (currentLang === 'ko' ? `가호 성공! ${activeGod.name}의 가호로 ${skipLevels}단계 건너뛰기 및 +${rewardBonus}점 획득!` :
+                               `🎉 請神成功！${activeGod.name}顯靈庇佑，直接跳級通關 ${skipLevels} 次並獲得 +${rewardBonus} 積分！`);
+            alert(successAlert);
 
             document.getElementById('godModal').style.display = 'none';
             currentLevel = Math.min(levelsData.length - 1, currentLevel + skipLevels);
@@ -1577,7 +1603,8 @@
             }
 
             let q = quizQuestions[currentQuizIndex];
-            document.getElementById('quizProgress').innerText = `Question ${currentQuizIndex + 1} / ${quizQuestions.length}`;
+            let qPrefix = currentLang === 'ja' ? '問題' : (currentLang === 'ko' ? '문제' : 'Question');
+            document.getElementById('quizProgress').innerText = `${qPrefix} ${currentQuizIndex + 1} / ${quizQuestions.length}`;
             document.getElementById('quizQuestionBox').innerText = q.promptIcon;
 
             let optsContainer = document.getElementById('quizOptionsContainer');
@@ -1617,10 +1644,13 @@
             const dict = i18n[currentLang] || i18n['en'];
 
             title.innerText = dict.winAllTitle;
-            msg.innerText = `Player: ${player.codename} | Score: ${score} pts | Time: ${totalGameTime}s`;
+            let playerLabel = currentLang === 'ja' ? 'プレイヤー' : (currentLang === 'ko' ? '플레이어' : 'Player');
+            let scoreLabel = currentLang === 'ja' ? 'スコア' : (currentLang === 'ko' ? '점수' : 'Score');
+            let timeLabel = currentLang === 'ja' ? '時間' : (currentLang === 'ko' ? '시간' : 'Time');
+            msg.innerText = `${playerLabel}: ${player.codename} | ${scoreLabel}: ${score} pts | ${timeLabel}: ${totalGameTime}s`;
             
             let levelTitle = currentLang === 'ja' ? 'トレジャーマスター' : (currentLang === 'ko' ? '보물 마스터' : (currentLang === 'en' ? 'Master Explorer' : '金牌尋寶大師'));
-            let genderTitle = player.gender === 'female' ? (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '女侠' : 'Heroine') : (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '少侠' : 'Hero');
+            let genderTitle = player.gender === 'female' ? (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '女侠' : (currentLang === 'ja' ? '女傑' : (currentLang === 'ko' ? '여협' : 'Heroine'))) : (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '少侠' : (currentLang === 'ja' ? '豪傑' : (currentLang === 'ko' ? '협객' : 'Hero')));
 
             certContainer.innerHTML = `
                 <div class="certificate-box">
@@ -1628,10 +1658,10 @@
                         ${dict.certTitle}
                     </div>
                     <div style="font-size: 1rem; color: #1e293b; margin-bottom: 5px;">
-                        Player: <b>${player.codename}</b> (${genderTitle}, ${player.country})
+                        ${playerLabel}: <b>${player.codename}</b> (${genderTitle}, ${player.country})
                     </div>
                     <div style="font-size: 1.05rem; font-weight: bold; color: #d97706; margin-top: 8px;">⭐ Level: ${levelTitle}</div>
-                    <p style="font-size: 0.95rem; margin: 5px 0 0 0; color: #475569;">Total score: ${score} pts. Excellent multicultural memory and wisdom!</p>
+                    <p style="font-size: 0.95rem; margin: 5px 0 0 0; color: #475569;">${currentLang === 'ja' ? '優れた異文化記憶力と知恵を発揮しました！' : (currentLang === 'ko' ? '뛰어난 다문화적 기억력과 지혜를 발휘했습니다!' : 'Total score: ' + score + ' pts. Excellent multicultural memory and wisdom!')}</p>
                     <div style="font-size: 0.85rem; color: #64748b; text-align: right; margin-top: 12px; font-style: italic;">
                         ${dict.designerCredit}
                     </div>
