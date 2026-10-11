@@ -601,6 +601,15 @@
     </div>
 
     <script>
+        // 十級專屬名稱對照表（支援五語獨立運作）
+        const levelTitlesData = {
+            'zh-TW': ['啟航探險家', '燭光尋密者', '幽冥引路人', '南瓜守護者', '魔法學徒', '糖果魔法師', '陰陽交錯者', '百鬼夜行客', '神魔狂歡者', '至高金牌大師'],
+            'zh-CN': ['启航探险家', '烛光寻密者', '幽冥引路人', '南瓜守护者', '魔法学徒', '糖果魔法师', '阴阳交错者', '百鬼夜行客', '神魔狂欢者', '至高金牌大师'],
+            'en': ['Explorer Novice', 'Candlelight Seeker', 'Spirit Guide', 'Pumpkin Guardian', 'Magic Apprentice', 'Candy Wizard', 'Yin-Yang Weaver', 'Night Parade Voyager', 'Carnival Master', 'Supreme Master'],
+            'ja': ['探索の初心者', 'キャンドル探索者', '幽冥の案内人', 'カボチャの守護者', '魔法見習い', 'キャンディ魔法使い', '陰陽の織り手', '百鬼夜行的旅人', '神魔のカーニバル王', '至高のマスター'],
+            'ko': ['탐험 초보자', '촛불 탐색자', '영혼의 안내자', '호박 수호자', '마법 수련생', '캔디 마법사', '음양의 직조사', '백귀야행의 여행자', '신마 카니발 왕', '지상 최고의 마스터']
+        };
+
         const i18n = {
             'zh-TW': {
                 appTitle: '🏛️ 東方鬼月與西洋萬聖節之交會 — 總設計：高雄師範大學 劉世閔博士',
@@ -1628,14 +1637,18 @@
 
             let optsContainer = document.getElementById('quizOptionsContainer');
             optsContainer.innerHTML = '';
-            q.options.forEach(iconOpt => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'quiz-visual-btn';
-                btn.innerText = iconOpt;
-                btn.onclick = () => handleQuizAnswer(iconOpt === q.correctIcon);
-                optsContainer.appendChild(btn);
-            });
+            
+            // 加入安全緩衝機制：避免題目瞬間閃過，讓長者與幼兒安心觀察
+            setTimeout(() => {
+                q.options.forEach(iconOpt => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'quiz-visual-btn';
+                    btn.innerText = iconOpt;
+                    btn.onclick = () => handleQuizAnswer(iconOpt === q.correctIcon);
+                    optsContainer.appendChild(btn);
+                });
+            }, 250);
         }
 
         function handleQuizAnswer(isCorrect) {
@@ -1644,53 +1657,3 @@
                 quizScore++;
                 currentQuizIndex++;
                 loadQuizQuestion();
-            } else {
-                playTone(120, 0.5);
-                alert(i18n[currentLang].quizFailMsg);
-                document.getElementById('quizScreen').style.display = 'none';
-                document.getElementById('setupScreen').style.display = 'block';
-            }
-        }
-
-        function finishGrandmasterQuiz() {
-            playTone(1046.50, 0.4);
-            document.getElementById('quizScreen').style.display = 'none';
-            const modal = document.getElementById('winModal');
-            const title = document.getElementById('modalTitle');
-            const msg = document.getElementById('winMessage');
-            const nextBtn = document.getElementById('nextLevelBtn');
-            const certContainer = document.getElementById('certificateContainer');
-            const dict = i18n[currentLang] || i18n['en'];
-
-            title.innerText = dict.winAllTitle;
-            let playerLabel = currentLang === 'ja' ? 'プレイヤー' : (currentLang === 'ko' ? '플레이어' : 'Player');
-            let scoreLabel = currentLang === 'ja' ? 'スコア' : (currentLang === 'ko' ? '점수' : 'Score');
-            let timeLabel = currentLang === 'ja' ? '時間' : (currentLang === 'ko' ? '시간' : 'Time');
-            msg.innerText = `${playerLabel}: ${player.codename} | ${scoreLabel}: ${score} pts | ${timeLabel}: ${totalGameTime}s`;
-            
-            let levelTitle = currentLang === 'ja' ? 'トレジャーマスター' : (currentLang === 'ko' ? '보물 마스터' : (currentLang === 'en' ? 'Master Explorer' : '金牌尋寶大師'));
-            let genderTitle = player.gender === 'female' ? (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '女侠' : (currentLang === 'ja' ? '女傑' : (currentLang === 'ko' ? '여협' : 'Heroine'))) : (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '少侠' : (currentLang === 'ja' ? '豪傑' : (currentLang === 'ko' ? '협객' : 'Hero')));
-
-            certContainer.innerHTML = `
-                <div class="certificate-box">
-                    <div style="font-size: 1.15rem; font-weight: bold; color: #ea580c; text-align: center; margin-bottom: 5px;">
-                        ${dict.certTitle}
-                    </div>
-                    <div style="font-size: 1rem; color: #1e293b; margin-bottom: 5px;">
-                        ${playerLabel}: <b>${player.codename}</b> (${genderTitle}, ${player.country})
-                    </div>
-                    <div style="font-size: 1.05rem; font-weight: bold; color: #d97706; margin-top: 8px;">⭐ Level: ${levelTitle}</div>
-                    <p style="font-size: 0.95rem; margin: 5px 0 0 0; color: #475569;">${currentLang === 'ja' ? '優れた異文化記憶力と知恵を発揮しました！' : (currentLang === 'ko' ? '뛰어난 다문화적 기억력과 지혜를 발휘했습니다!' : 'Total score: ' + score + ' pts. Excellent multicultural memory and wisdom!')}</p>
-                    <div style="font-size: 0.85rem; color: #64748b; text-align: right; margin-top: 12px; font-style: italic;">
-                        ${dict.designerCredit}
-                    </div>
-                </div>
-            `;
-            nextBtn.style.display = 'inline-block';
-            nextBtn.innerText = dict.playAgain;
-            nextBtn.onclick = () => location.reload();
-            modal.style.display = 'flex';
-        }
-    </script>
-</body>
-</html>
