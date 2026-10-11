@@ -509,7 +509,7 @@
             <button class="btn" id="startBtn" type="button" onclick="startGame(event)">開始尋寶 / Start</button>
         </div>
 
-        <!-- 節慶圖像典故說明頁（每關專屬不重複物品講解） -->
+        <!-- 節慶圖像典故說明頁 -->
         <div id="loreScreen">
             <h2 id="loreHeaderTitle" style="color: var(--accent-color); margin-top:0; font-size: 1.3rem;">🏮 節慶物件典故與由來</h2>
             <div id="loreContentBox" class="lore-box">載入中...</div>
@@ -767,67 +767,77 @@
             }
         };
 
-        // 十個關卡各自專屬的文物典故資料庫（每關說明頁針對該關出現過的重要物品講解，絕不重複）
+        // 十個關卡專屬文物典故資料庫（支援繁中、簡中、英、日、韓五語）
         const levelSpecificLore = {
-            0: { // Lv 1
-                'zh-TW': '<b>【Lv 1 專屬典故 — 紅燈籠與金銀紙】</b>中元普渡時懸掛的紅燈籠（普渡公燈）是用來在夜晚為遊蕩的好兄弟指引方向；而焚燒的金銀紙則象徵對祖先與好兄弟的無限敬意與祝福。',
-                'en': '<b>[Lv 1 Lore - Red Lantern & Joss Paper]</b> Red lanterns guide wandering spirits at night during the Ghost Festival, while burned joss paper symbolizes respect and blessings for ancestors.',
-                'ja': '<b>【Lv 1 由来 — 赤提灯と金銀紙】</b>お盆の夜に掲げられる提灯はさまよう精霊を導き、金銀紙は先祖への敬意を表します。',
-                'ko': '<b>[Lv 1 유래 - 붉은 등불과 지폐]</b> 유령 축제 밤에 방황하는 영혼들을 인도하는 등불과 조상에 대한 존경을 담은 지폐입니다.'
+            0: {
+                'zh-TW': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🏮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">紅燈籠（普渡公燈）</div><b>【典故與由來】</b>中元普渡時懸掛的紅燈籠是用來在夜晚為遊蕩的好兄弟指引方向，象徵慈悲與溫暖的光芒。',
+                'zh-CN': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🏮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">红灯笼（普渡公灯）</div><b>【典故与由来】</b>中元普渡时悬挂的红灯笼是用来在夜晚为游荡的好兄弟指引方向，象征慈悲与温暖的光芒。',
+                'en': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🏮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Red Lantern</div><b>[Origin]</b> Red lanterns hung during the Ghost Festival guide wandering spirits safely at night.',
+                'ja': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🏮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">赤提灯</div><b>【由来】</b>お盆の夜に掲げられる提灯は、さまよう精霊を導くためのものです。',
+                'ko': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🏮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">붉은 등불</div><b>[유래]</b> 유령 축제 밤에 방황하는 영혼들을 안전하게 인도하는 등불입니다.'
             },
-            1: { // Lv 2
-                'zh-TW': '<b>【Lv 2 專屬典故 — 桃木劍與八卦鏡】</b>道家傳說中用桃木削成的法器能驅邪避凶；而八卦鏡則是懸掛在門口用來鎮宅化煞、阻擋不良氣場的傳統法器。',
-                'en': '<b>[Lv 2 Lore - Peach Wood Sword & Bagua Mirror]</b> Taoist swords carved from peach wood ward off evil, while Bagua mirrors hung at doorways repel negative energy.',
-                'ja': '<b>【Lv 2 由来 — 桃の木剣と八卦鏡】</b>桃の木で作られた道教の法器は魔除けとなり、八卦鏡は玄関に掛けて厄を払います。',
-                'ko': '<b>[유래 - 복숭아나무 검과 팔괘경]</b> 복숭아나무로 만든 도교 법기는 악귀를 물리치고, 팔괘경은 나쁜 기운을 막아줍니다.'
+            1: {
+                'zh-TW': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🗡️</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">桃木劍</div><b>【典故與由來】</b>道家傳說中用桃木削成的法器，具有神聖的純陽之氣，能在民間習俗中達到驅邪避凶的效果。',
+                'zh-CN': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🗡️</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">桃木剑</div><b>【典故与由来】</b>道家传说中用桃木削成的法器，具有神圣的纯阳之气，能在民间习俗中达到驱邪避凶的效果。',
+                'en': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🗡️</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Peach Wood Sword</div><b>[Origin]</b> A Taoist ritual sword carved from peach wood, traditionally used to ward off evil spirits.',
+                'ja': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🗡️</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">桃の木剣</div><b>【由来】</b>魔除けとして使われる桃の木で作られた道教の法器です。',
+                'ko': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🗡️</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">복숭아나무 검</div><b>[유래]</b> 악귀를 물리치기 위해 복숭아나무로 만든 도교 법기입니다.'
             },
-            2: { // Lv 3
-                'zh-TW': '<b>【Lv 3 專屬典故 — 牛頭將軍與土地公廟】</b>地府陰司中負責維持秩序的牛頭將軍公正無私；而土地公廟則是守護地方鄰里、庇佑農作與平安的基層神明信仰。',
-                'en': '<b>[Lv 3 Lore - Ox-Head General & Earth God Shrine]</b> The Ox-Head General maintains order in the underworld, and Earth God shrines protect local communities.',
-                'ja': '<b>【Lv 3 由来 — 牛頭将軍と土地公廟】</b>冥府の秩序を保つ牛頭将軍と、地域を守る土地神の祠です。',
-                'ko': '<b>[유래 - 우두 장군과 토지공 사당]</b> 저승의 질서를 유지하는 우두 장군과 마을을 수호하는 토지신 사당입니다.'
+            2: {
+                'zh-TW': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🛕</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">土地公廟</div><b>【典故與由來】</b>守護地方鄰里與農作平安的福德正神（土地公）廟宇，是華人社會中最親民、普及的基層神明信仰。',
+                'zh-CN': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🛕</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">土地公庙</div><b>【典故与由来】</b>守护地方邻里与农作平安的福德正神（土地公）庙宇，是华人社会中最亲民、普及的基层神明信仰。',
+                'en': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🛕</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Earth God Shrine</div><b>[Origin]</b> Shrines dedicated to the Earth God who protects local communities and harvests.',
+                'ja': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🛕</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">土地公廟</div><b>【由来】</b>地域を守る土地神（福徳正神）の祠で、人々の暮らしに寄り添います。',
+                'ko': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🛕</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">토지공 사당</div><b>[유래]</b> 마을과 이웃을 수호하는 토지신을 모신 친근한 사당입니다.'
             },
-            3: { // Lv 4
-                'zh-TW': '<b>【Lv 4 專屬典故 — 南瓜燈與小幽靈】</b>經典的傑克南瓜燈（Jack-o\'-lantern）源自西洋傳說，用來在秋夜中驅趕惡靈；覆蓋白布的小幽靈則象徵萬聖節中活潑可愛的遊蕩靈魂。',
-                'en': '<b>[Lv 4 Lore - Jack-o\'-lantern & Little Ghost]</b> Classic Jack-o\'-lanterns ward off evil spirits on autumn nights, and friendly little sheet ghosts symbolize wandering Halloween spirits.',
-                'ja': '<b>【Lv 4 由来 — ジャック・オー・ランタンと小幽霊】</b>秋の夜の悪霊を払うカボチャの提灯と、可愛らしい小さな精霊です。',
-                'ko': '<b>[유래 - 잭오랜턴과 꼬마 유령]</b> 가을 밤 악령을 쫓는 호박등과 할로윈을 떠도는 귀여운 유령입니다.'
+            3: {
+                'zh-TW': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🎃</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">南瓜燈（Jack-o\'-lantern）</div><b>【典故與由來】</b>源自西洋傳說的經典南瓜燈，用來在秋夜中驅趕惡靈與妖怪，是萬聖節最具代表性的象徵。',
+                'zh-CN': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🎃</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">南瓜灯（Jack-o\'-lantern）</div><b>【典故与由来】</b>源自西洋传说的经典南瓜灯，用来在秋夜中驱赶恶灵与妖怪，是万圣节最具代表性的象征。',
+                'en': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🎃</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Jack-o\'-lantern</div><b>[Origin]</b> The classic Jack-o\'-lantern used to ward off evil spirits on autumn nights, representing the heart of Halloween.',
+                'ja': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🎃</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">ジャック・オー・ランタン</div><b>【由来】</b>悪霊を追い払うために使われるハロウィンの最も代表的なカボチャの提灯です。',
+                'ko': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🎃</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">잭오랜턴</div><b>[유래]</b> 가을 밤 악령을 쫓기 위해 사용하는 할로윈의 가장 대표적인 호박등입니다.'
             },
-            4: { // Lv 5
-                'zh-TW': '<b>【Lv 5 專屬典故 — 女巫與女巫掃帚】</b>戴著尖頂帽、精通神祕魔法的傳奇女性女巫，常搭乘專屬的魔法掃帚在夜空中巡遊施法。',
-                'en': '<b>[Lv 5 Lore - Witch & Broomstick]</b> Legendary practitioners of magic wearing tall pointed hats ride magical brooms across the night sky.',
-                'ja': '<b>【Lv 5 由来 — 魔女と魔法のホウキ】</b>尖った帽子をかぶり魔法を操る魔女と、空を飛ぶために使う魔法のホウキです。',
-                'ko': '<b>[유래 - 마녀와 마법 빗자루]</b> 뾰족한 모자를 쓰고 마법을 부리는 마녀와 밤하늘을 나는 마법의 빗자루입니다.'
+            4: {
+                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">女巫與女巫掃帚</div><b>【典故與由來】</b>戴著尖頂帽、精通神祕魔法的傳奇女性女巫，常搭乘專屬的魔法掃帚在夜空中巡遊施法。',
+                'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">女巫与女巫扫帚</div><b>【典故与由来】</b>戴着尖顶帽、精通神秘魔法的传奇女性女巫，常搭乘专属的魔法扫帚在夜空中巡游施法。',
+                'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Witch & Broomstick</div><b>[Origin]</b> Legendary practitioners of magic wearing tall pointed hats ride magical brooms across the night sky.',
+                'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">魔女と魔法のホウキ</div><b>【由来】</b>尖った帽子をかぶり魔法を操る魔女と、空を飛ぶために使う魔法のホウキです。',
+                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">마녀와 마법 빗자루</div><b>[유래]</b> 뾰족한 모자를 쓰고 마법을 부리는 마녀와 밤하늘을 나는 마법의 빗자루입니다.'
             },
-            5: { // Lv 6
-                'zh-TW': '<b>【Lv 6 專屬典故 — 彩虹硬糖與巧克力棒】</b>在萬聖節「不給糖就搗蛋」活動中最受孩子們期待與喜愛的高甜度繽紛糖果與濃郁巧克力。',
-                'en': '<b>[Lv 6 Lore - Rainbow Hard Candy & Chocolate Bar]</b> Colorful sweets and rich chocolate bars anticipated most by children during Trick-or-Treating.',
-                'ja': '<b>【Lv 6 由来 — レインボーキャンディとチョコレートバー】</b>トリック・オア・トリートで子供たちに大人気の甘いお菓子です。',
-                'ko': '<b>[유래 - 무지개 캔디와 초콜릿 바]</b> 트릭 오어 트릿 행사에서 아이들이 가장 기대하는 달콤한 간식입니다.'
+            5: {
+                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍬 🍫</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">彩虹硬糖與巧克力棒</div><b>【典故與由來】</b>在萬聖節「不給糖就搗蛋」活動中最受孩子們期待與喜愛的高甜度繽紛糖果與濃郁巧克力。',
+                'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍬 🍫</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">彩虹硬糖与巧克力棒</div><b>【典故与由来】</b>在万圣节“不给糖就捣蛋”活动中最受孩子们期待与喜爱的高甜度缤纷糖果与浓郁巧克力。',
+                'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍬 🍫</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Rainbow Hard Candy & Chocolate Bar</div><b>[Origin]</b> Colorful sweets and rich chocolate bars anticipated most by children during Trick-or-Treating.',
+                'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍬 🍫</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">レインボーキャンディとチョコレートバー</div><b>【由来】</b>トリック・オア・トリートで子供たちに大人気の甘いお菓子です。',
+                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍬 🍫</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">무지개 캔디와 초콜릿 바</div><b>[유래]</b> 트릭 오어 트릿 행사에서 아이들이 가장 기대하는 달콤한 간식입니다.'
             },
-            6: { // Lv 7
-                'zh-TW': '<b>【Lv 7 專屬典故 — 金元寶與吸血蝙蝠】</b>象徵財富與吉祥的中式金元寶，與黑夜中飛行的西洋吸血蝙蝠交織，展現東西方對神祕富貴與暗夜生物的獨特想像。',
-                'en': '<b>[Lv 7 Lore - Gold Ingot & Vampire Bat]</b> Traditional ingots symbolizing wealth intertwine with nocturnal vampire bats, bridging Eastern and Western folklore.',
-                'ja': '<b>【Lv 7 由来 — 金元宝と吸血コウモリ】</b>富を象徴する中国の元宝と、夜空を飛ぶ西洋のコウモリが交差します。',
-                'ko': '<b>[유래 - 금괴와 흡혈 박쥐]</b> 부를 상징하는 전통 금괴와 밤하늘을 나는 서양의 흡혈 박쥐의 만남입니다.'
+            6: {
+                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🪙 🦇</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">金元寶與吸血蝙蝠</div><b>【典故與由來】</b>象徵財富與吉祥的中式金元寶，與黑夜中飛行的西洋吸血蝙蝠交織，展現東西方對神祕富貴與暗夜生物的獨特想像。',
+                'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🪙 🦇</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">金元宝与吸血蝙蝠</div><b>【典故与由来】</b>象征财富与吉祥的中式金元宝，与黑夜中飞行的西洋吸血蝙蝠交织，展现东西方对神秘富贵与暗夜生物的独特想象。',
+                'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🪙 🦇</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Gold Ingot & Vampire Bat</div><b>[Origin]</b> Traditional ingots symbolizing wealth intertwine with nocturnal vampire bats, bridging Eastern and Western folklore.',
+                'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🪙 🦇</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">金元宝と吸血コウモリ</div><b>【由来】</b>富を象徴する中国の元宝と、夜空を飛ぶ西洋のコウモリが交差します。',
+                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🪙 🦇</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">금괴와 흡혈 박쥐</div><b>[유래]</b> 부를 상징하는 전통 금괴와 밤하늘을 나는 서양의 흡혈 박쥐의 만남입니다.'
             },
-            7: { // Lv 8
-                'zh-TW': '<b>【Lv 8 專屬典故 — 馬面羅剎與神祕黑貓】</b>駐守地府的馬面羅剎與被視為女巫忠實夥伴的神祕黑貓，共同營造出跨文化百鬼夜行的神祕莊嚴氛圍。',
-                'en': '<b>[Lv 8 Lore - Horse-Face Rakshasa & Mysterious Black Cat]</b> The underworld guard Horse-Face and the witch\'s loyal black cat create a grand cross-cultural night parade atmosphere.',
-                'ja': '<b>【Lv 8 由来 — 馬面羅刹と神秘的な黒猫】</b>冥府を守る馬面の神将と、魔女の相棒とされる神秘的な黒猫です。',
-                'ko': '<b>[유래 - 마면 라사과 신비로운 검은 고양이]</b> 저승을 지키는 마면 장군과 마녀의 충실한 동반자인 검은 고양이입니다.'
+            7: {
+                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🐴 🐈‍⬛</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">馬面羅剎與神祕黑貓</div><b>【典故與由來】</b>駐守地府的馬面羅剎與被視為女巫忠實夥伴的神祕黑貓，共同營造出跨文化百鬼夜行的神祕莊嚴氛圍。',
+                'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🐴 🐈‍⬛</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">马面罗刹与神秘黑猫</div><b>【典故与由来】</b>驻守地府的马面罗刹与被视为女巫忠实伙伴的神秘黑猫，共同营造出跨文化百鬼夜行的神秘庄严氛围。',
+                'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🐴 🐈‍⬛</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Horse-Face Rakshasa & Mysterious Black Cat</div><b>[Origin]</b> The underworld guard Horse-Face and the witch\'s loyal black cat create a grand cross-cultural night parade atmosphere.',
+                'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🐴 🐈‍⬛</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">馬面羅刹と神秘的な黒猫</div><b>【由来】</b>冥府を守る馬面の神将と、魔女の相棒とされる神秘的な黒猫です。',
+                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🐴 🐈‍⬛</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">마면 라사과 신비로운 검은 고양이</div><b>[유래]</b> 저승을 지키는 마면 장군과 마녀의 충실한 동반자인 검은 고양이입니다.'
             },
-            8: { // Lv 9
-                'zh-TW': '<b>【Lv 9 專屬典故 — 普渡西瓜與神祕水晶球】</b>中元普渡祭桌上剖半插香、供好兄弟解渴的西瓜，與占卜師用來預測未知的西洋水晶球同台競技！',
-                'en': '<b>[Lv 9 Lore - Ghost Festival Watermelon & Crystal Ball]</b> Halved watermelons offered to spirits meet magical glass spheres used by fortune tellers to see the future!',
-                'ja': '<b>【Lv 9 由来 — 普渡スイカと神秘的な水晶玉】</b>精霊の喉を潤すスイカと、未来を予見する西洋の水晶玉が共演します。',
-                'ko': '<b>[유래 - 푸두 수박과 신비로운 수정구]</b> 영혼들의 목을 축이는 수박과 미래를 예견하는 서양의 수정구의 만남입니다.'
+            8: {
+                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">普渡西瓜與神祕水晶球</div><b>【典故與由來】</b>中元普渡祭桌上剖半插香、供好兄弟解渴的西瓜，與占卜師用來預測未知的西洋水晶球同台競技！',
+                'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">普渡西瓜与神秘水晶球</div><b>【典故与由来】</b>中元普渡祭桌上剖半插香、供好兄弟解渴的西瓜，与占卜师用来预测未知的西洋水晶球同台竞技！',
+                'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Ghost Festival Watermelon & Crystal Ball</div><b>[Origin]</b> Halved watermelons offered to spirits meet magical glass spheres used by fortune tellers to see the future!',
+                'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">普渡スイカと神秘的な水晶玉</div><b>【由来】</b>精霊の喉を潤すスイカと、未来を予見する西洋の水晶玉が共演します。',
+                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">푸두 수박과 신비로운 수정구</div><b>[유래]</b> 영혼들의 목을 축이는 수박과 미래를 예견하는 서양의 수정구의 만남입니다.'
             },
-            9: { // Lv 10
-                'zh-TW': '<b>【Lv 10 專屬典故 — 至高無上的鬼節殿堂】</b>結合東方中元普渡與西洋萬聖節所有法器、神將、南瓜與糖果的終極殿堂，象徵跨文化多元共融的最高智慧與榮耀！',
-                'en': '<b>[Lv 10 Lore - Supreme Festival Sanctuary]</b> The ultimate sanctuary combining all Eastern and Western ritual tools, spirits, and candies, symbolizing the pinnacle of multicultural harmony!',
-                'ja': '<b>【Lv 10 由来 — 至高の祭り聖殿】</b>東西の法器、精霊、カボチャ、お菓子が全て融合した究極の殿堂です！',
-                'ko': '<b>[유래 - 지상 최고의 축제 성전]</b> 동서양의 모든 법기, 정령, 호박, 사탕이 융합된 궁극의 전당입니다!'
+            9: {
+                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🏛️ 🌟</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">至高無上的鬼節殿堂</div><b>【典故與由來】</b>結合東方中元普渡與西洋萬聖節所有法器、神將、南瓜與糖果的終極殿堂，象徵跨文化多元共融的最高智慧與榮耀！',
+                'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🏛️ 🌟</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">至高无上的鬼节殿堂</div><b>【典故与由来】</b>结合东方中元普渡与西洋万圣节所有法器、神将、南瓜与糖果的终极殿堂，象征跨文化多元共融的最高智慧与荣耀！',
+                'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🏛️ 🌟</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Supreme Festival Sanctuary</div><b>[Origin]</b> The ultimate sanctuary combining all Eastern and Western ritual tools, spirits, and candies, symbolizing the pinnacle of multicultural harmony!',
+                'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🏛️ 🌟</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">至高の祭り聖殿</div><b>【由来】</b>東西の法器、精霊、カボチャ、お菓子が全て融合した究極の殿堂です！',
+                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🏛️ 🌟</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">지상 최고의 축제 성전</div><b>[유래]</b> 동서양의 모든 법기, 정령, 호박, 사탕이 융합된 궁극의 전당입니다!'
             }
         };
 
@@ -954,9 +964,10 @@
         function syncCountryLanguage() {
             let country = document.getElementById('playerCountry').value;
             let targetLang = 'zh-TW';
-            if (country === 'Japan') targetLang = 'ja';
+            if (country === 'China') targetLang = 'zh-CN';
+            else if (country === 'Japan') targetLang = 'ja';
             else if (country === 'South Korea') targetLang = 'ko';
-            else if (country !== 'Taiwan' && country !== 'China') targetLang = 'en';
+            else if (country !== 'Taiwan') targetLang = 'en';
 
             document.getElementById('langSelect').value = targetLang;
             changeLanguage();
@@ -1007,6 +1018,11 @@
         function startGame(event) {
             if (event) event.preventDefault();
             playTone(440, 0.2);
+
+            // 自動啟動背景音樂（預設有聲）
+            if (!isMusicPlaying) {
+                toggleBackgroundMusic();
+            }
 
             let playTimesKey = 'ghost_play_count';
             let currentPlays = parseInt(localStorage.getItem(playTimesKey) || '0') + 1;
@@ -1249,7 +1265,6 @@
                 maxUnlockedLevel = currentLevel + 1;
             }
 
-            // 隨機觸發請神奇遇（第3關後，有機率觸發）
             if (playCount >= 3 && currentLevel >= 3 && Math.random() > 0.4) {
                 showGodModal();
             } else {
@@ -1257,7 +1272,6 @@
             }
         }
 
-        // 關卡專屬文物典故說明頁：針對前一關出現過的物品講解，絕對不重複
         function showLoreScreen() {
             document.getElementById('gameScreen').style.display = 'none';
             const loreScreen = document.getElementById('loreScreen');
@@ -1355,7 +1369,7 @@
                 consecutiveShengJiao++;
                 playTone(880, 0.2);
             } else {
-                consecutiveShengJiao = 0; // 蓋杯歸零
+                consecutiveShengJiao = 0;
                 playTone(150, 0.3);
             }
 
@@ -1517,7 +1531,6 @@
             }
         }
 
-        // 婉拒請神功能：不扣分、不跳關，直接進入下一關專屬文物典故畫面
         function closeGodModal() {
             if (destinyTimerInterval) clearInterval(destinyTimerInterval);
             document.getElementById('godModal').style.display = 'none';
