@@ -6,12 +6,12 @@
     <title>東方鬼月與西洋萬聖節之交會 — 總設計：高雄師範大學 劉世閔博士</title>
     <style>
         :root {
-            --bg-color: #111827;
-            --panel-bg: #1f2937;
-            --text-color: #f9fafb;
-            --accent-color: #f97316;
-            --accent-hover: #ea580c;
-            --card-border: #4b5563;
+            --bg-color: #f8fafc;
+            --panel-bg: #ffffff;
+            --text-color: #0f172a;
+            --accent-color: #ea580c;
+            --accent-hover: #c2410c;
+            --card-border: #cbd5e1;
         }
 
         body {
@@ -34,7 +34,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: var(--panel-bg);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
             box-sizing: border-box;
             border-bottom: 3px solid var(--accent-color);
         }
@@ -53,8 +53,8 @@
         }
 
         .lang-switcher select, .nav-btn {
-            background: #374151;
-            color: #f9fafb;
+            background: #f1f5f9;
+            color: #334155;
             border: 1px solid var(--card-border);
             padding: 4px 8px;
             border-radius: 6px;
@@ -76,7 +76,7 @@
             background: var(--panel-bg);
             padding: 25px 20px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             max-width: 600px;
             width: 95%;
             text-align: center;
@@ -91,12 +91,12 @@
         }
 
         .game-hero-banner {
-            background: linear-gradient(135deg, #ea580c 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
             color: white;
             padding: 18px;
             border-radius: 12px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
             text-align: left;
             position: relative;
             overflow: hidden;
@@ -114,12 +114,12 @@
             margin: 0;
             font-size: 0.9rem;
             line-height: 1.5;
-            color: #f3f4f6;
+            color: #fffbeb;
         }
 
         #transitionScreen {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-            border: 4px solid #f59e0b;
+            background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
+            border: 4px solid #fbbf24;
             color: #ffffff;
         }
 
@@ -132,15 +132,15 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #d1d5db;
+            color: #334155;
             font-size: 0.95rem;
         }
 
         .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
-            background: #111827;
-            color: #f9fafb;
+            background: #ffffff;
+            color: #0f172a;
             border: 2px solid var(--card-border);
             border-radius: 8px;
             font-size: 1rem;
@@ -163,9 +163,9 @@
         }
 
         .level-btn {
-            background: #374151;
+            background: #e2e8f0;
             border: 2px solid var(--card-border);
-            color: #f9fafb;
+            color: #334155;
             padding: 5px 10px;
             border-radius: 6px;
             cursor: pointer;
@@ -180,8 +180,8 @@
         }
 
         .level-btn.locked {
-            background: #1f2937;
-            color: #6b7280;
+            background: #cbd5e1;
+            color: #64748b;
             cursor: not-allowed;
             opacity: 0.6;
         }
@@ -197,19 +197,19 @@
             border: 2px solid var(--card-border);
             margin-bottom: 10px;
             font-size: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             align-items: center;
             box-sizing: border-box;
             width: 100%;
         }
 
         .status-bar span {
-            color: #f97316;
+            color: #ea580c;
             font-weight: bold;
         }
 
         .hint-btn {
-            background: #d97706;
+            background: #ea580c;
             color: white;
             border: none;
             padding: 4px 10px;
@@ -230,15 +230,15 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .riddle-box {
-            background: #374151;
+            background: #fffbeb;
             border-left: 4px solid var(--accent-color);
             padding: 6px 10px;
             font-size: 0.95rem;
-            color: #fed7aa;
+            color: #92400e;
             font-weight: bold;
             border-radius: 4px;
             display: flex;
@@ -255,7 +255,7 @@
         }
 
         .target-item {
-            background: #374151;
+            background: #f1f5f9;
             border: 2px solid var(--card-border);
             padding: 6px 10px;
             border-radius: 6px;
@@ -264,34 +264,36 @@
             align-items: center;
             gap: 6px;
             font-weight: bold;
+            color: #1e293b;
         }
 
         .target-item.current-target {
             border-color: var(--accent-color);
-            background: #431407;
+            background: #fef3c7;
         }
 
         .target-item.found {
             text-decoration: line-through;
-            color: #6b7280;
-            background: #1f2937;
+            color: #94a3b8;
+            background: #e2e8f0;
         }
 
+        /* 極致明亮護眼的高對比場景背景 */
         .room-scene {
             position: relative;
             width: 100%;
             height: 420px;
-            background: linear-gradient(135deg, #fef08a 0%, #fed7aa 50%, #fbcfe8 100%);
+            background: linear-gradient(135deg, #fffbeb 0%, #f0fdf4 50%, #eff6ff 100%);
             border: 4px solid var(--accent-color);
             border-radius: 12px;
             overflow: hidden;
             box-sizing: border-box;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .room-object {
             position: absolute;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             cursor: pointer;
             user-select: none;
             width: 50px;
@@ -301,7 +303,7 @@
             justify-content: center;
             touch-action: manipulation;
             transition: transform 0.15s ease;
-            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.25));
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
         }
 
         .room-object:hover {
@@ -309,14 +311,14 @@
         }
 
         .room-object.decoy-item {
-            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.25)) hue-rotate(50deg) saturate(90%);
-            opacity: 0.92;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2)) hue-rotate(45deg) saturate(90%);
+            opacity: 0.95;
         }
 
         @keyframes pulseGlow {
-            0% { transform: scale(1); filter: drop-shadow(0 0 6px #f97316); }
+            0% { transform: scale(1); filter: drop-shadow(0 0 6px #ea580c); }
             50% { transform: scale(1.35); filter: drop-shadow(0 0 18px #ef4444); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 6px #f97316); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 6px #ea580c); }
         }
         .room-object.hint-glow {
             animation: pulseGlow 0.6s ease-in-out infinite;
@@ -330,7 +332,7 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.6);
             justify-content: center;
             align-items: center;
             z-index: 100;
@@ -350,13 +352,13 @@
         }
 
         .certificate-box {
-            background: #111827;
-            border: 3px double #f97316;
+            background: #fffbeb;
+            border: 3px double var(--accent-color);
             padding: 15px;
             border-radius: 8px;
             margin-top: 10px;
             text-align: left;
-            color: #f9fafb;
+            color: #1e293b;
         }
 
         .btn {
@@ -384,7 +386,7 @@
         }
 
         .quiz-visual-btn, .tarot-card {
-            background: #111827;
+            background: #f8fafc;
             border: 3px solid var(--card-border);
             padding: 20px;
             border-radius: 12px;
@@ -394,17 +396,17 @@
             align-items: center;
             justify-content: center;
             transition: transform 0.15s, background 0.2s, border-color 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.06);
         }
 
         .quiz-visual-btn:hover, .tarot-card:hover {
             transform: scale(1.05);
-            background: #374151;
+            background: #fef3c7;
             border-color: var(--accent-color);
         }
 
         .lore-box {
-            background: #111827;
+            background: #fffbeb;
             border: 3px solid var(--accent-color);
             padding: 20px;
             border-radius: 12px;
@@ -412,16 +414,7 @@
             margin: 15px 0;
             font-size: 1rem;
             line-height: 1.6;
-            color: #fed7aa;
-        }
-
-        .floating-msg {
-            position: absolute;
-            font-weight: bold;
-            font-size: 1.2rem;
-            pointer-events: none;
-            z-index: 50;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            color: #78350f;
         }
 
         .destiny-grid-container {
@@ -433,7 +426,7 @@
         }
 
         .destiny-card {
-            background: #374151;
+            background: #f1f5f9;
             border: 3px solid var(--card-border);
             border-radius: 10px;
             aspect-ratio: 1;
@@ -447,11 +440,11 @@
 
         .destiny-card:hover:not(.flipped) {
             transform: scale(1.05);
-            background: #4b5563;
+            background: #e2e8f0;
         }
 
         .destiny-card.flipped {
-            background: #111827;
+            background: #ffffff;
             transform: rotateY(180deg);
             cursor: default;
         }
@@ -462,7 +455,7 @@
     <header>
         <h1 id="appTitle">🏛️ 東方鬼月與西洋萬聖節之交會 — 總設計：高雄師範大學 劉世閔博士</h1>
         <div class="header-controls">
-            <button class="nav-btn" id="audioToggleBtn" type="button" style="background:#f97316; color:white;">🎵 音樂</button>
+            <button class="nav-btn" id="audioToggleBtn" type="button" style="background:#ea580c; color:white;">🎵 音樂</button>
             <div class="lang-switcher">
                 <select id="langSelect">
                     <option value="zh-TW">繁中</option>
@@ -481,7 +474,7 @@
             <div class="game-hero-banner">
                 <h3 id="heroTitle">🎃 東方中元普渡與西洋萬聖節之交會 👻</h3>
                 <p id="heroDesc">
-                    ✨ 融合東方祈福燈籠、金銀紙錢與西洋萬聖南瓜、幽靈的跨文化奇幻冒險！專為長幼設計的護眼友善十級積分與神明庇佑挑戰。
+                    ✨ 融合東方祈福燈籠、金銀紙錢與西洋萬聖南瓜、幽靈的跨文化奇幻冒險！專為長幼設計的極致明亮護眼十級積分與神明庇佑挑戰。
                 </p>
             </div>
 
@@ -522,7 +515,7 @@
             <button class="btn" id="startBtn" type="button">開始尋寶 / Start</button>
         </div>
 
-        <!-- 節慶圖像典故說明頁（五語系同步對應） -->
+        <!-- 節慶圖像典故說明頁 -->
         <div id="loreScreen">
             <h2 id="loreHeaderTitle" style="color: var(--accent-color); margin-top:0; font-size: 1.3rem;">🏮 節慶物件典故與由來</h2>
             <div id="loreContentBox" class="lore-box">載入中...</div>
@@ -531,46 +524,46 @@
 
         <!-- 請神降臨互動彈窗 -->
         <div id="godModal">
-            <h2 id="godTitle" style="color: #f59e0b; margin-top:0; font-size: 1.4rem;">🌟 神明降臨奇遇</h2>
-            <div id="godDescBox" style="font-size: 1rem; line-height: 1.6; color: #f9fafb; margin: 15px 0;">載入中...</div>
+            <h2 id="godTitle" style="color: #d97706; margin-top:0; font-size: 1.4rem;">🌟 神明降臨奇遇</h2>
+            <div id="godDescBox" style="font-size: 1rem; line-height: 1.6; color: #1e293b; margin: 15px 0;">載入中...</div>
             
             <div id="westernEncounterArea" style="display: none;">
                 <div style="margin-bottom: 15px;">
-                    <label id="labelBetEnergy" style="color: #d1d5db;">投入能量（積分）：</label>
+                    <label id="labelBetEnergy" style="color: #334155;">投入能量（積分）：</label>
                     <select id="westernBetSelect" style="max-width: 150px; display: inline-block; margin-left: 5px;">
                         <option value="200">200</option>
                         <option value="400">400</option>
                         <option value="600">600</option>
                     </select>
                 </div>
-                <div id="destinyTip" style="font-size: 0.9rem; color: #fed7aa; margin-bottom: 5px;">⚡ 請在 15 秒內翻出 2 張相同符號，配對成功將獲得對應獎勵倍率！⚡</div>
-                <div id="destinyTimer" style="font-size: 1.2rem; font-weight: bold; color: #f59e0b; margin: 5px 0;">15</div>
+                <div id="destinyTip" style="font-size: 0.9rem; color: #b45309; margin-bottom: 5px; font-weight: bold;">⚡ 請在 15 秒內翻出 2 張相同符號，配對成功將獲得對應獎勵倍率！⚡</div>
+                <div id="destinyTimer" style="font-size: 1.2rem; font-weight: bold; color: #ea580c; margin: 5px 0;">15</div>
                 <div class="destiny-grid-container" id="destinyGrid"></div>
                 <div id="godResultMsg" style="margin-top:10px; font-weight:bold;"></div>
             </div>
 
             <div id="easternEncounterArea" style="display: none;">
-                <button class="btn" id="castBlockBtn" type="button" style="background:#d97706;">筊杯請神 (擲筊)</button>
-                <div id="easternResultMsg" style="margin-top:10px; font-weight:bold; color:#f9fafb;">已獲聖筊次數：0 / 2</div>
+                <button class="btn" id="castBlockBtn" type="button" style="background:#ea580c;">筊杯請神 (擲筊)</button>
+                <div id="easternResultMsg" style="margin-top:10px; font-weight:bold; color:#1e293b;">已獲聖筊次數：0 / 2</div>
             </div>
 
-            <button class="btn" id="skipGodBtn" type="button" style="background:#4b5563; margin-top:8px;">婉拒請神 / 繼續闖關</button>
+            <button class="btn" id="skipGodBtn" type="button" style="background:#64748b; margin-top:8px;">婉拒請神 / 繼續闖關</button>
         </div>
 
         <!-- 轉場過場畫面 -->
         <div id="transitionScreen">
-            <h2 id="transHeader" style="color: #f59e0b; font-size: 1.5rem; margin-top: 0;">⚡ 視覺直覺反應大考驗 ⚡</h2>
-            <p id="transDesc" style="font-size: 0.95rem; line-height: 1.6; color: #cbd5e1; margin: 15px 0;">
+            <h2 id="transHeader" style="color: #fbbf24; font-size: 1.5rem; margin-top: 0;">⚡ 視覺直覺反應大考驗 ⚡</h2>
+            <p id="transDesc" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; margin: 15px 0;">
                 十關圖標歷練已過，請接受高難度擬真混淆挑戰！
             </p>
             <div id="transitionTimer" style="font-size: 2rem; font-weight: bold; color: #fbbf24; margin: 15px 0;">3</div>
-            <button class="btn" id="startQuizDirectBtn" type="button" style="background-color: #d97706;">立即接受考驗</button>
+            <button class="btn" id="startQuizDirectBtn" type="button" style="background-color: #ea580c;">立即接受考驗</button>
         </div>
 
         <!-- 視覺直覺測驗畫面 -->
         <div id="quizScreen">
             <h2 id="quizHeader" style="color: var(--accent-color); margin-top:0; font-size: 1.2rem;">🏆 擬真圖標視覺直覺考驗</h2>
-            <p id="quizInstructions" style="color: #9ca3af; font-size: 0.85rem;">注意辨識外型相似的干擾物，找出正確圖標！</p>
+            <p id="quizInstructions" style="color: #64748b; font-size: 0.85rem;">注意辨識外型相似的干擾物，找出正確圖標！</p>
             <div id="quizProgress" style="font-weight: bold; color: var(--accent-color); margin: 8px 0; font-size: 0.9rem;"></div>
             <div id="quizQuestionBox" style="font-size: 3rem; margin: 15px 0;">🎯</div>
             <div class="quiz-visual-grid" id="quizOptionsContainer"></div>
@@ -588,7 +581,7 @@
 
             <div class="checklist-bar">
                 <div class="riddle-box" id="riddleText">🏮 請依序找出指定的節慶圖標！</div>
-                <div id="checklistTitle" style="font-size: 0.9rem; font-weight: bold; color: #d1d5db;">
+                <div id="checklistTitle" style="font-size: 0.9rem; font-weight: bold; color: #334155;">
                     🔍 尋寶清單：
                 </div>
                 <div class="checklist-items" id="checklistContainer"></div>
@@ -609,12 +602,11 @@
     </div>
 
     <script>
-        // 五大語系字典完整對應
         const i18n = {
             'zh-TW': {
                 appTitle: '🏛️ 東方鬼月與西洋萬聖節之交會 — 總設計：高雄師範大學 劉世閔博士',
                 heroTitle: '🎃 東方中元普渡與西洋萬聖節之交會 👻',
-                heroDesc: '✨ 融合東方祈福燈籠、金銀紙錢與西洋萬聖南瓜、幽靈的跨文化奇幻冒險！專為長幼設計的護眼友善十級積分與神明庇佑挑戰。',
+                heroDesc: '✨ 融合東方祈福燈籠、金銀紙錢與西洋萬聖南瓜、幽靈的跨文化奇幻冒險！專為長幼設計的極致明亮護眼十級積分與神明庇佑挑戰。',
                 setupTitle: '玩家檔案與難度設定',
                 labelCodename: '代號 / 玩家名稱：',
                 labelGender: '性別：',
@@ -644,7 +636,7 @@
             'zh-CN': {
                 appTitle: '🏛️ 东方鬼月与万圣节之交会 — 总设计：高雄师范大学 刘世闵博士',
                 heroTitle: '🎃 东方中元普渡与西洋万圣节之交会 👻',
-                heroDesc: '✨ 融合东方祈福灯笼、金银纸钱与西洋万圣南瓜、幽灵的跨文化奇幻冒险！专为长幼设计的护眼友善十级积分与神明庇佑挑战。',
+                heroDesc: '✨ 融合东方祈福灯笼、金银纸钱与西洋万圣南瓜、幽灵的跨文化奇幻冒险！专为长幼设计的极致明亮护眼十级积分与神明庇佑挑战。',
                 setupTitle: '玩家档案与难度设定',
                 labelCodename: '代号 / 玩家名称：',
                 labelGender: '性别：',
@@ -674,7 +666,7 @@
             'en': {
                 appTitle: '🏛️ Convergence of Eastern Ghost Festival & Halloween — Designer: NKNU, Dr. Shih-Min Liu',
                 heroTitle: '🎃 Eastern & Western Ghost Festivals Convergence 👻',
-                heroDesc: '✨ A cross-cultural adventure blending Eastern lanterns and paper money with Western pumpkins and spirits! Eye-friendly 10-level challenge.',
+                heroDesc: '✨ A cross-cultural adventure blending Eastern lanterns and paper money with Western pumpkins and spirits! Bright, eye-friendly 10-level challenge.',
                 setupTitle: 'Player Profile & Settings',
                 labelCodename: 'Name / Codename:',
                 labelGender: 'Gender:',
@@ -763,7 +755,6 @@
             }
         };
 
-        // 五語系文物典故資料庫
         const localizedLore = {
             'zh-TW': {
                 '紅燈籠': '<b>【典故與由來】</b>中元普渡時懸掛的紅燈籠（普渡公燈），是為了在夜晚為遊蕩的好兄弟指引方向。',
@@ -963,6 +954,7 @@
         let audioCtx = null, isMusicPlaying = false;
         let activeGod = null, shengJiaoCount = 0;
 
+        // 音樂升級：歡快雙音軌節奏和弦，不再單調催眠
         function toggleBackgroundMusic() {
             if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             if (audioCtx.state === 'suspended') audioCtx.resume();
@@ -973,17 +965,20 @@
             } else {
                 isMusicPlaying = true;
                 document.getElementById('audioToggleBtn').style.opacity = '1';
-                playMusicLoop();
+                playLivelyMelodyLoop();
             }
         }
 
-        function playMusicLoop() {
-            const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+        function playLivelyMelodyLoop() {
+            // 輕快愉悅的音符序列（C大調歡樂小調）
+            const melody = [330, 392, 440, 523, 440, 392, 330, 294, 330, 392, 523, 440, 392, 330, 392, 330];
+            let index = 0;
             musicInterval = setInterval(() => {
                 if (!isMusicPlaying || !audioCtx) return;
-                let note = notes[Math.floor(Math.random() * notes.length)];
-                playTone(note, 0.4, 'sine');
-            }, 600);
+                let note = melody[index];
+                playTone(note, 0.25, 'triangle'); // 使用柔和明亮的三角波音色
+                index = (index + 1) % melody.length;
+            }, 300); // 輕快的節奏間隔
         }
 
         function playTone(freq, duration, type = 'sine') {
@@ -992,7 +987,7 @@
                 let osc = audioCtx.createOscillator();
                 let gain = audioCtx.createGain();
                 osc.type = type; osc.frequency.value = freq;
-                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
                 osc.connect(gain); gain.connect(audioCtx.destination);
                 osc.start(); osc.stop(audioCtx.currentTime + duration);
@@ -1316,7 +1311,7 @@
 
             document.getElementById('loreContentBox').innerHTML = `
                 <div style="font-size: 3rem; text-align: center; margin-bottom: 8px;">${sampleItem.icon}</div>
-                <div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #d97706;">${sampleItem.name}</div>
+                <div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">${sampleItem.name}</div>
                 <div style="font-size: 0.98rem; line-height: 1.6;">${loreText}</div>
             `;
 
@@ -1373,7 +1368,7 @@
             descBox.innerHTML = `
                 <div style="font-size: 3rem; margin-bottom: 5px;">${activeGod.icon}</div>
                 <b>【${activeGod.name}】Appears!</b><br>${activeGod.desc}<br>
-                <span style="color:#f59e0b; font-weight:bold;">Cost / Bet: ${activeGod.cost} pts</span> (Available: ${score} pts)
+                <span style="color:#ea580c; font-weight:bold;">Cost / Bet: ${activeGod.cost} pts</span> (Available: ${score} pts)
             `;
 
             if (isEastern) {
@@ -1632,15 +1627,15 @@
 
             certContainer.innerHTML = `
                 <div class="certificate-box">
-                    <div style="font-size: 1.15rem; font-weight: bold; color: #d97706; text-align: center; margin-bottom: 5px;">
+                    <div style="font-size: 1.15rem; font-weight: bold; color: #ea580c; text-align: center; margin-bottom: 5px;">
                         ${dict.certTitle}
                     </div>
-                    <div style="font-size: 1rem; color: #f9fafb; margin-bottom: 5px;">
+                    <div style="font-size: 1rem; color: #1e293b; margin-bottom: 5px;">
                         Player: <b>${player.codename}</b> (${genderTitle}, ${player.country})
                     </div>
-                    <div style="font-size: 1.05rem; font-weight: bold; color: #f59e0b; margin-top: 8px;">⭐ Level: ${levelTitle}</div>
-                    <p style="font-size: 0.95rem; margin: 5px 0 0 0; color: #d1d5db;">Total score: ${score} pts. Excellent multicultural memory and wisdom!</p>
-                    <div style="font-size: 0.85rem; color: #9ca3af; text-align: right; margin-top: 12px; font-style: italic;">
+                    <div style="font-size: 1.05rem; font-weight: bold; color: #d97706; margin-top: 8px;">⭐ Level: ${levelTitle}</div>
+                    <p style="font-size: 0.95rem; margin: 5px 0 0 0; color: #475569;">Total score: ${score} pts. Excellent multicultural memory and wisdom!</p>
+                    <div style="font-size: 0.85rem; color: #64748b; text-align: right; margin-top: 12px; font-style: italic;">
                         ${dict.designerCredit}
                     </div>
                 </div>
@@ -1653,3 +1648,4 @@
     </script>
 </body>
 </html>
+```eof
