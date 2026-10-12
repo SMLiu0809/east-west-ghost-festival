@@ -404,6 +404,40 @@
             border-color: var(--accent-color);
         }
 
+        /* 文化典故選擇題樣式 */
+        .quiz-text-card {
+            background: #fffbeb;
+            border: 2px solid var(--accent-color);
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #78350f;
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.5;
+        }
+        .quiz-option-text-btn {
+            background: #ffffff;
+            border: 2px solid var(--card-border);
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #334155;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s, border-color 0.2s;
+            box-sizing: border-box;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        .quiz-option-text-btn:hover {
+            background: #fef3c7;
+            border-color: var(--accent-color);
+            color: #92400e;
+        }
+
         .lore-box {
             background: #fffbeb;
             border: 3px solid var(--accent-color);
@@ -551,21 +585,22 @@
 
         <!-- 轉場過場畫面 -->
         <div id="transitionScreen">
-            <h2 id="transHeader" style="color: #fbbf24; font-size: 1.5rem; margin-top: 0;">⚡ 視覺直覺反應大考驗 ⚡</h2>
+            <h2 id="transHeader" style="color: #fbbf24; font-size: 1.5rem; margin-top: 0;">⚡ 視覺直覺與文化鑑別大考驗 ⚡</h2>
             <p id="transDesc" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; margin: 15px 0;">
-                十關圖標歷練已過，請接受高難度擬真混淆挑戰！
+                十關圖標歷練已過，請接受高難度擬真圖標辨識與典故理解綜合考驗！
             </p>
             <div id="transitionTimer" style="font-size: 2rem; font-weight: bold; color: #fbbf24; margin: 15px 0;">3</div>
             <button class="btn" id="startQuizDirectBtn" type="button" style="background-color: #ea580c;" onclick="executeGrandmasterQuiz()">立即接受考驗</button>
         </div>
 
-        <!-- 視覺直覺測驗畫面 -->
+        <!-- 視覺直覺與文化典故測驗畫面 -->
         <div id="quizScreen">
-            <h2 id="quizHeader" style="color: var(--accent-color); margin-top:0; font-size: 1.2rem;">🏆 擬真圖標視覺直覺考驗</h2>
-            <p id="quizInstructions" style="color: #64748b; font-size: 0.85rem;">注意辨識外型相似的干擾物，找出正確圖標！</p>
+            <h2 id="quizHeader" style="color: var(--accent-color); margin-top:0; font-size: 1.2rem;">🏆 綜合鑑別大考驗</h2>
+            <p id="quizInstructions" style="color: #64748b; font-size: 0.85rem;">綜合圖標視覺混淆與文化典故理解測驗！</p>
             <div id="quizProgress" style="font-weight: bold; color: var(--accent-color); margin: 8px 0; font-size: 0.9rem;"></div>
-            <div id="quizQuestionBox" style="font-size: 3rem; margin: 15px 0;">🎯</div>
-            <div class="quiz-visual-grid" id="quizOptionsContainer"></div>
+            
+            <!-- 容器區塊依題目類型動態切換 -->
+            <div id="quizDynamicContent"></div>
         </div>
 
         <!-- 遊戲主畫面 -->
@@ -625,21 +660,21 @@
                 scoreText: '得分', timeText: '時間', hintText: '💡 提示',
                 foundPrompt: '請依序找!', decoyPrompt: '假貨！+5s!',
                 encounterMsg: '🌟 奇遇：福神降臨，獲得額外獎勵！',
-                quizHeader: '🏆 擬真圖標視覺直覺考驗',
-                quizInstructions: '注意辨識外型相似的干擾物，找出正確圖標！',
-                quizFailMsg: '❌ 點錯了！返回第一關重新觀察！',
+                quizHeader: '🏆 綜合鑑別大考驗',
+                quizInstructions: '綜合圖標視覺混淆與文化典故理解測驗！',
+                quizFailMsg: '❌ 點錯或答錯了！返回第一關重新觀察！',
                 lockedLevelAlert: '🔒 尚未解鎖！',
                 designerCredit: '總設計：高雄師範大學 劉世閔博士 (Dr. Shih-Min Liu)',
                 loreTitleText: '🏮 節慶物件典故與由來',
-                transTitleText: '⚡ 視覺直覺反應大考驗 ⚡',
-                transDescText: '十關圖標歷練已過，請接受高難度擬真混淆挑戰！',
+                transTitleText: '⚡ 視覺直覺與文化鑑別大考驗 ⚡',
+                transDescText: '十關圖標歷練已過，請接受高難度擬真圖標辨識與典故理解綜合考驗！',
                 skipGodText: '婉拒請神 / 繼續闖關',
                 castBlockText: '筊杯請神 (擲筊)',
                 betEnergyText: '投入能量（積分）：',
                 destinyTipText: '⚡ 請在 15 秒內翻出相同符號進行配對！⚡',
                 certTitle: '📜 東西洋節慶尋寶榮譽證書 📜',
                 playAgain: '重新開始冒險',
-                winAllTitle: '🏆 恭喜通關所有十關與擬真圖像直覺考驗！'
+                winAllTitle: '🏆 恭喜通關所有十關與綜合鑑別大考驗！'
             },
             'zh-CN': {
                 appTitle: '🏛️ 东方鬼月与万圣节之交会 — 总设计：高雄师范大学 刘世闵博士',
@@ -656,21 +691,21 @@
                 scoreText: '得分', timeText: '时间', hintText: '💡 提示',
                 foundPrompt: '请按顺序找!', decoyPrompt: '假货！+5s!',
                 encounterMsg: '🌟 奇遇：福神降临，获得额外奖励！',
-                quizHeader: '🏆 拟真图标视觉直觉考验',
-                quizInstructions: '注意辨识外型相似的干扰物，找出正确图标！',
-                quizFailMsg: '❌ 点错了！返回第一关重新观察！',
+                quizHeader: '🏆 综合鉴别大考验',
+                quizInstructions: '综合图标视觉混淆与文化典故理解测验！',
+                quizFailMsg: '❌ 点错或答错了！返回第一关重新观察！',
                 lockedLevelAlert: '🔒 尚未解锁！',
                 designerCredit: '總設計：高雄師範大學 劉世閔博士',
                 loreTitleText: '🏮 节庆物件典故与由来',
-                transTitleText: '⚡ 视觉直觉反应大考验 ⚡',
-                transDescText: '十关图标历练已过，请接受高难度拟真混淆挑战！',
+                transTitleText: '⚡ 视觉直觉与文化鉴别大考验 ⚡',
+                transDescText: '十关图标历练已过，请接受高难度拟真图标辨识与典故理解综合考验！',
                 skipGodText: '婉拒请神 / 继续闯关',
                 castBlockText: '筊杯请神 (掷筊)',
                 betEnergyText: '投入能量（积分）：',
                 destinyTipText: '⚡ 请在 15 秒内翻出相同符号进行配对！⚡',
                 certTitle: '📜 东西洋节庆寻宝荣誉证书 📜',
                 playAgain: '重新开始冒险',
-                winAllTitle: '🏆 恭喜通关所有十关与拟真图像视觉考验！'
+                winAllTitle: '🏆 恭喜通关所有十关与综合鉴别大考验！'
             },
             'en': {
                 appTitle: '🏛️ Convergence of Eastern Ghost Festival & Halloween — Designer: NKNU, Dr. Shih-Min Liu',
@@ -687,21 +722,21 @@
                 scoreText: 'Score', timeText: 'Time', hintText: '💡 Hint',
                 foundPrompt: 'Follow order!', decoyPrompt: 'Fake! +5s!',
                 encounterMsg: '🌟 Encounter: Divine Blessing!',
-                quizHeader: '🏆 Realistic Visual Test',
-                quizInstructions: 'Beware of decoys and tap the correct icon!',
+                quizHeader: '🏆 Comprehensive Assessment',
+                quizInstructions: 'Comprehensive visual icon test and cultural lore quiz!',
                 quizFailMsg: '❌ Incorrect! Back to Level 1!',
                 lockedLevelAlert: '🔒 Level locked!',
                 designerCredit: 'Designer: NKNU, Dr. Shih-Min Liu',
                 loreTitleText: '🏮 Festival Artifact Lore & Origins',
-                transTitleText: '⚡ Visual Intuition Trial ⚡',
-                transDescText: 'All 10 levels completed! Face the high-difficulty decoy test!',
+                transTitleText: '⚡ Comprehensive Trial ⚡',
+                transDescText: 'All 10 levels completed! Face the high-difficulty visual & lore quiz!',
                 skipGodText: 'Decline / Continue',
                 castBlockText: 'Cast Blocks (Divination)',
                 betEnergyText: 'Bet Energy (Score):',
                 destinyTipText: '⚡ Match identical symbols within 15 seconds! ⚡',
                 certTitle: '📜 Certificate of Honor 📜',
                 playAgain: 'Play Again',
-                winAllTitle: '🏆 All levels and visual trials cleared!'
+                winAllTitle: '🏆 All levels and comprehensive trials cleared!'
             },
             'ja': {
                 appTitle: '🏛️ 東洋のお盆と西洋ハロウィンの交会 — 総設計：高雄師範大学 劉世閔博士',
@@ -718,21 +753,21 @@
                 scoreText: 'スコア', timeText: '時間', hintText: '💡 ヒント',
                 foundPrompt: '順番に!', decoyPrompt: '偽物！+5s!',
                 encounterMsg: '🌟 遭遇：神様の加護！',
-                quizHeader: '🏆 擬似アイコン視覚テスト',
-                quizInstructions: '似た干渉物に注意して正しいアイコンを選ぼう！',
+                quizHeader: '🏆 総合鑑別テスト',
+                quizInstructions: 'アイコン視覚テストと文化の由来に関するクイズ！',
                 quizFailMsg: '❌ 不正解！レベル1に戻る！',
                 lockedLevelAlert: '🔒 ロック中！',
                 designerCredit: '総設計：高雄師範大学 劉世閔博士 (Dr. Shih-Min Liu)',
                 loreTitleText: '🏮 祭りの由来と物語',
-                transTitleText: '⚡ 視覚直感テスト ⚡',
-                transDescText: '全10レベルクリア！高難度の擬似テストに挑戦！',
+                transTitleText: '⚡ 総合試練 ⚡',
+                transDescText: '全10レベルクリア！高難度のビジュアル＆文化クイズに挑戦！',
                 skipGodText: '辞退して進む',
                 castBlockTest: '聖杯占い（擲筊）',
                 betEnergyText: 'エネルギー賭け（スコア）：',
                 destinyTipText: '⚡ 15秒以内にシンボルをペアにしよう！ ⚡',
                 certTitle: '📜 栄誉の証書 📜',
                 playAgain: 'もう一度プレイ',
-                winAllTitle: '🏆 全てのレベルと視覚テストをクリアしました！'
+                winAllTitle: '🏆 全てのレベルと総合試練をクリアしました！'
             },
             'ko': {
                 appTitle: '🏛️ 동서양 유령축제의 만남 — 총디자인: 국립가오슝사범대학교 류세민 박사',
@@ -749,25 +784,163 @@
                 scoreText: '점수', timeText: '시간', hintText: '💡 힌트',
                 foundPrompt: '순서대로!', decoyPrompt: '가짜! +5s!',
                 encounterMsg: '🌟 조우: 신의 가호!',
-                quizHeader: '🏆 유사 아이콘 시각 테스트',
-                quizInstructions: '비슷한 혼동물을 주의하며 올바른 아이콘을 찾으세요!',
+                quizHeader: '🏆 종합鑑別 테스트',
+                quizInstructions: '시각 아이콘 테스트와 문화 유래 퀴즈!',
                 quizFailMsg: '❌ 오답! 1단계로 강등!',
                 lockedLevelAlert: '🔒 잠긴 레벨!',
                 designerCredit: '총디자인: 국립가오슝사범대학교 류세민 박사 (Dr. Shih-Min Liu)',
                 loreTitleText: '🏮 축제 유물 전설과 유래',
-                transTitleText: '⚡ 시각 직관 시험 ⚡',
-                transDescText: '10단계 돌파! 고난도 혼동 테스트에 도전하세요!',
+                transTitleText: '⚡ 종합 시험 ⚡',
+                transDescText: '10단계 돌파! 고난도 시각 및 문화 퀴즈에 도전하세요!',
                 skipGodText: '거절하고 진행',
                 castBlockTest: '신탁 점치기 (척배)',
                 betEnergyText: '에너지 투자 (점수):',
                 destinyTipText: '⚡ 15秒 안에 같은 기호를 맞추세요! ⚡',
                 certTitle: '📜 명예 증서 📜',
                 playAgain: '다시 도전',
-                winAllTitle: '🏆 모든 단계와 시각 테스트를 통과했습니다!'
+                winAllTitle: '🏆 모든 단계와 종합 시험을 통과했습니다!'
             }
         };
 
-        // 十個關卡專屬文物典故資料庫（支援繁中、簡中、英、日、韓五語）
+        // 依據說明頁內容精心設計的文化典故選擇題庫
+        const culturalLoreQuizPool = {
+            'zh-TW': [
+                {
+                    q: '【文化典故題】中元普渡時懸掛的「紅燈籠（普渡公燈）」，其主要核心意義是什麼？',
+                    options: ['在夜晚為遊蕩的好兄弟指引平安方向', '裝飾門面以迎賓過節', '驅趕白天的惡犬與飛鳥', '祈求來年農作物大豐收'],
+                    correct: 0
+                },
+                {
+                    q: '【文化典故題】道家傳說中用「桃木劍」作為法器，在民間習俗中最主要的宗教功能為何？',
+                    options: ['用來砍伐山林樹木', '驅邪避凶與鎮宅化煞', '作為古人的防身武器', '祭祀時切開供品祭品'],
+                    correct: 1
+                },
+                {
+                    q: '【文化典故題】在華人基層民間信仰中，守護地方鄰里與農作平安的福德正神廟宇被尊稱為？',
+                    options: ['城隍廟', '土地公廟', '東嶽殿', '地藏庵'],
+                    correct: 1
+                },
+                {
+                    q: '【文化典故題】西洋萬聖節中經典的「傑克南瓜燈（Jack-o\'-lantern）」，最初源自於什麼目的？',
+                    options: ['點亮夜晚道路以便夜間散步', '在秋夜中驅趕惡靈與妖怪', '作為小朋友晚上讀書的夜燈', '慶祝秋季小麥豐收慶典'],
+                    correct: 1
+                },
+                {
+                    q: '【文化典故題】中元普渡祭桌上放置「剖半插香的西瓜」，其傳統民俗目的為何？',
+                    options: ['讓好兄弟在祭拜時解渴', '祈求考試順利高中狀元', '象徵圓滿與闔家團圓', '鎮壓桌上的邪氣與陰氣'],
+                    correct: 0
+                }
+            ],
+            'zh-CN': [
+                {
+                    q: '【文化典故题】中元普渡时悬挂的“红灯笼（普渡公灯）”，其主要核心意义是什么？',
+                    options: ['在夜晚为游荡的好兄弟指引平安方向', '装饰门面以迎宾过节', '驱赶白天的恶犬与飞鸟', '祈求来年农作物大丰收'],
+                    correct: 0
+                },
+                {
+                    q: '【文化典故题】道家传说中用“桃木剑”作为法器，在民间习俗中最主要的宗教功能为何？',
+                    options: ['用来砍伐山林树木', '驱邪避凶与镇宅化煞', '作为古人的防身武器', '祭祀时切开供品祭品'],
+                    correct: 1
+                },
+                {
+                    q: '【文化典故题】在华人基层民间信仰中，守护地方邻里与农作平安的福德正神庙宇被尊称为？',
+                    options: ['城隍庙', '土地公庙', '东岳殿', '地藏庵'],
+                    correct: 1
+                },
+                {
+                    q: '【文化典故题】西洋万圣节中经典的“杰克南瓜灯（Jack-o\'-lantern）”，最初源自于什么目的？',
+                    options: ['点亮夜晚道路以便夜间散步', '在秋夜中驱赶恶灵与妖怪', '作为小朋友晚上读书的夜灯', '庆祝秋季小麦丰收庆典'],
+                    correct: 1
+                },
+                {
+                    q: '【文化典故题】中元普渡祭桌上放置“剖半插香的西瓜”，其传统民俗目的为何？',
+                    options: ['让好兄弟在祭拜时解渴', '祈求考试顺利高中状元', '象征圆满与阖家团圆', '镇压桌上的邪气与阴气'],
+                    correct: 0
+                }
+            ],
+            'en': [
+                {
+                    q: '[Lore Quiz] What is the primary purpose of hanging red lanterns during the Ghost Festival?',
+                    options: ['To safely guide wandering spirits at night', 'To decorate for celebrations', 'To scare away daytime birds', 'To pray for a rich harvest'],
+                    correct: 0
+                },
+                {
+                    q: '[Lore Quiz] What is the primary ritual purpose of a Taoist peach wood sword in folklore?',
+                    options: ['To chop firewood', 'To ward off evil and ward off negative energy', 'As ancient self-defense weaponry', 'To slice ritual offerings'],
+                    correct: 1
+                },
+                {
+                    q: '[Lore Quiz] Shrines dedicated to the Earth God protecting local communities are known as:',
+                    options: ['City God Temples', 'Earth God Shrines', 'Underworld Palaces', 'Bodhisattva Temples'],
+                    correct: 1
+                },
+                {
+                    q: '[Lore Quiz] What was the original purpose of the classic Halloween Jack-o\'-lantern?',
+                    options: ['To light up night walks', 'To ward off evil spirits on autumn nights', 'As a study lamp for kids', 'To celebrate the wheat harvest'],
+                    correct: 1
+                },
+                {
+                    q: '[Lore Quiz] What is the folk tradition behind offering halved watermelons with incense during the Ghost Festival?',
+                    options: ['To quench the thirst of wandering spirits', 'To pray for academic success', 'To symbolize family reunion', 'To suppress evil qi'],
+                    correct: 0
+                }
+            ],
+            'ja': [
+                {
+                    q: '【文化クイズ】お盆の時に赤提灯（普渡公灯）を掲げる主な目的は何ですか？',
+                    options: ['夜間にお化けや精霊を安全に導くため', 'お祭りの装飾のため', '昼間の鳥を追い払うため', '豊作を祈るため'],
+                    correct: 0
+                },
+                {
+                    q: '【文化クイズ】道教の法器である「桃の木剣」の主な宗教的機能は何ですか？',
+                    options: ['薪を切るため', '魔除けと厄払いのため', '古代の護身武器として', 'お供え物を切るため'],
+                    correct: 1
+                },
+                {
+                    q: '【文化クイズ】地域社会を守る土地神（福徳正神）を祀る祠は何と呼ばれていますか？',
+                    options: ['城隍廟', '土地公廟', '東嶽殿', '地蔵庵'],
+                    correct: 1
+                },
+                {
+                    q: '【文化クイズ】ハロウィンの「ジャック・オー・ランタン」の元々の目的は何ですか？',
+                    options: ['夜道を明るく照らすため', '秋の夜に悪霊を追い払うため', '子供の勉強灯として', '小麦の収穫を祝うため'],
+                    correct: 1
+                },
+                {
+                    q: '【文化クイズ】お盆の供え物に「香を挿した半分に切ったスイカ」を置く伝統的な理由は？',
+                    options: ['精霊の喉を潤すため', '試験合格を祈るため', '家族円満を象徴するため', '邪気を鎮めるため'],
+                    correct: 0
+                }
+            ],
+            'ko': [
+                {
+                    q: '[문화 퀴즈] 유령 축제 때 붉은 등불을 다는 주된 목적은 무엇인가요?',
+                    options: ['밤에 방황하는 영혼들을 안전하게 인도하기 위해', '축제 분위기를 내기 위해', '낮에 새를 쫓기 위해', '풍년을 기원하기 위해'],
+                    correct: 0
+                },
+                {
+                    q: '[문화 퀴즈] 복숭아나무로 만든 도교 법기인 검의 주된 종교적 기능은 무엇인가요?',
+                    options: ['장작을 패기 위해', '악귀를 물리치고 나쁜 기운을 막기 위해', '고대 호신용 무기로', '제물을 썰기 위해'],
+                    correct: 1
+                },
+                {
+                    q: '[문화 퀴즈] 지역 사회와 수확을 지키는 토지신을 모신 사당을 무엇이라 부르나요?',
+                    options: ['성황묘', '토지공묘', '동악전', '지장안'],
+                    correct: 1
+                },
+                {
+                    q: '[문화 퀴즈] 할로윈 잭오랜턴의 원래 목적은 무엇인가요?',
+                    options: ['밤길을 밝히기 위해', '가을 밤 악령을 쫓기 위해', '아이들의 공부 등불로', '수확을 축하하기 위해'],
+                    correct: 1
+                },
+                {
+                    q: '[문화 퀴즈] 유령 축제 때 향을 꽂은 반쪽 수박을 바치는 전통적인 이유는 무엇인가요?',
+                    options: ['영혼들의 목을 축이기 위해', '시험 합격을 기원하기 위해', '가족 화목을 상징하기 위해', '사악한 기운을 누르기 위해'],
+                    correct: 0
+                }
+            ]
+        };
+
         const levelSpecificLore = {
             0: {
                 'zh-TW': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🏮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">紅燈籠（普渡公燈）</div><b>【典故與由來】</b>中元普渡時懸掛的紅燈籠是用來在夜晚為遊蕩的好兄弟指引方向，象徵慈悲與溫暖的光芒。',
@@ -1019,7 +1192,6 @@
             if (event) event.preventDefault();
             playTone(440, 0.2);
 
-            // 自動啟動背景音樂（預設有聲）
             if (!isMusicPlaying) {
                 toggleBackgroundMusic();
             }
@@ -1111,6 +1283,7 @@
 
             pool.sort(() => Math.random() - 0.5);
             let targetCount = levelConfig.count;
+            let baseDecoyCount = levelConfig.count + levelIdx + 2;
             let rawItems = pool.slice(0, targetCount);
 
             currentItems = rawItems.map(item => ({ 
@@ -1122,7 +1295,7 @@
             }));
 
             renderChecklist();
-            renderScene();
+            renderScene(baseDecoyCount);
             renderLevelSelector();
         }
 
@@ -1160,7 +1333,7 @@
             });
         }
 
-        function renderScene() {
+        function renderScene(decoyCount) {
             const scene = document.getElementById('roomScene');
             if (!scene) return;
             scene.innerHTML = '';
@@ -1175,8 +1348,7 @@
                 });
             });
 
-            let baseDecoyCount = currentLevel + 1;
-            for (let i = 0; i < baseDecoyCount; i++) {
+            for (let i = 0; i < decoyCount; i++) {
                 let randomTarget = currentItems[Math.floor(Math.random() * currentItems.length)];
                 sceneObjects.push({
                     name: 'Fake',
@@ -1194,7 +1366,7 @@
                     posX = Math.floor(Math.random() * 75) + 10;
                     posY = Math.floor(Math.random() * 65) + 15;
                     for (let p of positions) {
-                        if (Math.sqrt(Math.pow(p.x - posX, 2) + Math.pow(p.y - posY, 2)) < 10) {
+                        if (Math.sqrt(Math.pow(p.x - posX, 2) + Math.pow(p.y - posY, 2)) < 9) {
                             overlapping = true;
                             break;
                         }
@@ -1239,13 +1411,20 @@
                         handleLevelCompletion();
                     }
                 } else {
-                    playTone(220, 0.2);
+                    playTone(180, 0.3);
+                    score = Math.max(0, score - 50);
+                    timer += 5;
+                    totalGameTime += 5;
+                    document.getElementById('score').innerText = score;
+                    document.getElementById('timer').innerText = timer;
                 }
             } else {
-                playTone(150, 0.3);
+                playTone(120, 0.4);
                 element.classList.add('triggered');
+                score = Math.max(0, score - 50);
                 timer += 5;
                 totalGameTime += 5;
+                document.getElementById('score').innerText = score;
                 document.getElementById('timer').innerText = timer;
             }
         }
@@ -1281,16 +1460,29 @@
             if (!levelSpecificLore[currentLevel] || !levelSpecificLore[currentLevel][langKey]) {
                 langKey = 'en';
             }
-            let loreHtml = levelSpecificLore[currentLevel][langKey] || levelSpecificLore[currentLevel]['zh-TW'];
 
-            document.getElementById('loreContentBox').innerHTML = loreHtml;
+            let baseHtml = levelSpecificLore[currentLevel][langKey] || levelSpecificLore[currentLevel]['zh-TW'];
+            let diff = player.difficulty;
+
+            if ((diff === 'normal' || diff === 'hard') && currentLevel > 0) {
+                let prevLangKey = currentLang;
+                if (!levelSpecificLore[currentLevel - 1][prevLangKey]) prevLangKey = 'en';
+                baseHtml += "<hr style='border:1px dashed #ea580c; margin:10px 0;'>" + levelSpecificLore[currentLevel - 1][prevLangKey];
+            } else if (diff === 'master' && currentLevel > 1) {
+                let p1Key = currentLang; if (!levelSpecificLore[currentLevel - 1][p1Key]) p1Key = 'en';
+                let p2Key = currentLang; if (!levelSpecificLore[currentLevel - 2][p2Key]) p2Key = 'en';
+                baseHtml += "<hr style='border:1px dashed #ea580c; margin:10px 0;'>" + levelSpecificLore[currentLevel - 1][p1Key];
+                baseHtml += "<hr style='border:1px dashed #ea580c; margin:10px 0;'>" + levelSpecificLore[currentLevel - 2][p2Key];
+            }
+
+            document.getElementById('loreContentBox').innerHTML = baseHtml;
 
             let loreSeconds = 7;
-            if (player.difficulty === 'novice') loreSeconds = 11;
-            else if (player.difficulty === 'easy') loreSeconds = 9;
-            else if (player.difficulty === 'normal') loreSeconds = 7;
-            else if (player.difficulty === 'hard') loreSeconds = 5;
-            else if (player.difficulty === 'master') loreSeconds = 3;
+            if (diff === 'novice') loreSeconds = 11;
+            else if (diff === 'easy') loreSeconds = 9;
+            else if (diff === 'normal') loreSeconds = 7;
+            else if (diff === 'hard') loreSeconds = 5;
+            else if (diff === 'master') loreSeconds = 3;
 
             let timerPrefix = currentLang === 'ja' ? 'タイマー' : (currentLang === 'ko' ? '타이머' : (currentLang === 'en' ? 'Timer' : '倒數計時'));
             const timerDisp = document.getElementById('loreTimerDisplay');
@@ -1564,29 +1756,56 @@
             document.getElementById('transitionScreen').style.display = 'none';
             document.getElementById('quizScreen').style.display = 'block';
 
-            quizQuestions = generateQuizQuestions();
+            quizQuestions = generateComprehensiveQuiz();
             currentQuizIndex = 0;
             quizScore = 0;
             loadQuizQuestion();
         }
 
-        function generateQuizQuestions() {
+        // 綜合測驗題庫生成：穿插「高擬真圖標辨識題」與「文化典故理解選擇題」
+        function generateComprehensiveQuiz() {
             let questions = [];
             let allPool = [...chineseGhostPool, ...westernHalloweenPool];
             allPool.sort(() => Math.random() - 0.5);
 
+            // 1. 生成 5 題高擬真圖標辨識題
             for (let i = 0; i < 5; i++) {
                 let target = allPool[i];
                 let options = [target.icon];
-
                 while (options.length < 4) {
                     let randomItem = allPool[Math.floor(Math.random() * allPool.length)];
                     if (!options.includes(randomItem.icon)) options.push(randomItem.icon);
                 }
                 options.sort(() => Math.random() - 0.5);
 
-                questions.push({ promptIcon: target.icon, correctIcon: target.icon, options: options });
+                questions.push({
+                    type: 'visual',
+                    promptIcon: target.icon,
+                    correctIcon: target.icon,
+                    options: options
+                });
             }
+
+            // 2. 生成 5 題根據說明頁設計的文化典故選擇題
+            let lorePool = culturalLoreQuizPool[currentLang] || culturalLoreQuizPool['zh-TW'];
+            let shuffledLore = [...lorePool].sort(() => Math.random() - 0.5);
+            for (let i = 0; i < Math.min(5, shuffledLore.length); i++) {
+                let loreItem = shuffledLore[i];
+                // 將選項打亂順序，並記錄正確答案的新索引
+                let indexedOpts = loreItem.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+                indexedOpts.sort(() => Math.random() - 0.5);
+                let newCorrectIndex = indexedOpts.findIndex(opt => opt.originalIndex === loreItem.correct);
+
+                questions.push({
+                    type: 'lore',
+                    questionText: loreItem.q,
+                    options: indexedOpts.map(o => o.text),
+                    correctIndex: newCorrectIndex
+                });
+            }
+
+            // 將所有題目隨機穿插排序
+            questions.sort(() => Math.random() - 0.5);
             return questions;
         }
 
@@ -1599,21 +1818,47 @@
             let q = quizQuestions[currentQuizIndex];
             let qPrefix = currentLang === 'ja' ? '問題' : (currentLang === 'ko' ? '문제' : 'Question');
             document.getElementById('quizProgress').innerText = `${qPrefix} ${currentQuizIndex + 1} / ${quizQuestions.length}`;
-            document.getElementById('quizQuestionBox').innerText = q.promptIcon;
 
-            let optsContainer = document.getElementById('quizOptionsContainer');
-            optsContainer.innerHTML = '';
-            
-            setTimeout(() => {
-                q.options.forEach(iconOpt => {
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'quiz-visual-btn';
-                    btn.innerText = iconOpt;
-                    btn.onclick = () => handleQuizAnswer(iconOpt === q.correctIcon);
-                    optsContainer.appendChild(btn);
-                });
-            }, 300);
+            let container = document.getElementById('quizDynamicContent');
+            container.innerHTML = '';
+
+            if (q.type === 'visual') {
+                container.innerHTML = `
+                    <div id="quizQuestionBox" style="font-size: 3rem; margin: 15px 0;">${q.promptIcon}</div>
+                    <div class="quiz-visual-grid" id="quizVisualOptionsContainer"></div>
+                `;
+                let optsContainer = document.getElementById('quizVisualOptionsContainer');
+                setTimeout(() => {
+                    q.options.forEach(iconOpt => {
+                        let btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'quiz-visual-btn';
+                        if (player.difficulty === 'hard' || player.difficulty === 'master') {
+                            let randRot = (Math.random() * 20 - 10).toFixed(0);
+                            btn.style.transform = `rotate(${randRot}deg)`;
+                        }
+                        btn.innerText = iconOpt;
+                        btn.onclick = () => handleQuizAnswer(iconOpt === q.correctIcon);
+                        optsContainer.appendChild(btn);
+                    });
+                }, 200);
+            } else if (q.type === 'lore') {
+                container.innerHTML = `
+                    <div class="quiz-text-card">${q.questionText}</div>
+                    <div id="quizLoreOptionsContainer"></div>
+                `;
+                let optsContainer = document.getElementById('quizLoreOptionsContainer');
+                setTimeout(() => {
+                    q.options.forEach((textOpt, optIdx) => {
+                        let btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'quiz-option-text-btn';
+                        btn.innerText = `${String.fromCharCode(65 + optIdx)}. ${textOpt}`;
+                        btn.onclick = () => handleQuizAnswer(optIdx === q.correctIndex);
+                        optsContainer.appendChild(btn);
+                    });
+                }, 200);
+            }
         }
 
         function handleQuizAnswer(isCorrect) {
@@ -1634,16 +1879,16 @@
             let timeBonus = Math.max(0, 600 - totalTime);
             let effectiveRating = finalScore + timeBonus;
 
-            if (effectiveRating >= 5200) return 9;
-            if (effectiveRating >= 4600) return 8;
-            if (effectiveRating >= 4000) return 7;
-            if (effectiveRating >= 3400) return 6;
-            if (effectiveRating >= 2800) return 5;
-            if (effectiveRating >= 2200) return 4;
-            if (effectiveRating >= 1600) return 3;
-            if (effectiveRating >= 1000) return 2;
-            if (effectiveRating >= 500)  return 1;
-            return 0;
+            if (effectiveRating >= 7500) return 9; // Lv 10
+            if (effectiveRating >= 6800) return 8; // Lv 9
+            if (effectiveRating >= 6100) return 7; // Lv 8
+            if (effectiveRating >= 5400) return 6; // Lv 7
+            if (effectiveRating >= 4700) return 5; // Lv 6
+            if (effectiveRating >= 4000) return 4; // Lv 5
+            if (effectiveRating >= 3200) return 3; // Lv 4
+            if (effectiveRating >= 2400) return 2; // Lv 3
+            if (effectiveRating >= 1500) return 1; // Lv 2
+            return 0;                                // Lv 1
         }
 
         function finishGrandmasterQuiz() {
