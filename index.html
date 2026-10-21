@@ -377,14 +377,14 @@
             background-color: var(--accent-hover);
         }
 
-        .quiz-visual-grid, .tarot-grid {
+        .quiz-visual-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-top: 15px;
         }
 
-        .quiz-visual-btn, .tarot-card {
+        .quiz-visual-btn {
             background: #f8fafc;
             border: 3px solid var(--card-border);
             padding: 20px;
@@ -398,13 +398,12 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.06);
         }
 
-        .quiz-visual-btn:hover, .tarot-card:hover {
+        .quiz-visual-btn:hover {
             transform: scale(1.05);
             background: #fef3c7;
             border-color: var(--accent-color);
         }
 
-        /* 文化典故選擇題樣式 */
         .quiz-text-card {
             background: #fffbeb;
             border: 2px solid var(--accent-color);
@@ -598,8 +597,6 @@
             <h2 id="quizHeader" style="color: var(--accent-color); margin-top:0; font-size: 1.2rem;">🏆 綜合鑑別大考驗</h2>
             <p id="quizInstructions" style="color: #64748b; font-size: 0.85rem;">綜合圖標視覺混淆與文化典故理解測驗！</p>
             <div id="quizProgress" style="font-weight: bold; color: var(--accent-color); margin: 8px 0; font-size: 0.9rem;"></div>
-            
-            <!-- 容器區塊依題目類型動態切換 -->
             <div id="quizDynamicContent"></div>
         </div>
 
@@ -802,142 +799,45 @@
             }
         };
 
-        // 依據說明頁內容精心設計的文化典故選擇題庫
         const culturalLoreQuizPool = {
             'zh-TW': [
-                {
-                    q: '【文化典故題】中元普渡時懸掛的「紅燈籠（普渡公燈）」，其主要核心意義是什麼？',
-                    options: ['在夜晚為遊蕩的好兄弟指引平安方向', '裝飾門面以迎賓過節', '驅趕白天的惡犬與飛鳥', '祈求來年農作物大豐收'],
-                    correct: 0
-                },
-                {
-                    q: '【文化典故題】道家傳說中用「桃木劍」作為法器，在民間習俗中最主要的宗教功能為何？',
-                    options: ['用來砍伐山林樹木', '驅邪避凶與鎮宅化煞', '作為古人的防身武器', '祭祀時切開供品祭品'],
-                    correct: 1
-                },
-                {
-                    q: '【文化典故題】在華人基層民間信仰中，守護地方鄰里與農作平安的福德正神廟宇被尊稱為？',
-                    options: ['城隍廟', '土地公廟', '東嶽殿', '地藏庵'],
-                    correct: 1
-                },
-                {
-                    q: '【文化典故題】西洋萬聖節中經典的「傑克南瓜燈（Jack-o\'-lantern）」，最初源自於什麼目的？',
-                    options: ['點亮夜晚道路以便夜間散步', '在秋夜中驅趕惡靈與妖怪', '作為小朋友晚上讀書的夜燈', '慶祝秋季小麥豐收慶典'],
-                    correct: 1
-                },
-                {
-                    q: '【文化典故題】中元普渡祭桌上放置「剖半插香的西瓜」，其傳統民俗目的為何？',
-                    options: ['讓好兄弟在祭拜時解渴', '祈求考試順利高中狀元', '象徵圓滿與闔家團圓', '鎮壓桌上的邪氣與陰氣'],
-                    correct: 0
-                }
+                { q: '【文化典故題】中元普渡時懸掛的「紅燈籠（普渡公燈）」，其主要核心意義是什麼？', options: ['在夜晚為遊蕩的好兄弟指引平安方向', '裝飾門面以迎賓過節', '驅趕白天的惡犬與飛鳥', '祈求來年農作物大豐收'], correct: 0 },
+                { q: '【文化典故題】道家傳說中用「桃木劍」作為法器，在民間習俗中最主要的宗教功能為何？', options: ['用來砍伐山林樹木', '驅邪避凶與鎮宅化煞', '作為古人的防身武器', '祭祀時切開供品祭品'], correct: 1 },
+                { q: '【文化典故題】在華人基層民間信仰中，守護地方鄰里與農作平安的福德正神廟宇被尊稱為？', options: ['城隍廟', '土地公廟', '東嶽殿', '地藏庵'], correct: 1 },
+                { q: '【文化典故題】西洋萬聖節中經典的「傑克南瓜燈（Jack-o\'-lantern）」，最初源自於什麼目的？', options: ['點亮夜晚道路以便夜間散步', '在秋夜中驅趕惡靈與妖怪', '作為小朋友晚上讀書的夜燈', '慶祝秋季小麥豐收慶典'], correct: 1 },
+                { q: '【文化典故題】中元普渡祭桌上放置「剖半插香的西瓜」，其傳統民俗目的為何？', options: ['讓好兄弟在祭拜時解渴', '祈求考試順利高中狀元', '象徵圓滿與闔家團圓', '鎮壓桌上的邪氣與陰氣'], correct: 0 },
+                { q: '【文化典故題】在道教與民間民俗中，用來懸掛在門口或廳堂用來「鎮宅化煞」的鏡狀法器是？', options: ['八卦鏡', '明代銅鏡', '梳妝明鏡', '照妖寶鏡'], correct: 0 },
+                { q: '【文化典故題】西洋萬聖節活動中，孩子們挨家挨戶敲門所喊的經典口號「不給糖就搗蛋」，其英文原文為？', options: ['Trick-or-Treat', 'Happy Halloween', 'Ghost and Witch', 'Candy or Monster'], correct: 0 }
             ],
             'zh-CN': [
-                {
-                    q: '【文化典故题】中元普渡时悬挂的“红灯笼（普渡公灯）”，其主要核心意义是什么？',
-                    options: ['在夜晚为游荡的好兄弟指引平安方向', '装饰门面以迎宾过节', '驱赶白天的恶犬与飞鸟', '祈求来年农作物大丰收'],
-                    correct: 0
-                },
-                {
-                    q: '【文化典故题】道家传说中用“桃木剑”作为法器，在民间习俗中最主要的宗教功能为何？',
-                    options: ['用来砍伐山林树木', '驱邪避凶与镇宅化煞', '作为古人的防身武器', '祭祀时切开供品祭品'],
-                    correct: 1
-                },
-                {
-                    q: '【文化典故题】在华人基层民间信仰中，守护地方邻里与农作平安的福德正神庙宇被尊称为？',
-                    options: ['城隍庙', '土地公庙', '东岳殿', '地藏庵'],
-                    correct: 1
-                },
-                {
-                    q: '【文化典故题】西洋万圣节中经典的“杰克南瓜灯（Jack-o\'-lantern）”，最初源自于什么目的？',
-                    options: ['点亮夜晚道路以便夜间散步', '在秋夜中驱赶恶灵与妖怪', '作为小朋友晚上读书的夜灯', '庆祝秋季小麦丰收庆典'],
-                    correct: 1
-                },
-                {
-                    q: '【文化典故题】中元普渡祭桌上放置“剖半插香的西瓜”，其传统民俗目的为何？',
-                    options: ['让好兄弟在祭拜时解渴', '祈求考试顺利高中状元', '象征圆满与阖家团圆', '镇压桌上的邪气与阴气'],
-                    correct: 0
-                }
+                { q: '【文化典故题】中元普渡时悬挂的“红灯笼（普渡公灯）”，其主要核心意义是什么？', options: ['在夜晚为游荡的好兄弟指引平安方向', '装饰门面以迎宾过节', '驱赶白天的恶犬与飞鸟', '祈求来年农作物大丰收'], correct: 0 },
+                { q: '【文化典故题】道家传说中用“桃木剑”作为法器，在民间习俗中最主要的宗教功能为何？', options: ['用来砍伐山林树木', '驱邪避凶与镇宅化煞', '作为古人的防身武器', '祭祀时切开供品祭品'], correct: 1 },
+                { q: '【文化典故题】在华人基层民间信仰中，守护地方邻里与农作平安的福德正神庙宇被尊称为？', options: ['城隍庙', '土地公庙', '东岳殿', '地藏庵'], correct: 1 },
+                { q: '【文化典故题】西洋万圣节中经典的“杰克南瓜灯（Jack-o\'-lantern）”，最初源自于什么目的？', options: ['点亮夜晚道路以便夜间散步', '在秋夜中驱赶恶灵与妖怪', '作为小朋友晚上读书的夜灯', '庆祝秋季小麦丰收庆典'], correct: 1 },
+                { q: '【文化典故题】中元普渡祭桌上放置“剖半插香的西瓜”，其传统民俗目的为何？', options: ['让好兄弟在祭拜时解渴', '祈求考试顺利高中状元', '象征圆满与阖家团圆', '镇压桌上的邪气与阴气'], correct: 0 },
+                { q: '【文化典故题】在道教与民间民俗中，用来悬挂在门口或厅堂用来“镇宅化煞”的镜状法器是？', options: ['八卦镜', '明代铜镜', '梳妆明镜', '照妖宝镜'], correct: 0 },
+                { q: '【文化典故题】西洋万圣节活动中，孩子们挨家挨户敲门所喊的经典口号“不给糖就捣蛋”，其英文原文为？', options: ['Trick-or-Treat', 'Happy Halloween', 'Ghost and Witch', 'Candy or Monster'], correct: 0 }
             ],
             'en': [
-                {
-                    q: '[Lore Quiz] What is the primary purpose of hanging red lanterns during the Ghost Festival?',
-                    options: ['To safely guide wandering spirits at night', 'To decorate for celebrations', 'To scare away daytime birds', 'To pray for a rich harvest'],
-                    correct: 0
-                },
-                {
-                    q: '[Lore Quiz] What is the primary ritual purpose of a Taoist peach wood sword in folklore?',
-                    options: ['To chop firewood', 'To ward off evil and ward off negative energy', 'As ancient self-defense weaponry', 'To slice ritual offerings'],
-                    correct: 1
-                },
-                {
-                    q: '[Lore Quiz] Shrines dedicated to the Earth God protecting local communities are known as:',
-                    options: ['City God Temples', 'Earth God Shrines', 'Underworld Palaces', 'Bodhisattva Temples'],
-                    correct: 1
-                },
-                {
-                    q: '[Lore Quiz] What was the original purpose of the classic Halloween Jack-o\'-lantern?',
-                    options: ['To light up night walks', 'To ward off evil spirits on autumn nights', 'As a study lamp for kids', 'To celebrate the wheat harvest'],
-                    correct: 1
-                },
-                {
-                    q: '[Lore Quiz] What is the folk tradition behind offering halved watermelons with incense during the Ghost Festival?',
-                    options: ['To quench the thirst of wandering spirits', 'To pray for academic success', 'To symbolize family reunion', 'To suppress evil qi'],
-                    correct: 0
-                }
+                { q: '[Lore Quiz] What is the primary purpose of hanging red lanterns during the Ghost Festival?', options: ['To safely guide wandering spirits at night', 'To decorate for celebrations', 'To scare away daytime birds', 'To pray for a rich harvest'], correct: 0 },
+                { q: '[Lore Quiz] What is the primary ritual purpose of a Taoist peach wood sword in folklore?', options: ['To chop firewood', 'To ward off evil and ward off negative energy', 'As ancient self-defense weaponry', 'To slice ritual offerings'], correct: 1 },
+                { q: '[Lore Quiz] Shrines dedicated to the Earth God protecting local communities are known as:', options: ['City God Temples', 'Earth God Shrines', 'Underworld Palaces', 'Bodhisattva Temples'], correct: 1 },
+                { q: '[Lore Quiz] What was the original purpose of the classic Halloween Jack-o\'-lantern?', options: ['To light up night walks', 'To ward off evil spirits on autumn nights', 'As a study lamp for kids', 'To celebrate the wheat harvest'], correct: 1 },
+                { q: '[Lore Quiz] What is the folk tradition behind offering halved watermelons with incense during the Ghost Festival?', options: ['To quench the thirst of wandering spirits', 'To pray for academic success', 'To symbolize family reunion', 'To suppress evil qi'], correct: 0 }
             ],
             'ja': [
-                {
-                    q: '【文化クイズ】お盆の時に赤提灯（普渡公灯）を掲げる主な目的は何ですか？',
-                    options: ['夜間にお化けや精霊を安全に導くため', 'お祭りの装飾のため', '昼間の鳥を追い払うため', '豊作を祈るため'],
-                    correct: 0
-                },
-                {
-                    q: '【文化クイズ】道教の法器である「桃の木剣」の主な宗教的機能は何ですか？',
-                    options: ['薪を切るため', '魔除けと厄払いのため', '古代の護身武器として', 'お供え物を切るため'],
-                    correct: 1
-                },
-                {
-                    q: '【文化クイズ】地域社会を守る土地神（福徳正神）を祀る祠は何と呼ばれていますか？',
-                    options: ['城隍廟', '土地公廟', '東嶽殿', '地蔵庵'],
-                    correct: 1
-                },
-                {
-                    q: '【文化クイズ】ハロウィンの「ジャック・オー・ランタン」の元々の目的は何ですか？',
-                    options: ['夜道を明るく照らすため', '秋の夜に悪霊を追い払うため', '子供の勉強灯として', '小麦の収穫を祝うため'],
-                    correct: 1
-                },
-                {
-                    q: '【文化クイズ】お盆の供え物に「香を挿した半分に切ったスイカ」を置く伝統的な理由は？',
-                    options: ['精霊の喉を潤すため', '試験合格を祈るため', '家族円満を象徴するため', '邪気を鎮めるため'],
-                    correct: 0
-                }
+                { q: '【文化クイズ】お盆の時に赤提灯を掲げる主な目的は何ですか？', options: ['夜間にお化けや精霊を安全に導くため', 'お祭りの装飾のため', '昼間の鳥を追い払うため', '豊作を祈るため'], correct: 0 },
+                { q: '【文化クイズ】道教の法器である「桃の木剣」の主な宗教的機能は何ですか？', options: ['薪を切るため', '魔除けと厄払いのため', '古代の護身武器として', 'お供え物を切るため'], correct: 1 },
+                { q: '【文化クイズ】地域社会を守る土地神を祀る祠は何と呼ばれていますか？', options: ['城隍廟', '土地公廟', '東嶽殿', '地蔵庵'], correct: 1 },
+                { q: '【文化クイズ】ハロウィンの「ジャック・オー・ランタン」の元々の目的は何ですか？', options: ['夜道を明るく照らすため', '秋の夜に悪霊を追い払うため', '子供の勉強灯として', '小麦の収穫を祝うため'], correct: 1 },
+                { q: '【文化クイズ】お盆の供え物に香を挿した半分に切ったスイカを置く理由は？', options: ['精霊の喉を潤すため', '試験合格を祈るため', '家族円満を象徴するため', '邪気を鎮めるため'], correct: 0 }
             ],
             'ko': [
-                {
-                    q: '[문화 퀴즈] 유령 축제 때 붉은 등불을 다는 주된 목적은 무엇인가요?',
-                    options: ['밤에 방황하는 영혼들을 안전하게 인도하기 위해', '축제 분위기를 내기 위해', '낮에 새를 쫓기 위해', '풍년을 기원하기 위해'],
-                    correct: 0
-                },
-                {
-                    q: '[문화 퀴즈] 복숭아나무로 만든 도교 법기인 검의 주된 종교적 기능은 무엇인가요?',
-                    options: ['장작을 패기 위해', '악귀를 물리치고 나쁜 기운을 막기 위해', '고대 호신용 무기로', '제물을 썰기 위해'],
-                    correct: 1
-                },
-                {
-                    q: '[문화 퀴즈] 지역 사회와 수확을 지키는 토지신을 모신 사당을 무엇이라 부르나요?',
-                    options: ['성황묘', '토지공묘', '동악전', '지장안'],
-                    correct: 1
-                },
-                {
-                    q: '[문화 퀴즈] 할로윈 잭오랜턴의 원래 목적은 무엇인가요?',
-                    options: ['밤길을 밝히기 위해', '가을 밤 악령을 쫓기 위해', '아이들의 공부 등불로', '수확을 축하하기 위해'],
-                    correct: 1
-                },
-                {
-                    q: '[문화 퀴즈] 유령 축제 때 향을 꽂은 반쪽 수박을 바치는 전통적인 이유는 무엇인가요?',
-                    options: ['영혼들의 목을 축이기 위해', '시험 합격을 기원하기 위해', '가족 화목을 상징하기 위해', '사악한 기운을 누르기 위해'],
-                    correct: 0
-                }
+                { q: '[문화 퀴즈] 유령 축제 때 붉은 등불을 다는 주된 목적은 무엇인가요?', options: ['밤에 방황하는 영혼들을 안전하게 인도하기 위해', '축제 분위기를 내기 위해', '낮에 새를 쫓기 위해', '풍년을 기원하기 위해'], correct: 0 },
+                { q: '[문화 퀴즈] 복숭아나무로 만든 도교 법기인 검의 주된 종교적 기능은 무엇인가요?', options: ['장작을 패기 위해', '악귀를 물리치고 나쁜 기운을 막기 위해', '고대 호신용 무기로', '제물을 썰기 위해'], correct: 1 },
+                { q: '[문화 퀴즈] 지역 사회와 수확을 지키는 토지신을 모신 사당을 무엇이라 부르나요?', options: ['성황묘', '토지공묘', '동악전', '지장안'], correct: 1 },
+                { q: '[문화 퀴즈] 할로윈 잭오랜턴의 원래 목적은 무엇인가요?', options: ['밤길을 밝히기 위해', '가을 밤 악령을 쫓기 위해', '아이들의 공부 등불로', '수확을 축하하기 위해'], correct: 1 },
+                { q: '[문화 퀴즈] 유령 축제 때 향을 꽂은 반쪽 수박을 바치는 전통적인 이유는 무엇인가요?', options: ['영혼들의 목을 축이기 위해', '시험 합격을 기원하기 위해', '가족 화목을 상징하기 위해', '사악한 기운을 누르기 위해'], correct: 0 }
             ]
         };
 
@@ -1253,6 +1153,7 @@
             });
         }
 
+        // 每次進入關卡時動態隨機洗牌，確保內容每次都不一樣
         function loadLevel(levelIdx) {
             currentLevel = levelIdx;
             nextTargetIndex = 0;
@@ -1281,9 +1182,10 @@
             else if (levelConfig.type === 'halloween') pool = [...westernHalloweenPool];
             else pool = [...chineseGhostPool, ...westernHalloweenPool];
 
+            // 每次洗牌隨機抽選
             pool.sort(() => Math.random() - 0.5);
             let targetCount = levelConfig.count;
-            let baseDecoyCount = levelConfig.count + levelIdx + 2;
+            let baseDecoyCount = levelConfig.count + levelIdx + 3; // 增加干擾物密度
             let rawItems = pool.slice(0, targetCount);
 
             currentItems = rawItems.map(item => ({ 
@@ -1762,13 +1664,12 @@
             loadQuizQuestion();
         }
 
-        // 綜合測驗題庫生成：穿插「高擬真圖標辨識題」與「文化典故理解選擇題」
+        // 每次重新遊玩時動態隨機抽選綜合考驗題庫（含隨機視覺混淆題與文化典故題）
         function generateComprehensiveQuiz() {
             let questions = [];
             let allPool = [...chineseGhostPool, ...westernHalloweenPool];
             allPool.sort(() => Math.random() - 0.5);
 
-            // 1. 生成 5 題高擬真圖標辨識題
             for (let i = 0; i < 5; i++) {
                 let target = allPool[i];
                 let options = [target.icon];
@@ -1786,12 +1687,10 @@
                 });
             }
 
-            // 2. 生成 5 題根據說明頁設計的文化典故選擇題
             let lorePool = culturalLoreQuizPool[currentLang] || culturalLoreQuizPool['zh-TW'];
             let shuffledLore = [...lorePool].sort(() => Math.random() - 0.5);
             for (let i = 0; i < Math.min(5, shuffledLore.length); i++) {
                 let loreItem = shuffledLore[i];
-                // 將選項打亂順序，並記錄正確答案的新索引
                 let indexedOpts = loreItem.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
                 indexedOpts.sort(() => Math.random() - 0.5);
                 let newCorrectIndex = indexedOpts.findIndex(opt => opt.originalIndex === loreItem.correct);
@@ -1804,7 +1703,6 @@
                 });
             }
 
-            // 將所有題目隨機穿插排序
             questions.sort(() => Math.random() - 0.5);
             return questions;
         }
