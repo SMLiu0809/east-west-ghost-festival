@@ -872,7 +872,7 @@
                 'ko': '<div style="font-size: 4rem; text-align: center; margin-bottom: 8px;">🎃</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">잭오랜턴</div><b>[유래]</b> 가을 밤 악령을 쫓기 위해 사용하는 할로윈의 가장 대표적인 호박등입니다.'
             },
             4: {
-                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">女巫與女巫掃帚</div><b>【典故與由來】</b>戴著尖頂帽、精通神祕魔法的傳奇女性女巫，常搭乘專屬的魔法掃帚在夜空中巡遊施法。',
+                'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">女巫與女巫掃帚</div><b>【典故與由來】</b>戴著尖頂帽, 精通神祕魔法的傳奇女性女巫, 常搭乘專屬的魔法掃帚在夜空中巡遊施法。',
                 'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">女巫与女巫扫帚</div><b>【典故与由来】</b>戴着尖顶帽、精通神秘魔法的传奇女性女巫，常搭乘专属的魔法扫帚在夜空中巡游施法。',
                 'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Witch & Broomstick</div><b>[Origin]</b> Legendary practitioners of magic wearing tall pointed hats ride magical brooms across the night sky.',
                 'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🧙‍♀️ 🧹</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">魔女と魔法のホウキ</div><b>【由来】</b>尖った帽子をかぶり魔法を操る魔女と、空を飛ぶために使う魔法のホウキです。',
@@ -904,7 +904,7 @@
                 'zh-CN': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">普渡西瓜与神秘水晶球</div><b>【典故与由来】</b>中元普渡祭桌上剖半插香、供好兄弟解渴的西瓜，与占卜师用来预测未知的西洋水晶球同台竞技！',
                 'en': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">Ghost Festival Watermelon & Crystal Ball</div><b>[Origin]</b> Halved watermelons offered to spirits meet magical glass spheres used by fortune tellers to see the future!',
                 'ja': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">普渡スイカと神秘的な水晶玉</div><b>【由来】</b>精霊の喉を潤すスイカと、未来を予見する西洋の水晶玉が共演します。',
-                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">푸두 수박과 신비로운 수정구</div><b>[유래]</b> 영혼들의 목을 축이는 수박과 미래를 예견하는 서양의 수정구의 만남입니다.'
+                'ko': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🍉 🔮</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">푸두 수박과 신비로운 수정구</div><b>[유래]</b> 영혼들의 목을 축이는 수박과 미래를 예견하는 서양의 수정구의 만남です.'
             },
             9: {
                 'zh-TW': '<div style="font-size: 3.5rem; text-align: center; margin-bottom: 8px;">🏛️ 🌟</div><div style="font-size: 1.15rem; font-weight: bold; text-align: center; margin-bottom: 8px; color: #ea580c;">至高無上的鬼節殿堂</div><b>【典故與由來】</b>結合東方中元普渡與西洋萬聖節所有法器、神將、南瓜與糖果的終極殿堂，象徵跨文化多元共融的最高智慧與榮耀！',
@@ -1622,8 +1622,8 @@
                 matchedPairsCount++;
                 playTone(880, 0.2);
                 resetCards();
-                let un-flipped = document.querySelectorAll('.destiny-card:not(.flipped)');
-                if (matchedPairsCount >= 3 || un-flipped.length <= 1) {
+                let unflippedCards = document.querySelectorAll('.destiny-card:not(.flipped)');
+                if (matchedPairsCount >= 3 || unflippedCards.length <= 1) {
                     if (destinyTimerInterval) clearInterval(destinyTimerInterval);
                     setTimeout(() => evaluateDestinyResult(), 800);
                 }
