@@ -570,10 +570,10 @@
                 <div id="godResultMsg" style="margin-top:10px; font-weight:bold;"></div>
             </div>
 
-            <!-- 東方請神（擲筊系統嚴格邏輯） -->
+            <!-- 東方請神（擲筊系統即時判定） -->
             <div id="easternEncounterArea" style="display: none;">
                 <div id="easternTip" style="font-size: 0.95rem; color: #b45309; margin-bottom: 10px; font-weight: bold;">
-                    🕯️ 共有 9 次擲筊機會！連續 2 次聖筊跳 1 關，3 次跳 2 關，4次(含)以上跳 3 關；若得蓋杯則神明不同意，連續歸零，保持原進度。
+                    🕯️ 共有 9 次擲筊機會！連續 2 次聖筊立刻跳 1 關，3 次跳 2 關，4次(含)以上跳 3 關；若得蓋杯則神明不同意，連續歸零！
                 </div>
                 <button class="btn" id="castBlockBtn" type="button" style="background:#ea580c;" onclick="handleCastBlock()">筊杯請神 (擲筊)</button>
                 <div id="easternResultMsg" style="margin-top:10px; font-weight:bold; color:#1e293b;">剩餘次數: 9 | 連續聖筊: 0</div>
@@ -1479,55 +1479,50 @@
             if (resMsg) resMsg.innerText = `${remainLabel}: ${divinationRemaining} | ${shengJiaoLabel}: ${consecutiveShengJiao}`;
         }
 
+        // 東方請神（擲筊系統）：即時判定連擲聖筊並直接跳級通關
         function handleCastBlock() {
             if (divinationRemaining <= 0) return;
             divinationRemaining--;
 
             let roll = Math.random();
-            if (roll > 0.45) {
+            if (roll > 0.45) { // 聖筊
                 consecutiveShengJiao++;
                 playTone(880, 0.2);
-            } else {
+            } else { // 蓋杯（笑筊/陰筊）
                 consecutiveShengJiao = 0;
                 playTone(150, 0.3);
             }
 
             updateEasternResultUI();
 
+            // 嚴格落實：連續 2 次聖筊跳 1 關，3 次跳 2 關，4次(含)以上跳 3 關
+            let skipLevels = 0;
             if (consecutiveShengJiao >= 4) {
-                setTimeout(() => finalizeDivination(3), 500);
-            } else if (divinationRemaining <= 0) {
-                setTimeout(() => finalizeDivinationFromStreak(), 500);
+                skipLevels = 3;
+            } else if (consecutiveShengJiao === 3) {
+                skipLevels = 2;
+            } else if (consecutiveShengJiao === 2) {
+                skipLevels = 1;
             }
-        }
 
-        function finalizeDivinationFromStreak() {
-            let skip = 0;
-            if (consecutiveShengJiao >= 4) skip = 3;
-            else if (consecutiveShengJiao === 3) skip = 2;
-            else if (consecutiveShengJiao === 2) skip = 1;
-            else skip = 0;
+            if (skipLevels > 0) {
+                let msg = `🎉 連續 ${consecutiveShengJiao} 次聖筊！神明庇佑，立即獲得跳級通關 ${skipLevels} 關！`;
+                alert(msg);
+                let modal = document.getElementById('godModal');
+                if (modal) modal.style.display = 'none';
+                currentLevel = Math.min(levelsData.length - 1, currentLevel + skipLevels);
+                maxUnlockedLevel = Math.max(maxUnlockedLevel, currentLevel);
 
-            finalizeDivination(skip);
-        }
-
-        function finalizeDivination(skipLevels) {
-            let msg = currentLang === 'ja' ? `擲筊結束！最高連續聖筊: ${consecutiveShengJiao}回。獲得跳級: ${skipLevels} 關！` :
-                      (currentLang === 'ko' ? `척배 완료! 최고 연속 성배: ${consecutiveShengJiao}회. ${skipLevels}단계 도약!` :
-                      `🎉 擲筊請神圓滿結束！最高連續聖筊：${consecutiveShengJiao} 次。神明庇佑，獲得跳級通關：${skipLevels} 關！`);
-            alert(msg);
-
-            let modal = document.getElementById('godModal');
-            if (modal) modal.style.display = 'none';
-            currentLevel = Math.min(levelsData.length - 1, currentLevel + skipLevels);
-            maxUnlockedLevel = Math.max(maxUnlockedLevel, currentLevel);
-
-            if (currentLevel >= levelsData.length - 1) {
-                startTransitionSequence();
-            } else {
-                loadLevel(currentLevel);
-                let gameScreen = document.getElementById('gameScreen');
-                if (gameScreen) gameScreen.style.display = 'flex';
+                if (currentLevel >= levelsData.length - 1) {
+                    startTransitionSequence();
+                } else {
+                    loadLevel(currentLevel);
+                    let gameScreen = document.getElementById('gameScreen');
+                    if (gameScreen) gameScreen.style.display = 'flex';
+                }
+            } else if (divinationRemaining <= 0) {
+                alert('🕯️ 9次擲筊機會已用完，未達成連續聖筊，保持原進度繼續闖關！');
+                closeGodModal();
             }
         }
 
