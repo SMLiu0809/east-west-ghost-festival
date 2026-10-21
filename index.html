@@ -823,10 +823,12 @@
             ]
         };
 
+        // 將原先的法尺正式改稱為「魯班尺（文公尺）」，並使用直尺 📏 作為專屬圖標
         const extendedLorePool = {
             'zh-TW': [
                 { icon: '🏮', title: '紅燈籠（普渡公燈）', desc: '中元普渡時懸掛的紅燈籠是用來在夜晚為遊蕩的好兄弟指引方向，象徵慈悲與溫暖的光芒。' },
                 { icon: '🗡️', title: '桃木劍', desc: '道家傳說中用桃木削成的法器，具有神聖的純陽之氣，能在民間習俗中達到驅邪避凶的效果。' },
+                { icon: '📏', title: '魯班尺（文公尺）', desc: '傳統建築與道教法器中用來丈量吉凶尺寸的「魯班尺（文公尺）」，融合了文公字與八卦吉凶，是規矩法器與陽宅定局的核心工具。' },
                 { icon: '🛕', title: '土地公廟', desc: '守護地方鄰里與農作平安的福德正神（土地公）廟宇，是華人社會中最親民、普及的基層神明信仰。' },
                 { icon: '🎃', title: '南瓜燈（Jack-o\'-lantern）', desc: '源自西洋傳說的經典南瓜燈，用來在秋夜中驅趕惡靈與妖怪，是萬聖節最具代表性的象徵。' },
                 { icon: '🧙‍♀️ 🧹', title: '女巫與女巫掃帚', desc: '戴著尖頂帽、精通神祕魔法的傳奇女性女巫，常搭乘專屬的魔法掃帚在夜空中巡遊施法。' },
@@ -841,7 +843,7 @@
                 { icon: '👑 🔱', title: '東嶽大帝與冥王黑帝斯', desc: '東方掌管幽冥地府的泰山神東嶽大帝，與希臘神話中掌管地下冥界與無盡寶藏的冥王黑帝斯，東西方冥界巨頭跨時空聚首。' },
                 { icon: '🧘 ⏳', title: '地藏王菩薩與死神塔納托斯', desc: '發願地獄不空的慈悲地藏王菩薩，與溫和引領靈魂的希臘死神塔納托斯，共同演繹對生命的最高敬意。' },
                 { icon: '🌾 🏮', title: '冥后波瑟芬妮與大巡普渡公', desc: '象徵秋收與往返冥界的冥界女王波瑟芬妮，與慈悲照顧好兄弟的中元普渡主神大巡普渡公，完美融合東西方秋季祭典。' },
-                { icon: '🌀 🪵', title: '萬聖蜘蛛網與道家法尺', desc: '佈滿神祕氣息的西洋萬聖蜘蛛網，與道士作法驅邪時使用的法器木尺，交織出神祕的儀式感。' },
+                { icon: '🌀 🪵', title: '萬聖蜘蛛網與魯班尺規', desc: '佈滿神祕氣息的西洋萬聖蜘蛛網，與道士丈量法壇與法器吉凶的魯班尺相映成趣。' },
                 { icon: '🔴 🍊', title: '紅圓紙牌與萬聖柑橘', desc: '象徵圓滿喜氣的紅色供品，與西洋萬聖節用來裝飾與食用的柑橘類水果，點綴出節慶的溫馨。' },
                 { icon: '🤎 🦅', title: '牛頭將軍與暗夜神鷹', desc: '地府威嚴的牛頭將軍，與西洋黑夜中翱翔的神祕猛禽，共同守護著陰陽交界的神秘通道。' },
                 { icon: '🪩 🪄', title: '魔法水晶球與祈福法鈴', desc: '占卜師預測未知的西洋水晶球，與道士法事中搖響以驚醒迷失靈魂的祈福法鈴。' },
@@ -859,24 +861,28 @@
             'zh-CN': [
                 { icon: '🏮', title: '红灯笼（普渡公灯）', desc: '中元普渡时悬挂的红灯笼是用来在夜晚为游荡的好兄弟指引方向，象征慈悲与温暖的光芒。' },
                 { icon: '🗡️', title: '桃木剑', desc: '道家传说中用桃木削成的法器，具有神圣的纯阳之气，能在民间习俗中达到驱邪避凶的效果。' },
+                { icon: '📏', title: '鲁班尺（文公尺）', desc: '传统建筑与道教法器中用来测量吉凶尺寸的“鲁班尺（文公尺）”，融合了文公字与八卦吉凶，是规矩法器与阳宅定局的核心工具。' },
                 { icon: '🛕', title: '土地公庙', desc: '守护地方邻里与农作平安的福德正神（土地公）庙宇，是华人社会中最亲民、普及的基层神明信仰。' },
                 { icon: '🎃', title: '南瓜灯（Jack-o\'-lantern）', desc: '源自西洋传说的经典南瓜灯，用来在秋夜中驱赶恶灵与妖怪，是万圣节最具代表性的象征。' }
             ],
             'en': [
                 { icon: '🏮', title: 'Red Lantern', desc: 'Red lanterns hung during the Ghost Festival guide wandering spirits safely at night.' },
                 { icon: '🗡️', title: 'Peach Wood Sword', desc: 'A Taoist ritual sword carved from peach wood, traditionally used to ward off evil spirits.' },
+                { icon: '📏', title: 'Lu Ban Ruler (Wen Gong Ruler)', desc: 'A traditional architectural and ritual measuring tool used to determine auspicious dimensions.' },
                 { icon: '🛕', title: 'Earth God Shrine', desc: 'Shrines dedicated to the Earth God who protects local communities and harvests.' },
                 { icon: '🎃', title: 'Jack-o\'-lantern', desc: 'The classic Jack-o\'-lantern used to ward off evil spirits on autumn nights, representing Halloween.' }
             ],
             'ja': [
                 { icon: '🏮', title: '赤提灯', desc: 'お盆の夜に掲げられる提灯は、さまよう精霊を導くためのものです。' },
                 { icon: '🗡️', title: '桃の木剣', desc: '魔除けとして使われる桃の木で作られた道教の法器です。' },
+                { icon: '📏', title: '魯班尺（文公尺）', desc: '建築や道教の法器において吉凶の寸法を測るために使われる伝統的な物差しです。' },
                 { icon: '🛕', title: '土地公廟', desc: '地域を守る土地神（福徳正神）の祠で、人々の暮らしに寄り添います。' },
                 { icon: '🎃', title: 'ジャック・オー・ランタン', desc: '悪霊を追い払うために使われるハロウィンのカボチャの提灯です。' }
             ],
             'ko': [
                 { icon: '🏮', title: '붉은 등불', desc: '유령 축제 밤에 방황하는 영혼들을 안전하게 인도하는 등불입니다.' },
                 { icon: '🗡️', title: '복숭아나무 검', desc: '악귀를 물리치기 위해 복숭아나무로 만든 도교 법기입니다.' },
+                { icon: '📏', title: '루반 룰러 (노반척)', desc: '건축과 도교 법기에서 길흉의 치수를 측정하는 데 사용되는 전통 자입니다.' },
                 { icon: '🛕', title: '토지공 사당', desc: '마을과 이웃을 수호하는 토지신을 모신 친근한 사당입니다.' },
                 { icon: '🎃', title: '잭오랜턴', desc: '가을 밤 악령을 쫓기 위해 사용하는 할로윈의 호박등입니다.' }
             ]
@@ -903,6 +909,7 @@
             { icon: '🐮', name: '牛頭將軍', decoyIcon: '🐂', loreKey: '牛頭將軍' },
             { icon: '🐴', name: '馬面羅剎', decoyIcon: '🐎', loreKey: '馬面羅剎' },
             { icon: '🗡️', name: '桃木劍', decoyIcon: '🔪', loreKey: '桃木劍' },
+            { icon: '📏', name: '魯班尺', decoyIcon: '📐', loreKey: '魯班尺' }, // 更新：魯班尺與三角尺干擾物
             { icon: '🪞', name: '八卦鏡', decoyIcon: '🔘', loreKey: '八卦鏡' },
             { icon: '🍉', name: '普渡西瓜', decoyIcon: '🟢', loreKey: '普渡西瓜' },
             { icon: '🕯️', name: '祭祀紅燭', decoyIcon: '🕯️', loreKey: '祭祀紅燭' },
@@ -1479,7 +1486,7 @@
             if (resMsg) resMsg.innerText = `${remainLabel}: ${divinationRemaining} | ${shengJiaoLabel}: ${consecutiveShengJiao}`;
         }
 
-        // 東方請神（擲筊系統）：即時判定連擲聖筊並直接跳級通關
+        // 東方請神（擲筊系統）：嚴格落實連續 2 次聖筊即時跳 1 關
         function handleCastBlock() {
             if (divinationRemaining <= 0) return;
             divinationRemaining--;
@@ -1495,7 +1502,6 @@
 
             updateEasternResultUI();
 
-            // 嚴格落實：連續 2 次聖筊跳 1 關，3 次跳 2 關，4次(含)以上跳 3 關
             let skipLevels = 0;
             if (consecutiveShengJiao >= 4) {
                 skipLevels = 3;
