@@ -799,7 +799,6 @@
             }
         };
 
-        // 擴充至 50 題以上的豐富跨文化題庫（繁中、簡中、英、日、韓）
         const culturalLoreQuizPool = {
             'zh-TW': [
                 { q: '中元普渡時懸掛的「紅燈籠（普渡公燈）」，其主要核心意義是什麼？', options: ['在夜晚為遊蕩的好兄弟指引平安方向', '裝飾門面以迎賓過節', '驅趕白天的惡犬與飛鳥', '祈求來年農作物大豐收'], correct: 0 },
@@ -811,29 +810,14 @@
                 { q: '西洋萬聖節活動中，孩子們挨家挨戶敲門所喊的經典口號「不給糖就搗蛋」，其英文原文為？', options: ['Trick-or-Treat', 'Happy Halloween', 'Ghost and Witch', 'Candy or Monster'], correct: 0 },
                 { q: '農曆七月俗稱「鬼月」，在華人傳統中，七月十五日的重要民間與宗教節日是？', options: ['中元節', '上元節', '下元節', '重陽節'], correct: 0 },
                 { q: '地府陰司中，與「牛頭」將軍一同執法並維持冥界秩序的另一位知名鬼王將軍是？', options: ['馬面羅剎', '黑白無常', '鍾馗元帥', '判官大人'], correct: 0 },
-                { q: '在萬聖節傳說中，被視為女巫忠實夥伴並常與掃帚、黑夜連結的神祕動物是？', options: ['神祕黑貓', '靈巧白兔', '忠誠黃狗', '溫馴綿羊'], correct: 0 },
-                { q: '中元普渡焚燒的「金銀紙錢」，在傳統民俗中象徵著什麼精神？', options: ['對祖先與好兄弟的敬意與祝福', '報繳給朝廷的稅金', '祈求發大財的賭本', '裝飾祭壇的彩色紙張'], correct: 0 },
-                { q: '西洋萬聖節裝扮成吸血鬼時，常令人聯想到在夜空中飛行且具代表性的暗夜生物是？', options: ['吸血蝙蝠', '貓頭鷹', '黑烏鴉', '飛鼠'], correct: 0 },
-                { q: '佛教與道教中，發願「地獄不空，誓不成佛」，常於中元普渡被尊奉的慈悲菩薩是？', options: ['地藏王菩薩', '觀世音菩薩', '文殊菩薩', '普賢菩薩'], correct: 0 },
-                { q: '萬聖節派對中最受歡迎的高甜度零食，除了五顏六色的彩虹硬糖外，還有哪一種濃郁甜點？', options: ['巧克力棒', '紅豆羊羹', '綠豆糕', '鹹餅乾'], correct: 0 },
-                { q: '道教神話中掌管泰山及幽冥地府、主宰人間禍福的大神被尊稱為？', options: ['東嶽大帝', '玉皇大帝', '太上老君', '北斗星君'], correct: 0 },
-                { q: '西洋萬聖節的英文 Halloween 是由哪一個傳統基督教節日前夜演變而來的？', options: ['諸聖節前夕 (All Hallows Eve)', '復活節前夕', '聖誕節前夕', '感恩節前夕'], correct: 0 },
-                { q: '中元普渡的核心精神除了祭祀祖先外，更包含了哪一種儒釋道合一的博愛表現？', options: ['普度孤魂野鬼（好兄弟）', '擴大商業促銷商機', '舉辦大型運動競技', '選拔地方村里長'], correct: 0 },
-                { q: '在西洋傳說中，傑克南瓜燈的名字由來與哪一個吝嗇又愛惡作劇的愛爾蘭鐵匠有關？', options: ['吝嗇傑克 (Stingy Jack)', '鐵匠约翰', '魔法師米爾', '航海家辛巴達'], correct: 0 },
-                { q: '華人喪葬與鬼月民俗中，用來遮陽避雨兼具陰陽導引象徵的傳統傘具是？', options: ['油紙傘', '現代自動傘', '塑膠透明傘', '西洋紳士傘'], correct: 0 },
-                { q: '萬聖節常出現的「蜘蛛網與黑蜘蛛」，在東西方文化中通常被用來營造什麼樣的空間氣氛？', options: ['神祕詭譎與荒廢廢墟感', '富貴吉祥的豪宅氣派', '溫馨浪漫的田園風光', '現代科技的未來感'], correct: 0 }
+                { q: '在萬聖節傳說中，被視為女巫忠實夥伴並常與掃帚、黑夜連結的神祕動物是？', options: ['神祕黑貓', '靈巧白兔', '忠誠黃狗', '溫馴綿羊'], correct: 0 }
             ],
             'zh-CN': [
                 { q: '中元普渡时悬挂的“红灯笼（普渡公灯）”，其主要核心意义是什么？', options: ['在夜晚为游荡的好兄弟指引平安方向', '装饰门面以迎宾过节', '驱赶白天的恶犬与飞鸟', '祈求来年农作物大丰收'], correct: 0 },
                 { q: '道家传说中用“桃木剑”作为法器，在民间习俗中最主要的宗教功能为何？', options: ['用来砍伐山林树木', '驱邪避凶与镇宅化煞', '作为古人的防身武器', '祭祀时切开供品祭品'], correct: 1 },
                 { q: '在华人基层民间信仰中，守护地方邻里与农作平安的福德正神庙宇被尊称为？', options: ['城隍庙', '土地公庙', '东岳殿', '地藏庵'], correct: 1 },
                 { q: '西洋万圣节中经典的“杰克南瓜灯（Jack-o\'-lantern）”，最初源自于什么目的？', options: ['点亮夜晚道路以便夜间散步', '在秋夜中驱赶恶灵与妖怪', '作为小朋友晚上读书的夜灯', '庆祝秋季小麦丰收庆典'], correct: 1 },
-                { q: '中元普渡祭桌上放置“剖半插香的西瓜”，其传统民俗目的为何？', options: ['让好兄弟在祭拜时解渴', '祈求考试顺利高中状元', '象征圆满与阖家团圆', '镇压桌上的邪气与阴气'], correct: 0 },
-                { q: '在道教与民间民俗中，用来悬挂在门口或厅堂用来“镇宅化煞”的镜状法器是？', options: ['八卦镜', '明代铜镜', '梳妆明镜', '照妖宝镜'], correct: 0 },
-                { q: '西洋万圣节活动中，孩子们挨家挨户敲门所喊的经典口号“不给糖就捣蛋”，其英文原文为？', options: ['Trick-or-Treat', 'Happy Halloween', 'Ghost and Witch', 'Candy or Monster'], correct: 0 },
-                { q: '农历七月俗称“鬼月”，在华人传统中，七月十五日的重要民间与宗教节日是？', options: ['中元节', '上元节', '下元节', '重阳节'], correct: 0 },
-                { q: '地府阴司中，与“牛头”将军一同执法并维持冥界秩序的另一位知名鬼王将军是？', options: ['马面罗刹', '黑白无常', '钟馗元帅', '判官大人'], correct: 0 },
-                { q: '在万圣节传说中，被视为女巫忠实伙伴并常与扫帚、黑夜连接的神秘动物是？', options: ['神秘黑猫', '灵巧白兔', '忠诚黄狗', '温驯绵羊'], correct: 0 }
+                { q: '中元普渡祭桌上放置“剖半插香的西瓜”，其传统民俗目的为何？', options: ['让好兄弟在祭拜时解渴', '祈求考试顺利高中状元', '象征圆满与阖家团圆', '镇压桌上的邪气与阴气'], correct: 0 }
             ],
             'en': [
                 { q: 'What is the primary purpose of hanging red lanterns during the Ghost Festival?', options: ['To safely guide wandering spirits at night', 'To decorate for celebrations', 'To scare away daytime birds', 'To pray for a rich harvest'], correct: 0 },
@@ -960,4 +944,967 @@
             { icon: '🍑', name: '壽桃供品', decoyIcon: '🍎', loreKey: '壽桃供品' }
         ];
 
-        const westernHalloweenPool =
+        const westernHalloweenPool = [
+            { icon: '🎃', name: '南瓜燈', decoyIcon: '🍊', loreKey: '南瓜燈' },
+            { icon: '👻', name: '小幽靈', decoyIcon: '🤍', loreKey: '小幽靈' },
+            { icon: '🦇', name: '吸血蝙蝠', decoyIcon: '🦅', loreKey: '吸血蝙蝠' },
+            { icon: '🕷️', name: '黑蜘蛛', decoyIcon: '🐜', loreKey: '黑蜘蛛' },
+            { icon: '🕸️', name: '蜘蛛網', decoyIcon: '🌀', loreKey: '蜘蛛網' },
+            { icon: '🧙‍♀️', name: '女巫', decoyIcon: '👩', loreKey: '女巫' },
+            { icon: '🧹', name: '女巫掃帚', decoyIcon: '🪵', loreKey: '女巫掃帚' },
+            { icon: '🐈‍⬛', name: '神祕黑貓', decoyIcon: '🐈', loreKey: '神祕黑貓' },
+            { icon: '🍬', name: '彩虹硬糖', decoyIcon: '🍬', loreKey: '彩虹硬糖' },
+            { icon: '🍫', name: '巧克力棒', decoyIcon: '🍫', loreKey: '巧克力棒' },
+            { icon: '🍭', name: '棒棒糖', decoyIcon: '🍭', loreKey: '棒棒糖' },
+            { icon: '🔮', name: '神祕水晶球', decoyIcon: '🔵', loreKey: '神祕水晶球' }
+        ];
+
+        const levelsData = [
+            { theme: "中式祭祀：紅燈金銀", type: 'chinese', count: 3, riddle: {'zh-TW': '🏮 尋找中式傳統祭祀與鬼月祈福圖標！', 'zh-CN': '🏮 寻找中式传统祭祀与鬼月祈福图标！', 'en': '🏮 Find traditional Chinese Ghost Festival icons!', 'ja': '🏮 中国の伝統的なお盆のアイコンを探そう！', 'ko': '🏮 중국 전통 명절 아이콘을 찾으세요!'} },
+            { theme: "中式民俗：法器鎮宅", type: 'chinese', count: 4, riddle: {'zh-TW': '🏮 尋找道家法器與普渡供品圖標！', 'zh-CN': '🏮 寻找道家法器与普渡供品图标！', 'en': '🏮 Find Taoist ritual tools and offerings!', 'ja': '🏮 道教の法器とお供え物のアイコンを探そう！', 'ko': '🏮 도교 법기와 제물 아이콘을 찾으세요!'} },
+            { theme: "中式陰司：神將護衛", type: 'chinese', count: 5, riddle: {'zh-TW': '🏮 尋找地府神將與寺廟法器圖標！', 'zh-CN': '🏮 寻找地府神将与寺庙法器图标！', 'en': '🏮 Find underworld generals and temple items!', 'ja': '🏮 冥府の神将と寺院のアイテムを探そう！', 'ko': '🏮 명부의 신장과 사원 아이콘을 찾으세요!'} },
+            { theme: "西洋萬聖：搞怪南瓜", type: 'halloween', count: 4, riddle: {'zh-TW': '🎃 尋找西洋萬聖節南瓜與搞怪精靈圖標！', 'zh-CN': '🎃 寻找西洋万圣节南瓜与搞怪精灵图标！', 'en': '🎃 Find Halloween pumpkins and spirits!', 'ja': '🎃 ハロウィンのカボチャと精霊を探そう！', 'ko': '🎃 할로윈 호박과 정령을 찾으세요!'} },
+            { theme: "西洋萬聖：女巫魔法", type: 'halloween', count: 5, riddle: {'zh-TW': '🎃 尋找女巫、掃帚與神祕黑貓圖標！', 'zh-CN': '🎃 寻找女巫、扫帚与神秘黑猫图标！', 'en': '🎃 Find witches, brooms and black cats!', 'ja': '🎃 魔女、ほうき、黒猫のアイコンを探そう！', 'ko': '🎃 마녀, 빗자루, 검은 고양이 아이콘을 찾으세요!'} },
+            { theme: "西洋萬聖：糖果驚魂", type: 'halloween', count: 6, riddle: {'zh-TW': '🎃 尋找萬聖節甜美糖果與骷髏圖標！', 'zh-CN': '🎃 寻找万圣节甜美糖果与骷髅图标！', 'en': '🎃 Find Halloween candies and skulls!', 'ja': '🎃 ハロウィンのお菓子とドクロを探そう！', 'ko': '🎃 할로윈 사탕과 해골 아이콘을 찾으세요!'} },
+            { theme: "東西合併：陰陽交錯（一）", type: 'mixed', count: 6, riddle: {'zh-TW': '🌐 東西方鬼節與萬聖節元素首次交織！', 'zh-CN': '🌐 东西方鬼节与万圣节元素首次交织！', 'en': '🌐 Eastern and Western ghost elements intertwine!', 'ja': '🌐 東西のお化けの要素が交差する！', 'ko': '🌐 동서양 유령 축제 요소가 교차합니다!'} },
+            { theme: "東西合併：時空百鬼夜行（二）", type: 'mixed', count: 7, riddle: {'zh-TW': '🌐 跨越東西文化的百鬼夜行大融合！', 'zh-CN': '🌐 跨越东西文化的百鬼夜行大融合！', 'en': '🌐 The ultimate cross-cultural ghost festival fusion!', 'ja': '🌐 文化的境界を超えた百鬼夜行の融合！', 'ko': '🌐 문화적 경계를 넘은 궁극의 유령 축제 대통합!'} },
+            { theme: "東西合併：神魔狂歡夜（三）", type: 'mixed', count: 7, riddle: {'zh-TW': '🌐 東西方神鬼與糖果派對同台競技！', 'zh-CN': '🌐 东西方神鬼与糖果派对同台竞技！', 'en': '🌐 Spirits and candy parties from both worlds!', 'ja': '🌐 東西の神々とモンスターのパーティー！', 'ko': '🌐 동서양 신귀와 사탕 파티의 만남!'} },
+            { theme: "東西合併 : 至高無上的鬼節殿堂（四）", type: 'mixed', count: 8, riddle: {'zh-TW': '🌐 東西方鬼節與萬聖節終極大考驗！', 'zh-CN': '🌐 东西方鬼节与万圣节终极大考验！', 'en': '🌐 The ultimate fusion trial of Eastern & Western festivals!', 'ja': '🌐 東西洋の祭りの究極の試練！', 'ko': '🌐 동서양 축제의 궁극의 시련!'} }
+        ];
+
+        let player = { codename: '', gender: 'male', country: 'Taiwan', difficulty: 'normal' };
+        let currentLang = 'zh-TW';
+        let currentLevel = 0, maxUnlockedLevel = 0, score = 0, timer = 0, totalGameTime = 0, playCount = 0;
+        let timerInterval = null, loreTimerInterval = null, musicInterval = null, destinyTimerInterval = null;
+        let currentItems = [], nextTargetIndex = 0;
+        let quizQuestions = [], currentQuizIndex = 0, quizScore = 0;
+        let audioCtx = null, isMusicPlaying = false;
+        let activeGod = null;
+        let divinationRemaining = 9, consecutiveShengJiao = 0;
+
+        function toggleBackgroundMusic() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            if (isMusicPlaying) {
+                clearInterval(musicInterval);
+                isMusicPlaying = false;
+                let btn = document.getElementById('audioToggleBtn');
+                if (btn) btn.style.opacity = '0.6';
+            } else {
+                isMusicPlaying = true;
+                let btn = document.getElementById('audioToggleBtn');
+                if (btn) btn.style.opacity = '1';
+                playStageBasedMusic();
+            }
+        }
+
+        function playStageBasedMusic() {
+            if (musicInterval) clearInterval(musicInterval);
+
+            musicInterval = setInterval(() => {
+                if (!isMusicPlaying || !audioCtx) return;
+
+                if (currentLevel === 9) {
+                    let fastNotes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25, 880.00, 987.77];
+                    let rNote = fastNotes[Math.floor(Math.random() * fastNotes.length)];
+                    playTone(rNote, 0.15, 'sawtooth');
+                } else if (currentLevel >= 6) {
+                    let epicNotes = [440, 523, 659, 523, 440, 349, 392, 440];
+                    let rNote = epicNotes[Math.floor(Math.random() * epicNotes.length)];
+                    playTone(rNote, 0.2, 'square');
+                } else if (currentLevel >= 3) {
+                    let midNotes = [330, 392, 440, 493, 523, 440, 392, 330];
+                    let rNote = midNotes[Math.floor(Math.random() * midNotes.length)];
+                    playTone(rNote, 0.25, 'triangle');
+                } else {
+                    let softNotes = [261.63, 293.66, 329.63, 392.00, 440.00, 392.00, 329.63, 293.66];
+                    let rNote = softNotes[Math.floor(Math.random() * softNotes.length)];
+                    playTone(rNote, 0.3, 'sine');
+                }
+            }, currentLevel === 9 ? 180 : (currentLevel >= 6 ? 240 : 320));
+        }
+
+        function playTone(freq, duration, type = 'sine') {
+            if (!audioCtx) return;
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = type; osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(); osc.stop(audioCtx.currentTime + duration);
+            } catch(e) {}
+        }
+
+        function syncCountryLanguage() {
+            let countryEl = document.getElementById('playerCountry');
+            if (!countryEl) return;
+            let country = countryEl.value;
+            let targetLang = 'zh-TW';
+            if (country === 'China') targetLang = 'zh-CN';
+            else if (country === 'Japan') targetLang = 'ja';
+            else if (country === 'South Korea') targetLang = 'ko';
+            else if (country !== 'Taiwan') targetLang = 'en';
+
+            let langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = targetLang;
+            changeLanguage();
+        }
+
+        function changeLanguage() {
+            const langSelect = document.getElementById('langSelect');
+            if (!langSelect) return;
+            currentLang = langSelect.value;
+            const dict = i18n[currentLang] || i18n['en'];
+
+            let elAppTitle = document.getElementById('appTitle');
+            if (elAppTitle) elAppTitle.innerText = dict.appTitle;
+            let elHeroTitle = document.getElementById('heroTitle');
+            if (elHeroTitle) elHeroTitle.innerText = dict.heroTitle;
+            let elHeroDesc = document.getElementById('heroDesc');
+            if (elHeroDesc) elHeroDesc.innerText = dict.heroDesc;
+            let elSetupTitle = document.getElementById('setupTitle');
+            if (elSetupTitle) elSetupTitle.innerText = dict.setupTitle;
+            let elLabelCodename = document.getElementById('labelCodename');
+            if (elLabelCodename) elLabelCodename.innerText = dict.labelCodename;
+            let elLabelGender = document.getElementById('labelGender');
+            if (elLabelGender) elLabelGender.innerText = dict.labelGender;
+            let elOptMale = document.getElementById('optMale');
+            if (elOptMale) elOptMale.innerText = dict.optMale;
+            let elOptFemale = document.getElementById('optFemale');
+            if (elOptFemale) elOptFemale.innerText = dict.optFemale;
+            let elOptOther = document.getElementById('optOther');
+            if (elOptOther) elOptOther.innerText = dict.optOther;
+            let elLabelCountry = document.getElementById('labelCountry');
+            if (elLabelCountry) elLabelCountry.innerText = dict.labelCountry;
+            let elLabelDiff = document.getElementById('labelDifficulty');
+            if (elLabelDiff) elLabelDiff.innerText = dict.labelDifficulty;
+            let elDiffNovice = document.getElementById('diffNovice');
+            if (elDiffNovice) elDiffNovice.innerText = dict.diffNovice;
+            let elDiffEasy = document.getElementById('diffEasy');
+            if (elDiffEasy) elDiffEasy.innerText = dict.diffEasy;
+            let elDiffNormal = document.getElementById('diffNormal');
+            if (elDiffNormal) elDiffNormal.innerText = dict.diffNormal;
+            let elDiffHard = document.getElementById('diffHard');
+            if (elDiffHard) elDiffHard.innerText = dict.diffHard;
+            let elDiffMaster = document.getElementById('diffMaster');
+            if (elDiffMaster) elDiffMaster.innerText = dict.diffMaster;
+            let elStartBtn = document.getElementById('startBtn');
+            if (elStartBtn) elStartBtn.innerText = dict.startBtn;
+            let elScoreLabel = document.getElementById('scoreLabel');
+            if (elScoreLabel) elScoreLabel.innerText = dict.scoreText;
+            let elTimerLabel = document.getElementById('timerLabel');
+            if (elTimerLabel) elTimerLabel.innerText = dict.timeText;
+            let elHintBtn = document.getElementById('hintBtn');
+            if (elHintBtn) elHintBtn.innerText = dict.hintText;
+            let elQuizHeader = document.getElementById('quizHeader');
+            if (elQuizHeader) elQuizHeader.innerText = dict.quizHeader;
+            let elQuizInst = document.getElementById('quizInstructions');
+            if (elQuizInst) elQuizInst.innerText = dict.quizInstructions;
+            let elLoreHeader = document.getElementById('loreHeaderTitle');
+            if (elLoreHeader) elLoreHeader.innerText = dict.loreTitleText;
+            let elTransHeader = document.getElementById('transHeader');
+            if (elTransHeader) elTransHeader.innerText = dict.transHeader || dict.transTitleText;
+            let elTransDesc = document.getElementById('transDesc');
+            if (elTransDesc) elTransDesc.innerText = dict.transDescText;
+            let elSkipGod = document.getElementById('skipGodBtn');
+            if (elSkipGod) elSkipGod.innerText = dict.skipGodText;
+            let elLabelBet = document.getElementById('labelBetEnergy');
+            if (elLabelBet) elLabelBet.innerText = dict.betEnergyText;
+            let elDestinyTip = document.getElementById('destinyTip');
+            if (elDestinyTip) elDestinyTip.innerText = dict.destinyTipText;
+
+            if (document.getElementById('gameScreen').style.display === 'flex') {
+                updateChecklistTitle();
+                renderChecklist();
+                updateRiddleText();
+            }
+        }
+
+        function startGame(event) {
+            if (event) event.preventDefault();
+            playTone(440, 0.2);
+
+            if (!isMusicPlaying) {
+                toggleBackgroundMusic();
+            }
+
+            let playTimesKey = 'ghost_play_count';
+            let currentPlays = parseInt(localStorage.getItem(playTimesKey) || '0') + 1;
+            localStorage.setItem(playTimesKey, currentPlays);
+            playCount = currentPlays;
+
+            const nameInput = document.getElementById('playerCodename');
+            const genderSelect = document.getElementById('playerGender');
+            const countrySelect = document.getElementById('playerCountry');
+            const diffSelect = document.getElementById('playerDifficulty');
+
+            let nameVal = nameInput ? nameInput.value.trim() : '';
+            let defaultName = currentLang === 'ja' ? '冒険者' : (currentLang === 'ko' ? '모험가' : (currentLang === 'en' ? 'Adventurer' : '尋寶者'));
+            player.codename = nameVal !== '' ? nameVal : defaultName;
+            player.gender = genderSelect ? genderSelect.value : 'male';
+            player.country = countrySelect ? countrySelect.value : 'Taiwan';
+            player.difficulty = diffSelect ? diffSelect.value : 'normal';
+
+            let setupScreen = document.getElementById('setupScreen');
+            if (setupScreen) setupScreen.style.display = 'none';
+            let gameScreen = document.getElementById('gameScreen');
+            if (gameScreen) gameScreen.style.display = 'flex';
+
+            currentLevel = 0;
+            maxUnlockedLevel = 0;
+            score = 0;
+            totalGameTime = 0;
+            let scoreEl = document.getElementById('score');
+            if (scoreEl) scoreEl.innerText = score;
+            initGame();
+        }
+
+        function initGame() {
+            renderLevelSelector();
+            loadLevel(currentLevel);
+        }
+
+        function renderLevelSelector() {
+            const panel = document.getElementById('levelSelectPanel');
+            if (!panel) return;
+            panel.innerHTML = '';
+            levelsData.forEach((lvl, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                let isLocked = idx > maxUnlockedLevel;
+                btn.className = `level-btn ${idx === currentLevel ? 'active' : ''} ${isLocked ? 'locked' : ''}`;
+                btn.innerText = `Lv ${idx + 1}`;
+                
+                btn.onclick = () => {
+                    if (isLocked) {
+                        alert(i18n[currentLang].lockedLevelAlert);
+                        return;
+                    }
+                    playTone(493.88, 0.1);
+                    currentLevel = idx;
+                    loadLevel(currentLevel);
+                };
+                panel.appendChild(btn);
+            });
+        }
+
+        function loadLevel(levelIdx) {
+            currentLevel = levelIdx;
+            nextTargetIndex = 0;
+            const winModal = document.getElementById('winModal');
+            if (winModal) winModal.style.display = 'none';
+
+            if (isMusicPlaying) {
+                playStageBasedMusic();
+            }
+
+            updateChecklistTitle();
+            updateRiddleText();
+
+            if (timerInterval) clearInterval(timerInterval);
+            timer = 0;
+            timerInterval = setInterval(() => {
+                timer++;
+                totalGameTime++;
+                const timerEl = document.getElementById('timer');
+                if (timerEl) timerEl.innerText = timer;
+            }, 1000);
+
+            let levelConfig = levelsData[levelIdx];
+            let pool = [];
+            if (levelConfig.type === 'chinese') pool = [...chineseGhostPool];
+            else if (levelConfig.type === 'halloween') pool = [...westernHalloweenPool];
+            else pool = [...chineseGhostPool, ...westernHalloweenPool];
+
+            pool.sort(() => Math.random() - 0.5);
+            let targetCount = levelConfig.count;
+            let baseDecoyCount = levelConfig.count + levelIdx + 3;
+            let rawItems = pool.slice(0, targetCount);
+
+            currentItems = rawItems.map(item => ({ 
+                name: item.name, 
+                icon: item.icon, 
+                decoyIcon: item.decoyIcon || item.icon,
+                loreKey: item.loreKey,
+                found: false 
+            }));
+
+            renderChecklist();
+            renderScene(baseDecoyCount);
+            renderLevelSelector();
+        }
+
+        function updateChecklistTitle() {
+            const titleEl = document.getElementById('checklistTitle');
+            if (titleEl) {
+                let targetText = currentLang === 'ja' ? 'ターゲット' : (currentLang === 'ko' ? '목표' : (currentLang === 'en' ? 'Target' : '尋寶清單'));
+                titleEl.innerHTML = `🔍 Level ${currentLevel + 1} ${targetText}:`;
+            }
+        }
+
+        function updateRiddleText() {
+            const riddleEl = document.getElementById('riddleText');
+            if (!riddleEl) return;
+            let levelData = levelsData[currentLevel];
+            if (levelData) {
+                let langKey = currentLang;
+                if (!levelData.riddle[langKey]) langKey = 'en';
+                riddleEl.innerText = levelData.riddle[langKey] || levelData.riddle['zh-TW'];
+            }
+        }
+
+        function renderChecklist() {
+            const container = document.getElementById('checklistContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            currentItems.forEach((item, idx) => {
+                const div = document.createElement('div');
+                let statusClass = '';
+                if (item.found) statusClass = 'found';
+                else if (idx === nextTargetIndex) statusClass = 'current-target';
+                div.className = `target-item ${statusClass}`;
+                div.innerHTML = `${item.icon}`;
+                container.appendChild(div);
+            });
+        }
+
+        function renderScene(decoyCount) {
+            const scene = document.getElementById('roomScene');
+            if (!scene) return;
+            scene.innerHTML = '';
+
+            let sceneObjects = [];
+            currentItems.forEach((item, idx) => {
+                sceneObjects.push({
+                    name: item.name,
+                    icon: item.icon,
+                    isTarget: true,
+                    targetIdx: idx
+                });
+            });
+
+            for (let i = 0; i < decoyCount; i++) {
+                let randomTarget = currentItems[Math.floor(Math.random() * currentItems.length)];
+                sceneObjects.push({
+                    name: 'Fake',
+                    icon: randomTarget.decoyIcon || randomTarget.icon,
+                    isTarget: false
+                });
+            }
+
+            let positions = [];
+            sceneObjects.forEach((obj) => {
+                let posX, posY, overlapping;
+                let safetyCounter = 0;
+                do {
+                    overlapping = false;
+                    posX = Math.floor(Math.random() * 75) + 10;
+                    posY = Math.floor(Math.random() * 65) + 15;
+                    for (let p of positions) {
+                        if (Math.sqrt(Math.pow(p.x - posX, 2) + Math.pow(p.y - posY, 2)) < 9) {
+                            overlapping = true;
+                            break;
+                        }
+                    }
+                    safetyCounter++;
+                    if (safetyCounter > 100) break;
+                } while (overlapping);
+
+                positions.push({ x: posX, y: posY });
+
+                const el = document.createElement('div');
+                el.className = 'room-object';
+                if (!obj.isTarget) {
+                    el.classList.add('decoy-item');
+                    let randomAngle = (Math.random() * 80 - 40).toFixed(0);
+                    el.style.transform = `rotate(${randomAngle}deg)`;
+                }
+                el.innerText = obj.icon;
+                el.style.top = posY + '%';
+                el.style.left = posX + '%';
+
+                el.onclick = (e) => handleObjectClick(obj, el, e);
+                scene.appendChild(el);
+            });
+        }
+
+        function handleObjectClick(obj, element) {
+            if (element.classList.contains('collected') || element.classList.contains('triggered')) return;
+
+            if (obj.isTarget) {
+                if (obj.targetIdx === nextTargetIndex) {
+                    playTone(783.99, 0.15);
+                    obj.found = true;
+                    element.classList.add('collected');
+                    nextTargetIndex++;
+                    renderChecklist();
+
+                    if (nextTargetIndex === currentItems.length) {
+                        if (timerInterval) clearInterval(timerInterval);
+                        score += levelRewards[currentLevel];
+                        let scoreEl = document.getElementById('score');
+                        if (scoreEl) scoreEl.innerText = score;
+                        handleLevelCompletion();
+                    }
+                } else {
+                    playTone(180, 0.3);
+                    score = Math.max(0, score - 50);
+                    timer += 5;
+                    totalGameTime += 5;
+                    let scoreEl = document.getElementById('score');
+                    if (scoreEl) scoreEl.innerText = score;
+                    let timerEl = document.getElementById('timer');
+                    if (timerEl) timerEl.innerText = timer;
+                }
+            } else {
+                playTone(120, 0.4);
+                element.classList.add('triggered');
+                score = Math.max(0, score - 50);
+                timer += 5;
+                totalGameTime += 5;
+                let scoreEl = document.getElementById('score');
+                if (scoreEl) scoreEl.innerText = score;
+                let timerEl = document.getElementById('timer');
+                if (timerEl) timerEl.innerText = timer;
+            }
+        }
+
+        function useHint() {
+            let targets = document.querySelectorAll('.room-object:not(.collected):not(.triggered)');
+            targets.forEach(el => {
+                if (el.innerText === currentItems[nextTargetIndex].icon) {
+                    el.classList.add('hint-glow');
+                    setTimeout(() => el.classList.remove('hint-glow'), 1500);
+                }
+            });
+        }
+
+        function handleLevelCompletion() {
+            if (currentLevel + 1 > maxUnlockedLevel && currentLevel < levelsData.length - 1) {
+                maxUnlockedLevel = currentLevel + 1;
+            }
+
+            if (playCount >= 3 && currentLevel >= 3 && Math.random() > 0.4) {
+                showGodModal();
+            } else {
+                showLoreScreen();
+            }
+        }
+
+        function showLoreScreen() {
+            let gameScreen = document.getElementById('gameScreen');
+            if (gameScreen) gameScreen.style.display = 'none';
+            const loreScreen = document.getElementById('loreScreen');
+            if (loreScreen) loreScreen.style.display = 'block';
+
+            let langKey = currentLang;
+            if (!levelSpecificLore[currentLevel] || !levelSpecificLore[currentLevel][langKey]) {
+                langKey = 'en';
+            }
+
+            let baseHtml = levelSpecificLore[currentLevel][langKey] || levelSpecificLore[currentLevel]['zh-TW'];
+            let diff = player.difficulty;
+
+            if ((diff === 'normal' || diff === 'hard') && currentLevel > 0) {
+                let prevLangKey = currentLang;
+                if (!levelSpecificLore[currentLevel - 1][prevLangKey]) prevLangKey = 'en';
+                baseHtml += "<hr style='border:1px dashed #ea580c; margin:10px 0;'>" + levelSpecificLore[currentLevel - 1][prevLangKey];
+            } else if (diff === 'master' && currentLevel > 1) {
+                let p1Key = currentLang; if (!levelSpecificLore[currentLevel - 1][p1Key]) p1Key = 'en';
+                let p2Key = currentLang; if (!levelSpecificLore[currentLevel - 2][p2Key]) p2Key = 'en';
+                baseHtml += "<hr style='border:1px dashed #ea580c; margin:10px 0;'>" + levelSpecificLore[currentLevel - 1][p1Key];
+                baseHtml += "<hr style='border:1px dashed #ea580c; margin:10px 0;'>" + levelSpecificLore[currentLevel - 2][p2Key];
+            }
+
+            let loreContent = document.getElementById('loreContentBox');
+            if (loreContent) loreContent.innerHTML = baseHtml;
+
+            let loreSeconds = 7;
+            if (diff === 'novice') loreSeconds = 11;
+            else if (diff === 'easy') loreSeconds = 9;
+            else if (diff === 'normal') loreSeconds = 7;
+            else if (diff === 'hard') loreSeconds = 5;
+            else if (diff === 'master') loreSeconds = 3;
+
+            let timerPrefix = currentLang === 'ja' ? 'タイマー' : (currentLang === 'ko' ? '타이머' : (currentLang === 'en' ? 'Timer' : '倒數計時'));
+            const timerDisp = document.getElementById('loreTimerDisplay');
+            if (timerDisp) timerDisp.innerText = `${timerPrefix}: ${loreSeconds}s`;
+
+            if (loreTimerInterval) clearInterval(loreTimerInterval);
+            loreTimerInterval = setInterval(() => {
+                loreSeconds--;
+                if (loreSeconds > 0) {
+                    if (timerDisp) timerDisp.innerText = `${timerPrefix}: ${loreSeconds}s`;
+                } else {
+                    clearInterval(loreTimerInterval);
+                    if (timerDisp) timerDisp.innerText = currentLang === 'ja' ? '⚡ 時間切れ！次のレベルへ...' : (currentLang === 'ko' ? '⚡ 시간 종료! 다음 단계로...' : (currentLang === 'en' ? '⚡ Time\'s up! Next level...' : '⚡ 時間到！自動進入下一關...'));
+                    setTimeout(() => proceedAfterLore(), 600);
+                }
+            }, 1000);
+        }
+
+        function proceedAfterLore() {
+            if (loreTimerInterval) clearInterval(loreTimerInterval);
+            let loreScreen = document.getElementById('loreScreen');
+            if (loreScreen) loreScreen.style.display = 'none';
+
+            if (currentLevel < levelsData.length - 1) {
+                currentLevel++;
+                loadLevel(currentLevel);
+                let gameScreen = document.getElementById('gameScreen');
+                if (gameScreen) gameScreen.style.display = 'flex';
+            } else {
+                startTransitionSequence();
+            }
+        }
+
+        function showGodModal() {
+            let gameScreen = document.getElementById('gameScreen');
+            if (gameScreen) gameScreen.style.display = 'none';
+            const modal = document.getElementById('godModal');
+            if (modal) modal.style.display = 'block';
+
+            let isEastern = Math.random() > 0.5;
+            activeGod = isEastern ? easternGods[Math.floor(Math.random() * easternGods.length)] : westernGods[Math.floor(Math.random() * westernGods.length)];
+            activeGod.isEastern = isEastern;
+
+            let descBox = document.getElementById('godDescBox');
+            let easternArea = document.getElementById('easternEncounterArea');
+            let westernArea = document.getElementById('westernEncounterArea');
+
+            let appearsText = currentLang === 'ja' ? '降臨！' : (currentLang === 'ko' ? '강림!' : (currentLang === 'en' ? 'Appears!' : '降臨！'));
+            if (descBox) {
+                descBox.innerHTML = `
+                    <div style="font-size: 3rem; margin-bottom: 5px;">${activeGod.icon}</div>
+                    <b>【${activeGod.name}】${appearsText}</b><br>${activeGod.desc}
+                `;
+            }
+
+            if (isEastern) {
+                if (easternArea) easternArea.style.display = 'block';
+                if (westernArea) westernArea.style.display = 'none';
+                divinationRemaining = 9;
+                consecutiveShengJiao = 0;
+                updateEasternResultUI();
+            } else {
+                if (easternArea) easternArea.style.display = 'none';
+                if (westernArea) westernArea.style.display = 'block';
+                initDestinyGrid();
+            }
+        }
+
+        function updateEasternResultUI() {
+            let shengJiaoLabel = currentLang === 'ja' ? '連続聖杯数' : (currentLang === 'ko' ? '연속 성배' : (currentLang === 'en' ? 'Consecutive Sheng Jiao' : '連續聖筊'));
+            let remainLabel = currentLang === 'ja' ? '残り回数' : (currentLang === 'ko' ? '남은 기회' : (currentLang === 'en' ? 'Remaining' : '剩餘次數'));
+            let resMsg = document.getElementById('easternResultMsg');
+            if (resMsg) resMsg.innerText = `${remainLabel}: ${divinationRemaining} | ${shengJiaoLabel}: ${consecutiveShengJiao}`;
+        }
+
+        function handleCastBlock() {
+            if (divinationRemaining <= 0) return;
+            divinationRemaining--;
+
+            let roll = Math.random();
+            if (roll > 0.45) {
+                consecutiveShengJiao++;
+                playTone(880, 0.2);
+            } else {
+                consecutiveShengJiao = 0;
+                playTone(150, 0.3);
+            }
+
+            updateEasternResultUI();
+
+            if (consecutiveShengJiao >= 4) {
+                setTimeout(() => finalizeDivination(3), 500);
+            } else if (divinationRemaining <= 0) {
+                setTimeout(() => finalizeDivinationFromStreak(), 500);
+            }
+        }
+
+        function finalizeDivinationFromStreak() {
+            let skip = 0;
+            if (consecutiveShengJiao >= 4) skip = 3;
+            else if (consecutiveShengJiao === 3) skip = 2;
+            else if (consecutiveShengJiao === 2) skip = 1;
+            else skip = 0;
+
+            finalizeDivination(skip);
+        }
+
+        function finalizeDivination(skipLevels) {
+            let msg = currentLang === 'ja' ? `擲筊結束！最高連續聖筊: ${consecutiveShengJiao}回。獲得跳級: ${skipLevels} 關！` :
+                      (currentLang === 'ko' ? `척배 완료! 최고 연속 성배: ${consecutiveShengJiao}회. ${skipLevels}단계 도약!` :
+                      `🎉 擲筊請神圓滿結束！最高連續聖筊：${consecutiveShengJiao} 次。神明庇佑，獲得跳級通關：${skipLevels} 關！`);
+            alert(msg);
+
+            let modal = document.getElementById('godModal');
+            if (modal) modal.style.display = 'none';
+            currentLevel = Math.min(levelsData.length - 1, currentLevel + skipLevels);
+            maxUnlockedLevel = Math.max(maxUnlockedLevel, currentLevel);
+
+            if (currentLevel >= levelsData.length - 1) {
+                startTransitionSequence();
+            } else {
+                loadLevel(currentLevel);
+                let gameScreen = document.getElementById('gameScreen');
+                if (gameScreen) gameScreen.style.display = 'flex';
+            }
+        }
+
+        let firstCard = null, secondCard = null, lockBoard = false, matchedPairsCount = 0, wrongPairsCount = 0;
+        function initDestinyGrid() {
+            if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+            firstCard = null; secondCard = null; lockBoard = false; matchedPairsCount = 0; wrongPairsCount = 0;
+            let resMsg = document.getElementById('godResultMsg');
+            if (resMsg) resMsg.innerText = '';
+
+            let grid = document.getElementById('destinyGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            let symbols = ['👻', '🎃', '🦇', '🔮'];
+            let deck = [...symbols, ...symbols, '💀'];
+            deck.sort(() => Math.random() - 0.5);
+
+            deck.forEach(sym => {
+                let card = document.createElement('div');
+                card.className = 'destiny-card';
+                card.dataset.symbol = sym;
+                card.innerHTML = `<span class="card-content">${sym}</span>`;
+                card.onclick = () => flipDestinyCard(card);
+                grid.appendChild(card);
+            });
+
+            let timeLeft = 15;
+            const timerEl = document.getElementById('destinyTimer');
+            if (timerEl) timerEl.innerText = timeLeft;
+            destinyTimerInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    if (timerEl) timerEl.innerText = timeLeft;
+                } else {
+                    clearInterval(destinyTimerInterval);
+                    evaluateDestinyResult();
+                }
+            }, 1000);
+        }
+
+        function flipDestinyCard(card) {
+            if (lockBoard || card.classList.contains('flipped')) return;
+            card.classList.add('flipped');
+
+            if (card.dataset.symbol === '💀') {
+                playTone(120, 0.4);
+                wrongPairsCount += 2;
+                let skullText = currentLang === 'ja' ? '💥 骸骨の罠！2レベルダウン！' : (currentLang === 'ko' ? '💥 해골 함정! 2단계 하락!' : (currentLang === 'en' ? '💥 Skull Trap! -2 Levels!' : '💥 觸碰骷髏陷阱！扣 2 關！'));
+                let resMsg = document.getElementById('godResultMsg');
+                if (resMsg) resMsg.innerHTML = `<span style="color:#dc2626;">${skullText}</span>`;
+                if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+                setTimeout(() => evaluateDestinyResult(), 1200);
+                return;
+            }
+
+            if (!firstCard) {
+                firstCard = card;
+                return;
+            }
+
+            secondCard = card;
+            checkForMatch();
+        }
+
+        function checkForMatch() {
+            let isMatch = firstCard.dataset.symbol === secondCard.dataset.symbol;
+            if (isMatch) {
+                matchedPairsCount++;
+                playTone(880, 0.2);
+                resetCards();
+                let un-flipped = document.querySelectorAll('.destiny-card:not(.flipped)');
+                if (matchedPairsCount >= 3 || un-flipped.length <= 1) {
+                    if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+                    setTimeout(() => evaluateDestinyResult(), 800);
+                }
+            } else {
+                lockBoard = true;
+                wrongPairsCount++;
+                playTone(200, 0.3);
+                setTimeout(() => {
+                    if (firstCard) firstCard.classList.remove('flipped');
+                    if (secondCard) secondCard.classList.remove('flipped');
+                    resetCards();
+                }, 900);
+            }
+        }
+
+        function resetCards() {
+            [firstCard, secondCard] = [null, null];
+            lockBoard = false;
+        }
+
+        function evaluateDestinyResult() {
+            if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+            
+            let netSkips = matchedPairsCount - wrongPairsCount;
+            let skipLevels = Math.max(0, Math.min(3, netSkips));
+
+            let betSel = document.getElementById('westernBetSelect');
+            let bet = betSel ? parseInt(betSel.value) : 200;
+            if (score < bet) {
+                alert(currentLang === 'ja' ? 'ポイント不足！' : (currentLang === 'ko' ? '점수 부족!' : 'Insufficient points!'));
+                closeGodModal();
+                return;
+            }
+            score -= bet;
+            let rewardBonus = bet * (matchedPairsCount > 0 ? matchedPairsCount : 1);
+            score += rewardBonus;
+            let scoreEl = document.getElementById('score');
+            if (scoreEl) scoreEl.innerText = score;
+            playTone(1318.51, 0.5);
+
+            let resultMsg = currentLang === 'ja' ? `配對成功 ${matchedPairsCount} 組、錯誤 ${wrongPairsCount} 組！獲得跳級 ${skipLevels} 關！` :
+                            (currentLang === 'ko' ? `매칭 성공 ${matchedPairsCount}개, 오류 ${wrongPairsCount}개! ${skipLevels}단계 도약!` :
+                            `🎉 靈魂占卜結算：正確 ${matchedPairsCount} 組，錯誤 ${wrongPairsCount} 組！獲得跳級 ${skipLevels} 關，獎勵積分 +${rewardBonus}！`);
+            alert(resultMsg);
+
+            let modal = document.getElementById('godModal');
+            if (modal) modal.style.display = 'none';
+            currentLevel = Math.min(levelsData.length - 1, currentLevel + skipLevels);
+            maxUnlockedLevel = Math.max(maxUnlockedLevel, currentLevel);
+
+            if (currentLevel >= levelsData.length - 1) {
+                startTransitionSequence();
+            } else {
+                loadLevel(currentLevel);
+                let gameScreen = document.getElementById('gameScreen');
+                if (gameScreen) gameScreen.style.display = 'flex';
+            }
+        }
+
+        function closeGodModal() {
+            if (destinyTimerInterval) clearInterval(destinyTimerInterval);
+            let modal = document.getElementById('godModal');
+            if (modal) modal.style.display = 'none';
+            showLoreScreen();
+        }
+
+        function startTransitionSequence() {
+            let gameScreen = document.getElementById('gameScreen');
+            if (gameScreen) gameScreen.style.display = 'none';
+            let loreScreen = document.getElementById('loreScreen');
+            if (loreScreen) loreScreen.style.display = 'none';
+            let godModal = document.getElementById('godModal');
+            if (godModal) godModal.style.display = 'none';
+
+            const transitionScreen = document.getElementById('transitionScreen');
+            if (transitionScreen) transitionScreen.style.display = 'block';
+
+            let count = 3;
+            const timerEl = document.getElementById('transitionTimer');
+            if (timerEl) timerEl.innerText = count;
+
+            let countdown = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    if (timerEl) timerEl.innerText = count;
+                    playTone(500, 0.1);
+                } else {
+                    clearInterval(countdown);
+                    executeGrandmasterQuiz();
+                }
+            }, 1000);
+        }
+
+        function executeGrandmasterQuiz() {
+            let transScreen = document.getElementById('transitionScreen');
+            if (transScreen) transScreen.style.display = 'none';
+            let quizScreen = document.getElementById('quizScreen');
+            if (quizScreen) quizScreen.style.display = 'block';
+
+            quizQuestions = generateComprehensiveQuiz();
+            currentQuizIndex = 0;
+            quizScore = 0;
+            loadQuizQuestion();
+        }
+
+        function generateComprehensiveQuiz() {
+            let questions = [];
+            let allPool = [...chineseGhostPool, ...westernHalloweenPool];
+            allPool.sort(() => Math.random() - 0.5);
+
+            for (let i = 0; i < 5; i++) {
+                let target = allPool[i];
+                let options = [target.icon];
+                while (options.length < 4) {
+                    let randomItem = allPool[Math.floor(Math.random() * allPool.length)];
+                    if (!options.includes(randomItem.icon)) options.push(randomItem.icon);
+                }
+                options.sort(() => Math.random() - 0.5);
+
+                questions.push({
+                    type: 'visual',
+                    promptIcon: target.icon,
+                    correctIcon: target.icon,
+                    options: options
+                });
+            }
+
+            let lorePool = culturalLoreQuizPool[currentLang] || culturalLoreQuizPool['zh-TW'];
+            let shuffledLore = [...lorePool].sort(() => Math.random() - 0.5);
+            for (let i = 0; i < Math.min(5, shuffledLore.length); i++) {
+                let loreItem = shuffledLore[i];
+                let indexedOpts = loreItem.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+                indexedOpts.sort(() => Math.random() - 0.5);
+                let newCorrectIndex = indexedOpts.findIndex(opt => opt.originalIndex === loreItem.correct);
+
+                questions.push({
+                    type: 'lore',
+                    questionText: loreItem.q,
+                    options: indexedOpts.map(o => o.text),
+                    correctIndex: newCorrectIndex
+                });
+            }
+
+            questions.sort(() => Math.random() - 0.5);
+            return questions;
+        }
+
+        function loadQuizQuestion() {
+            if (currentQuizIndex >= quizQuestions.length) {
+                finishGrandmasterQuiz();
+                return;
+            }
+
+            let q = quizQuestions[currentQuizIndex];
+            let qPrefix = currentLang === 'ja' ? '問題' : (currentLang === 'ko' ? '문제' : 'Question');
+            let progEl = document.getElementById('quizProgress');
+            if (progEl) progEl.innerText = `${qPrefix} ${currentQuizIndex + 1} / ${quizQuestions.length}`;
+
+            let container = document.getElementById('quizDynamicContent');
+            if (!container) return;
+            container.innerHTML = '';
+
+            if (q.type === 'visual') {
+                container.innerHTML = `
+                    <div id="quizQuestionBox" style="font-size: 3rem; margin: 15px 0;">${q.promptIcon}</div>
+                    <div class="quiz-visual-grid" id="quizVisualOptionsContainer"></div>
+                `;
+                let optsContainer = document.getElementById('quizVisualOptionsContainer');
+                setTimeout(() => {
+                    if (!optsContainer) return;
+                    q.options.forEach(iconOpt => {
+                        let btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'quiz-visual-btn';
+                        if (player.difficulty === 'hard' || player.difficulty === 'master') {
+                            let randRot = (Math.random() * 20 - 10).toFixed(0);
+                            btn.style.transform = `rotate(${randRot}deg)`;
+                        }
+                        btn.innerText = iconOpt;
+                        btn.onclick = () => handleQuizAnswer(iconOpt === q.correctIcon);
+                        optsContainer.appendChild(btn);
+                    });
+                }, 200);
+            } else if (q.type === 'lore') {
+                container.innerHTML = `
+                    <div class="quiz-text-card">${q.questionText}</div>
+                    <div id="quizLoreOptionsContainer"></div>
+                `;
+                let optsContainer = document.getElementById('quizLoreOptionsContainer');
+                setTimeout(() => {
+                    if (!optsContainer) return;
+                    q.options.forEach((textOpt, optIdx) => {
+                        let btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'quiz-option-text-btn';
+                        btn.innerText = `${String.fromCharCode(65 + optIdx)}. ${textOpt}`;
+                        btn.onclick = () => handleQuizAnswer(optIdx === q.correctIndex);
+                        optsContainer.appendChild(btn);
+                    });
+                }, 200);
+            }
+        }
+
+        function handleQuizAnswer(isCorrect) {
+            if (isCorrect) {
+                playTone(880, 0.2);
+                quizScore++;
+                currentQuizIndex++;
+                loadQuizQuestion();
+            } else {
+                playTone(120, 0.5);
+                alert(i18n[currentLang].quizFailMsg);
+                let quizScreen = document.getElementById('quizScreen');
+                if (quizScreen) quizScreen.style.display = 'none';
+                let setupScreen = document.getElementById('setupScreen');
+                if (setupScreen) setupScreen.style.display = 'block';
+            }
+        }
+
+        function calculateAchievedLevel(finalScore, totalTime) {
+            let timeBonus = Math.max(0, 600 - totalTime);
+            let effectiveRating = finalScore + timeBonus;
+
+            if (effectiveRating >= 7500) return 9;
+            if (effectiveRating >= 6800) return 8;
+            if (effectiveRating >= 6100) return 7;
+            if (effectiveRating >= 5400) return 6;
+            if (effectiveRating >= 4700) return 5;
+            if (effectiveRating >= 4000) return 4;
+            if (effectiveRating >= 3200) return 3;
+            if (effectiveRating >= 2400) return 2;
+            if (effectiveRating >= 1500) return 1;
+            return 0;
+        }
+
+        function finishGrandmasterQuiz() {
+            playTone(1046.50, 0.4);
+            let quizScreen = document.getElementById('quizScreen');
+            if (quizScreen) quizScreen.style.display = 'none';
+            const modal = document.getElementById('winModal');
+            const title = document.getElementById('modalTitle');
+            const msg = document.getElementById('winMessage');
+            const nextBtn = document.getElementById('nextLevelBtn');
+            const certContainer = document.getElementById('certificateContainer');
+            const dict = i18n[currentLang] || i18n['en'];
+
+            if (title) title.innerText = dict.winAllTitle;
+            let playerLabel = currentLang === 'ja' ? 'プレイヤー' : (currentLang === 'ko' ? '플레이어' : 'Player');
+            let scoreLabel = currentLang === 'ja' ? 'スコア' : (currentLang === 'ko' ? '점수' : 'Score');
+            let timeLabel = currentLang === 'ja' ? '時間' : (currentLang === 'ko' ? '시간' : 'Time');
+            if (msg) msg.innerText = `${playerLabel}: ${player.codename} | ${scoreLabel}: ${score} pts | ${timeLabel}: ${totalGameTime}s`;
+            
+            let achievedIdx = calculateAchievedLevel(score, totalGameTime);
+            let titlesArray = levelTitlesData[currentLang] || levelTitlesData['en'];
+            let levelTitle = titlesArray[achievedIdx];
+            let genderTitle = player.gender === 'female' ? (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '女侠' : (currentLang === 'ja' ? '女傑' : (currentLang === 'ko' ? '여협' : 'Heroine'))) : (currentLang === 'zh-TW' || currentLang === 'zh-CN' ? '少侠' : (currentLang === 'ja' ? '豪傑' : (currentLang === 'ko' ? '협객' : 'Hero')));
+
+            if (certContainer) {
+                certContainer.innerHTML = `
+                    <div class="certificate-box">
+                        <div style="font-size: 1.15rem; font-weight: bold; color: #ea580c; text-align: center; margin-bottom: 5px;">
+                            ${dict.certTitle}
+                        </div>
+                        <div style="font-size: 1rem; color: #1e293b; margin-bottom: 5px;">
+                            ${playerLabel}: <b>${player.codename}</b> (${genderTitle}, ${player.country})
+                        </div>
+                        <div style="font-size: 1.05rem; font-weight: bold; color: #d97706; margin-top: 8px;">⭐ Lv ${achievedIdx + 1}: ${levelTitle}</div>
+                        <p style="font-size: 0.95rem; margin: 5px 0 0 0; color: #475569;">${currentLang === 'ja' ? '優れた異文化記憶力と知恵を発揮しました！' : (currentLang === 'ko' ? '뛰어난 다문화적 기억력과 지혜를 발휘했습니다!' : 'Total score: ' + score + ' pts in ' + totalGameTime + 's. Excellent performance!')}</p>
+                        <div style="font-size: 0.85rem; color: #64748b; text-align: right; margin-top: 12px; font-style: italic;">
+                            ${dict.designerCredit}
+                        </div>
+                    </div>
+                `;
+            }
+            if (nextBtn) {
+                nextBtn.style.display = 'inline-block';
+                nextBtn.innerText = dict.playAgain;
+                nextBtn.onclick = () => location.reload();
+            }
+            if (modal) modal.style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
