@@ -799,7 +799,7 @@
             }
         };
 
-        // 擴充至 50 題以上的華人鬼月與西洋萬聖節海量題庫
+        // 擴充至 50 題以上的豐富跨文化題庫（繁中、簡中、英、日、韓）
         const culturalLoreQuizPool = {
             'zh-TW': [
                 { q: '中元普渡時懸掛的「紅燈籠（普渡公燈）」，其主要核心意義是什麼？', options: ['在夜晚為遊蕩的好兄弟指引平安方向', '裝飾門面以迎賓過節', '驅趕白天的惡犬與飛鳥', '祈求來年農作物大豐收'], correct: 0 },
@@ -816,7 +816,12 @@
                 { q: '西洋萬聖節裝扮成吸血鬼時，常令人聯想到在夜空中飛行且具代表性的暗夜生物是？', options: ['吸血蝙蝠', '貓頭鷹', '黑烏鴉', '飛鼠'], correct: 0 },
                 { q: '佛教與道教中，發願「地獄不空，誓不成佛」，常於中元普渡被尊奉的慈悲菩薩是？', options: ['地藏王菩薩', '觀世音菩薩', '文殊菩薩', '普賢菩薩'], correct: 0 },
                 { q: '萬聖節派對中最受歡迎的高甜度零食，除了五顏六色的彩虹硬糖外，還有哪一種濃郁甜點？', options: ['巧克力棒', '紅豆羊羹', '綠豆糕', '鹹餅乾'], correct: 0 },
-                { q: '道教神話中掌管泰山及幽冥地府、主宰人間禍福的大神被尊稱為？', options: ['東嶽大帝', '玉皇大帝', '太上老君', '北斗星君'], correct: 0 }
+                { q: '道教神話中掌管泰山及幽冥地府、主宰人間禍福的大神被尊稱為？', options: ['東嶽大帝', '玉皇大帝', '太上老君', '北斗星君'], correct: 0 },
+                { q: '西洋萬聖節的英文 Halloween 是由哪一個傳統基督教節日前夜演變而來的？', options: ['諸聖節前夕 (All Hallows Eve)', '復活節前夕', '聖誕節前夕', '感恩節前夕'], correct: 0 },
+                { q: '中元普渡的核心精神除了祭祀祖先外，更包含了哪一種儒釋道合一的博愛表現？', options: ['普度孤魂野鬼（好兄弟）', '擴大商業促銷商機', '舉辦大型運動競技', '選拔地方村里長'], correct: 0 },
+                { q: '在西洋傳說中，傑克南瓜燈的名字由來與哪一個吝嗇又愛惡作劇的愛爾蘭鐵匠有關？', options: ['吝嗇傑克 (Stingy Jack)', '鐵匠约翰', '魔法師米爾', '航海家辛巴達'], correct: 0 },
+                { q: '華人喪葬與鬼月民俗中，用來遮陽避雨兼具陰陽導引象徵的傳統傘具是？', options: ['油紙傘', '現代自動傘', '塑膠透明傘', '西洋紳士傘'], correct: 0 },
+                { q: '萬聖節常出現的「蜘蛛網與黑蜘蛛」，在東西方文化中通常被用來營造什麼樣的空間氣氛？', options: ['神祕詭譎與荒廢廢墟感', '富貴吉祥的豪宅氣派', '溫馨浪漫的田園風光', '現代科技的未來感'], correct: 0 }
             ],
             'zh-CN': [
                 { q: '中元普渡时悬挂的“红灯笼（普渡公灯）”，其主要核心意义是什么？', options: ['在夜晚为游荡的好兄弟指引平安方向', '装饰门面以迎宾过节', '驱赶白天的恶犬与飞鸟', '祈求来年农作物大丰收'], correct: 0 },
@@ -955,185 +960,4 @@
             { icon: '🍑', name: '壽桃供品', decoyIcon: '🍎', loreKey: '壽桃供品' }
         ];
 
-        const westernHalloweenPool = [
-            { icon: '🎃', name: '南瓜燈', decoyIcon: '🍊', loreKey: '南瓜燈' },
-            { icon: '👻', name: '小幽靈', decoyIcon: '🤍', loreKey: '小幽靈' },
-            { icon: '🦇', name: '吸血蝙蝠', decoyIcon: '🦅', loreKey: '吸血蝙蝠' },
-            { icon: '🕷️', name: '黑蜘蛛', decoyIcon: '🐜', loreKey: '黑蜘蛛' },
-            { icon: '🕸️', name: '蜘蛛網', decoyIcon: '🌀', loreKey: '蜘蛛網' },
-            { icon: '🧙‍♀️', name: '女巫', decoyIcon: '👩', loreKey: '女巫' },
-            { icon: '🧹', name: '女巫掃帚', decoyIcon: '🪵', loreKey: '女巫掃帚' },
-            { icon: '🐈‍⬛', name: '神祕黑貓', decoyIcon: '🐈', loreKey: '神祕黑貓' },
-            { icon: '🍬', name: '彩虹硬糖', decoyIcon: '🍬', loreKey: '彩虹硬糖' },
-            { icon: '🍫', name: '巧克力棒', decoyIcon: '🍫', loreKey: '巧克力棒' },
-            { icon: '🍭', name: '棒棒糖', decoyIcon: '🍭', loreKey: '棒棒糖' },
-            { icon: '🔮', name: '神祕水晶球', decoyIcon: '🔵', loreKey: '神祕水晶球' }
-        ];
-
-        const levelsData = [
-            { theme: "中式祭祀：紅燈金銀", type: 'chinese', count: 3, riddle: {'zh-TW': '🏮 尋找中式傳統祭祀與鬼月祈福圖標！', 'zh-CN': '🏮 寻找中式传统祭祀与鬼月祈福图标！', 'en': '🏮 Find traditional Chinese Ghost Festival icons!', 'ja': '🏮 中国の伝統的なお盆のアイコンを探そう！', 'ko': '🏮 중국 전통 명절 아이콘을 찾으세요!'} },
-            { theme: "中式民俗：法器鎮宅", type: 'chinese', count: 4, riddle: {'zh-TW': '🏮 尋找道家法器與普渡供品圖標！', 'zh-CN': '🏮 寻找道家法器与普渡供品图标！', 'en': '🏮 Find Taoist ritual tools and offerings!', 'ja': '🏮 道教の法器とお供え物のアイコンを探そう！', 'ko': '🏮 도교 법기와 제물 아이콘을 찾으세요!'} },
-            { theme: "中式陰司：神將護衛", type: 'chinese', count: 5, riddle: {'zh-TW': '🏮 尋找地府神將與寺廟法器圖標！', 'zh-CN': '🏮 寻找地府神将与寺庙法器图标！', 'en': '🏮 Find underworld generals and temple items!', 'ja': '🏮 冥府の神将と寺院のアイテムを探そう！', 'ko': '🏮 명부의 신장과 사원 아이콘을 찾으세요!'} },
-            { theme: "西洋萬聖：搞怪南瓜", type: 'halloween', count: 4, riddle: {'zh-TW': '🎃 尋找西洋萬聖節南瓜與搞怪精靈圖標！', 'zh-CN': '🎃 寻找西洋万圣节南瓜与搞怪精灵图标！', 'en': '🎃 Find Halloween pumpkins and spirits!', 'ja': '🎃 ハロウィンのカボチャと精霊を探そう！', 'ko': '🎃 할로윈 호박과 정령을 찾으세요!'} },
-            { theme: "西洋萬聖：女巫魔法", type: 'halloween', count: 5, riddle: {'zh-TW': '🎃 尋找女巫、掃帚與神祕黑貓圖標！', 'zh-CN': '🎃 寻找女巫、扫帚与神秘黑猫图标！', 'en': '🎃 Find witches, brooms and black cats!', 'ja': '🎃 魔女、ほうき、黒猫のアイコンを探そう！', 'ko': '🎃 마녀, 빗자루, 검은 고양이 아이콘을 찾으세요!'} },
-            { theme: "西洋萬聖：糖果驚魂", type: 'halloween', count: 6, riddle: {'zh-TW': '🎃 尋找萬聖節甜美糖果與骷髏圖標！', 'zh-CN': '🎃 寻找万圣节甜美糖果与骷髅图标！', 'en': '🎃 Find Halloween candies and skulls!', 'ja': '🎃 ハロウィンのお菓子とドクロを探そう！', 'ko': '🎃 할로윈 사탕과 해골 아이콘을 찾으세요!'} },
-            { theme: "東西合併：陰陽交錯（一）", type: 'mixed', count: 6, riddle: {'zh-TW': '🌐 東西方鬼節與萬聖節元素首次交織！', 'zh-CN': '🌐 东西方鬼节与万圣节元素首次交织！', 'en': '🌐 Eastern and Western ghost elements intertwine!', 'ja': '🌐 東西のお化けの要素が交差する！', 'ko': '🌐 동서양 유령 축제 요소가 교차합니다!'} },
-            { theme: "東西合併：時空百鬼夜行（二）", type: 'mixed', count: 7, riddle: {'zh-TW': '🌐 跨越東西文化的百鬼夜行大融合！', 'zh-CN': '🌐 跨越东西文化的百鬼夜行大融合！', 'en': '🌐 The ultimate cross-cultural ghost festival fusion!', 'ja': '🌐 文化的境界を超えた百鬼夜行の融合！', 'ko': '🌐 문화적 경계를 넘은 궁극의 유령 축제 대통합!'} },
-            { theme: "東西合併：神魔狂歡夜（三）", type: 'mixed', count: 7, riddle: {'zh-TW': '🌐 東西方神鬼與糖果派對同台競技！', 'zh-CN': '🌐 东西方神鬼与糖果派对同台竞技！', 'en': '🌐 Spirits and candy parties from both worlds!', 'ja': '🌐 東西の神々とモンスターのパーティー！', 'ko': '🌐 동서양 신귀와 사탕 파티의 만남!'} },
-            { theme: "東西合併 : 至高無上的鬼節殿堂（四）", type: 'mixed', count: 8, riddle: {'zh-TW': '🌐 東西方鬼節與萬聖節終極大考驗！', 'zh-CN': '🌐 东西方鬼节与万圣节终极大考验！', 'en': '🌐 The ultimate fusion trial of Eastern & Western festivals!', 'ja': '🌐 東西洋の祭りの究極の試練！', 'ko': '🌐 동서양 축제의 궁극의 시련!'} }
-        ];
-
-        let player = { codename: '', gender: 'male', country: 'Taiwan', difficulty: 'normal' };
-        let currentLang = 'zh-TW';
-        let currentLevel = 0, maxUnlockedLevel = 0, score = 0, timer = 0, totalGameTime = 0, playCount = 0;
-        let timerInterval = null, loreTimerInterval = null, musicInterval = null, destinyTimerInterval = null;
-        let currentItems = [], nextTargetIndex = 0;
-        let quizQuestions = [], currentQuizIndex = 0, quizScore = 0;
-        let audioCtx = null, isMusicPlaying = false;
-        let activeGod = null;
-        let divinationRemaining = 9, consecutiveShengJiao = 0;
-
-        function toggleBackgroundMusic() {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            if (isMusicPlaying) {
-                clearInterval(musicInterval);
-                isMusicPlaying = false;
-                document.getElementById('audioToggleBtn').style.opacity = '0.6';
-            } else {
-                isMusicPlaying = true;
-                document.getElementById('audioToggleBtn').style.opacity = '1';
-                playStageBasedMusic();
-            }
-        }
-
-        function playStageBasedMusic() {
-            if (musicInterval) clearInterval(musicInterval);
-
-            musicInterval = setInterval(() => {
-                if (!isMusicPlaying || !audioCtx) return;
-
-                if (currentLevel === 9) {
-                    let fastNotes = [523.25, 659.25, 783.99, 1046.50, 783.99, 659.25, 880.00, 987.77];
-                    let rNote = fastNotes[Math.floor(Math.random() * fastNotes.length)];
-                    playTone(rNote, 0.15, 'sawtooth');
-                } else if (currentLevel >= 6) {
-                    let epicNotes = [440, 523, 659, 523, 440, 349, 392, 440];
-                    let rNote = epicNotes[Math.floor(Math.random() * epicNotes.length)];
-                    playTone(rNote, 0.2, 'square');
-                } else if (currentLevel >= 3) {
-                    let midNotes = [330, 392, 440, 493, 523, 440, 392, 330];
-                    let rNote = midNotes[Math.floor(Math.random() * midNotes.length)];
-                    playTone(rNote, 0.25, 'triangle');
-                } else {
-                    let softNotes = [261.63, 293.66, 329.63, 392.00, 440.00, 392.00, 329.63, 293.66];
-                    let rNote = softNotes[Math.floor(Math.random() * softNotes.length)];
-                    playTone(rNote, 0.3, 'sine');
-                }
-            }, currentLevel === 9 ? 180 : (currentLevel >= 6 ? 240 : 320));
-        }
-
-        function playTone(freq, duration, type = 'sine') {
-            if (!audioCtx) return;
-            try {
-                let osc = audioCtx.createOscillator();
-                let gain = audioCtx.createGain();
-                osc.type = type; osc.frequency.value = freq;
-                gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-                osc.connect(gain); gain.connect(audioCtx.destination);
-                osc.start(); osc.stop(audioCtx.currentTime + duration);
-            } catch(e) {}
-        }
-
-        function syncCountryLanguage() {
-            let country = document.getElementById('playerCountry').value;
-            let targetLang = 'zh-TW';
-            if (country === 'China') targetLang = 'zh-CN';
-            else if (country === 'Japan') targetLang = 'ja';
-            else if (country === 'South Korea') targetLang = 'ko';
-            else if (country !== 'Taiwan') targetLang = 'en';
-
-            document.getElementById('langSelect').value = targetLang;
-            changeLanguage();
-        }
-
-        function changeLanguage() {
-            const langSelect = document.getElementById('langSelect');
-            if (!langSelect) return;
-            currentLang = langSelect.value;
-            const dict = i18n[currentLang] || i18n['en'];
-
-            document.getElementById('appTitle').innerText = dict.appTitle;
-            document.getElementById('heroTitle').innerText = dict.heroTitle;
-            document.getElementById('heroDesc').innerText = dict.heroDesc;
-            document.getElementById('setupTitle').innerText = dict.setupTitle;
-            document.getElementById('labelCodename').innerText = dict.labelCodename;
-            document.getElementById('labelGender').innerText = dict.labelGender;
-            document.getElementById('optMale').innerText = dict.optMale;
-            document.getElementById('optFemale').innerText = dict.optFemale;
-            document.getElementById('optOther').innerText = dict.optOther;
-            document.getElementById('labelCountry').innerText = dict.labelCountry;
-            document.getElementById('labelDifficulty').innerText = dict.labelDifficulty;
-            document.getElementById('diffNovice').innerText = dict.diffNovice;
-            document.getElementById('diffEasy').innerText = dict.diffEasy;
-            document.getElementById('diffNormal').innerText = dict.diffNormal;
-            document.getElementById('diffHard').innerText = dict.diffHard;
-            document.getElementById('diffMaster').innerText = dict.diffMaster;
-            document.getElementById('startBtn').innerText = dict.startBtn;
-            document.getElementById('scoreLabel').innerText = dict.scoreText;
-            document.getElementById('timerLabel').innerText = dict.timeText;
-            document.getElementById('hintBtn').innerText = dict.hintText;
-            document.getElementById('quizHeader').innerText = dict.quizHeader;
-            document.getElementById('quizInstructions').innerText = dict.quizInstructions;
-            document.getElementById('loreHeaderTitle').innerText = dict.loreTitleText;
-            document.getElementById('transHeader').innerText = dict.transHeader || dict.transTitleText;
-            document.getElementById('transDesc').innerText = dict.transDescText;
-            document.getElementById('skipGodBtn').innerText = dict.skipGodText;
-            document.getElementById('labelBetEnergy').innerText = dict.betEnergyText;
-            document.getElementById('destinyTip').innerText = dict.destinyTipText;
-
-            if (document.getElementById('gameScreen').style.display === 'flex') {
-                updateChecklistTitle();
-                renderChecklist();
-                updateRiddleText();
-            }
-        }
-
-        function startGame(event) {
-            if (event) event.preventDefault();
-            playTone(440, 0.2);
-
-            if (!isMusicPlaying) {
-                toggleBackgroundMusic();
-            }
-
-            let playTimesKey = 'ghost_play_count';
-            let currentPlays = parseInt(localStorage.getItem(playTimesKey) || '0') + 1;
-            localStorage.setItem(playTimesKey, currentPlays);
-            playCount = currentPlays;
-
-            const nameInput = document.getElementById('playerCodename');
-            const genderSelect = document.getElementById('playerGender');
-            const countrySelect = document.getElementById('playerCountry');
-            const diffSelect = document.getElementById('playerDifficulty');
-
-            let nameVal = nameInput ? nameInput.value.trim() : '';
-            let defaultName = currentLang === 'ja' ? '冒険者' : (currentLang === 'ko' ? '모험가' : (currentLang === 'en' ? 'Adventurer' : '尋寶者'));
-            player.codename = nameVal !== '' ? nameVal : defaultName;
-            player.gender = genderSelect ? genderSelect.value : 'male';
-            player.country = countrySelect ? countrySelect.value : 'Taiwan';
-            player.difficulty = diffSelect ? diffSelect.value : 'normal';
-
-            document.getElementById('setupScreen').style.display = 'none';
-            document.getElementById('gameScreen').style.display = 'flex';
-
-            currentLevel = 0;
-            maxUnlockedLevel = 0;
-            score = 0;
-            totalGameTime = 0;
-            document.getElementById('score').innerText = score;
-            initGame();
-        }
-
-        function
+        const westernHalloweenPool =
