@@ -697,7 +697,7 @@
                 transTitleText: '⚡ 视觉直觉与文化鉴别大考验 ⚡',
                 transDescText: '十关图标历练已过，请接受高难度图标辨识与典故理解综合考验！',
                 skipGodText: '婉拒请神 / 继续闯关',
-                castBlockTest: '筊杯请神 (掷筊)',
+                castBlockTest: '筊杯请神 (擲筊)',
                 betEnergyText: '投入能量（积分）：',
                 destinyTipText: '⚡ 请在 15 秒内翻出相同符号进行配对！⚡',
                 certTitle: '📜 东西洋节庆寻宝荣誉证书 📜',
@@ -823,7 +823,6 @@
             ]
         };
 
-        // 將原先的法尺正式改稱為「魯班尺（文公尺）」，並使用直尺 📏 作為專屬圖標
         const extendedLorePool = {
             'zh-TW': [
                 { icon: '🏮', title: '紅燈籠（普渡公燈）', desc: '中元普渡時懸掛的紅燈籠是用來在夜晚為遊蕩的好兄弟指引方向，象徵慈悲與溫暖的光芒。' },
@@ -831,6 +830,7 @@
                 { icon: '📏', title: '魯班尺（文公尺）', desc: '傳統建築與道教法器中用來丈量吉凶尺寸的「魯班尺（文公尺）」，融合了文公字與八卦吉凶，是規矩法器與陽宅定局的核心工具。' },
                 { icon: '🛕', title: '土地公廟', desc: '守護地方鄰里與農作平安的福德正神（土地公）廟宇，是華人社會中最親民、普及的基層神明信仰。' },
                 { icon: '🎃', title: '南瓜燈（Jack-o\'-lantern）', desc: '源自西洋傳說的經典南瓜燈，用來在秋夜中驅趕惡靈與妖怪，是萬聖節最具代表性的象徵。' },
+                { icon: '👻', title: '萬聖節骷髏頭', desc: '西洋萬聖節與亡靈節中經典的骷髏頭裝飾，象徵生命的循環、對祖先的追思與神祕的萬聖節氛圍。' },
                 { icon: '🧙‍♀️ 🧹', title: '女巫與女巫掃帚', desc: '戴著尖頂帽、精通神祕魔法的傳奇女性女巫，常搭乘專屬的魔法掃帚在夜空中巡遊施法。' },
                 { icon: '🍬 🍫', title: '彩虹硬糖與巧克力棒', desc: '在萬聖節「不給糖就搗蛋」活動中最受孩子們期待與喜愛的高甜度繽紛糖果與濃郁巧克力。' },
                 { icon: '🪙 🦇', title: '金元寶與吸血蝙蝠', desc: '象徵財富與吉祥的中式金元寶，與黑夜中飛行的西洋吸血蝙蝠交織，展現東西方對神祕富貴與暗夜生物的獨特想像。' },
@@ -863,28 +863,32 @@
                 { icon: '🗡️', title: '桃木剑', desc: '道家传说中用桃木削成的法器，具有神圣的纯阳之气，能在民间习俗中达到驱邪避凶的效果。' },
                 { icon: '📏', title: '鲁班尺（文公尺）', desc: '传统建筑与道教法器中用来测量吉凶尺寸的“鲁班尺（文公尺）”，融合了文公字与八卦吉凶，是规矩法器与阳宅定局的核心工具。' },
                 { icon: '🛕', title: '土地公庙', desc: '守护地方邻里与农作平安的福德正神（土地公）庙宇，是华人社会中最亲民、普及的基层神明信仰。' },
-                { icon: '🎃', title: '南瓜灯（Jack-o\'-lantern）', desc: '源自西洋传说的经典南瓜灯，用来在秋夜中驱赶恶灵与妖怪，是万圣节最具代表性的象征。' }
+                { icon: '🎃', title: '南瓜灯（Jack-o\'-lantern）', desc: '源自西洋传说的经典南瓜灯，用来在秋夜中驱赶恶灵与妖怪，是万圣节最具代表性的象征。' },
+                { icon: '👻', title: '万圣节骷髅头', desc: '西洋万圣节与亡灵节中经典的骷髅头装饰，象征生命的循环、对祖先的追思与神秘的万圣节氛围。' }
             ],
             'en': [
                 { icon: '🏮', title: 'Red Lantern', desc: 'Red lanterns hung during the Ghost Festival guide wandering spirits safely at night.' },
                 { icon: '🗡️', title: 'Peach Wood Sword', desc: 'A Taoist ritual sword carved from peach wood, traditionally used to ward off evil spirits.' },
                 { icon: '📏', title: 'Lu Ban Ruler (Wen Gong Ruler)', desc: 'A traditional architectural and ritual measuring tool used to determine auspicious dimensions.' },
                 { icon: '🛕', title: 'Earth God Shrine', desc: 'Shrines dedicated to the Earth God who protects local communities and harvests.' },
-                { icon: '🎃', title: 'Jack-o\'-lantern', desc: 'The classic Jack-o\'-lantern used to ward off evil spirits on autumn nights, representing Halloween.' }
+                { icon: '🎃', title: 'Jack-o\'-lantern', desc: 'The classic Jack-o\'-lantern used to ward off evil spirits on autumn nights, representing Halloween.' },
+                { icon: '👻', title: 'Halloween Skull', desc: 'A classic symbol of Halloween representing the cycle of life and memorial of ancestors.' }
             ],
             'ja': [
                 { icon: '🏮', title: '赤提灯', desc: 'お盆の夜に掲げられる提灯は、さまよう精霊を導くためのものです。' },
                 { icon: '🗡️', title: '桃の木剣', desc: '魔除けとして使われる桃の木で作られた道教の法器です。' },
                 { icon: '📏', title: '魯班尺（文公尺）', desc: '建築や道教の法器において吉凶の寸法を測るために使われる伝統的な物差しです。' },
                 { icon: '🛕', title: '土地公廟', desc: '地域を守る土地神（福徳正神）の祠で、人々の暮らしに寄り添います。' },
-                { icon: '🎃', title: 'ジャック・オー・ランタン', desc: '悪霊を追い払うために使われるハロウィンのカボチャの提灯です。' }
+                { icon: '🎃', title: 'ジャック・オー・ランタン', desc: '悪霊を追い払うために使われるハロウィンのカボチャの提灯です。' },
+                { icon: '👻', title: 'ハロウィンスカル', desc: 'ハロウィンを象徴するドクロの装飾で、生死の循環を意味します。' }
             ],
             'ko': [
                 { icon: '🏮', title: '붉은 등불', desc: '유령 축제 밤에 방황하는 영혼들을 안전하게 인도하는 등불입니다.' },
                 { icon: '🗡️', title: '복숭아나무 검', desc: '악귀를 물리치기 위해 복숭아나무로 만든 도교 법기입니다.' },
                 { icon: '📏', title: '루반 룰러 (노반척)', desc: '건축과 도교 법기에서 길흉의 치수를 측정하는 데 사용되는 전통 자입니다.' },
                 { icon: '🛕', title: '토지공 사당', desc: '마을과 이웃을 수호하는 토지신을 모신 친근한 사당입니다.' },
-                { icon: '🎃', title: '잭오랜턴', desc: '가을 밤 악령을 쫓기 위해 사용하는 할로윈의 호박등입니다.' }
+                { icon: '🎃', title: '잭오랜턴', desc: '가을 밤 악령을 쫓기 위해 사용하는 할로윈의 호박등입니다.' },
+                { icon: '👻', title: '할로윈 해골', desc: '생명의 순환과 조상을 기리는 할로윈의 클래식한 상징입니다.' }
             ]
         };
 
@@ -909,7 +913,7 @@
             { icon: '🐮', name: '牛頭將軍', decoyIcon: '🐂', loreKey: '牛頭將軍' },
             { icon: '🐴', name: '馬面羅剎', decoyIcon: '🐎', loreKey: '馬面羅剎' },
             { icon: '🗡️', name: '桃木劍', decoyIcon: '🔪', loreKey: '桃木劍' },
-            { icon: '📏', name: '魯班尺', decoyIcon: '📐', loreKey: '魯班尺' }, // 更新：魯班尺與三角尺干擾物
+            { icon: '📏', name: '魯班尺', decoyIcon: '📐', loreKey: '魯班尺' },
             { icon: '🪞', name: '八卦鏡', decoyIcon: '🔘', loreKey: '八卦鏡' },
             { icon: '🍉', name: '普渡西瓜', decoyIcon: '🟢', loreKey: '普渡西瓜' },
             { icon: '🕯️', name: '祭祀紅燭', decoyIcon: '🕯️', loreKey: '祭祀紅燭' },
@@ -921,6 +925,7 @@
         const westernHalloweenPool = [
             { icon: '🎃', name: '南瓜燈', decoyIcon: '🍊', loreKey: '南瓜燈' },
             { icon: '👻', name: '小幽靈', decoyIcon: '🤍', loreKey: '小幽靈' },
+            { icon: '💀', name: '萬聖節骷髏頭', decoyIcon: '🦴', loreKey: '萬聖節骷髏頭' }, // 補回經典萬聖節骷髏頭與骨頭干擾物
             { icon: '🦇', name: '吸血蝙蝠', decoyIcon: '🦅', loreKey: '吸血蝙蝠' },
             { icon: '🕷️', name: '黑蜘蛛', decoyIcon: '🐜', loreKey: '黑蜘蛛' },
             { icon: '🕸️', name: '蜘蛛網', decoyIcon: '🌀', loreKey: '蜘蛛網' },
